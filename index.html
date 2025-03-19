@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pedro Viena - Desenvolvedor Backend Java & Engenheiro de Software</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Add Font Awesome for additional icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Add AOS library for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body class="dark">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+  
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </button>
+  
+  <!-- Mouse move effect container -->
+  <div id="mouse-move-effect"></div>
+  
+  <!-- Custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  
+  <!-- Background gradients -->
+  <div class="background-gradients">
+    <div class="gradient-overlay"></div>
+    <div class="gradient-top-right"></div>
+    <div class="gradient-bottom-left"></div>
+  </div>
+
+  <!-- Header/Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Pedro Viena</a>
+      <nav class="desktop-nav">
+        <a href="#skills" class="nav-link">Habilidades</a>
+        <a href="#projects" class="nav-link">Projetos</a>
+        <a href="#experience" class="nav-link">Experiência</a>
+        <a href="#services" class="nav-link">Serviços</a>
+        <a href="#education" class="nav-link">Formação</a>
+        <a href="#blog" class="nav-link">Blog</a>
+      </nav>
+      <div class="nav-buttons">
+        <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer" class="btn-icon">
+          <i class="fab fa-github"></i>
+          <span class="sr-only">GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer" class="btn-icon">
+          <i class="fab fa-linkedin-in"></i>
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <a href="#contact" class="btn btn-primary contact-btn">Contato</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <a href="/" class="logo">Pedro Viena</a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav>
+      <a href="#skills" class="nav-link">Habilidades</a>
+      <a href="#projects" class="nav-link">Projetos</a>
+      <a href="#experience" class="nav-link">Experiência</a>
+      <a href="#services" class="nav-link">Serviços</a>
+      <a href="#education" class="nav-link">Formação</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link">Contato</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <div class="social-icons">
+        <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+        <div class="hero-badge">Disponível para contratação</div>
+        <h1 class="gradient-text">
+          Pedro Viena
+          <br>
+          <span class="typewriter" data-text='["Desenvolvedor Backend Java", "Engenheiro de Software", "Especialista em Microsserviços"]'></span>
+        </h1>
+        <p>
+          Engenheiro de Software experiente especializado em desenvolvimento backend Java.
+          Construindo sistemas robustos, escaláveis e de alta performance com foco em código limpo e melhores práticas.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn btn-primary btn-with-icon">
+            Ver Meu Trabalho
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#contact" class="btn btn-outline">
+            Entre em Contato
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg-pattern"></div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="stat-number" data-count="7">0</div>
+          <div class="stat-label">Anos de Experiência</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="stat-number" data-count="50">0</div>
+          <div class="stat-label">Projetos Concluídos</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="300">
+          <div class="stat-number" data-count="20">0</div>
+          <div class="stat-label">Clientes Satisfeitos</div>
+        </div>
+        <div class="stat-item" data-aos="fade-up" data-aos-delay="400">
+          <div class="stat-number" data-count="15">0</div>
+          <div class="stat-label">Certificações</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Habilidades Técnicas</h2>
+        <p>
+          Com mais de 7 anos de experiência em desenvolvimento de software, dominei diversas tecnologias e metodologias.
+        </p>
+      </div>
+      <div class="skills-grid">
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="skill-icon">
+            <i class="fab fa-java"></i>
+          </div>
+          <h3>Ecossistema Java</h3>
+          <p>Especialista em Java, Spring Boot, Spring Framework, JPA/Hibernate e JUnit.</p>
+          <div class="skill-level">
+            <div class="skill-progress" style="width: 95%"></div>
+          </div>
+        </div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="skill-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Microsserviços</h3>
+          <p>Projetando e implementando arquiteturas escaláveis de microsserviços com Spring Cloud.</p>
+          <div class="skill-level">
+            <div class="skill-progress" style="width: 90%"></div>
+          </div>
+        </div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="skill-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Bancos de Dados</h3>
+          <p>Proficiente em bancos de dados SQL e NoSQL, incluindo PostgreSQL, MySQL, MongoDB e Redis.</p>
+          <div class="skill-level">
+            <div class="skill-progress" style="width: 85%"></div>
+          </div>
+        </div>
+        <div class="skill-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="skill-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>DevOps</h3>
+          <p>Experiência com Docker, Kubernetes, pipelines de CI/CD e plataformas em nuvem (AWS, GCP).</p>
+          <div class="skill-level">
+            <div class="skill-progress" style="width: 80%"></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="tech-stack" data-aos="fade-up">
+        <h3>Tecnologias com as quais trabalho</h3>
+        <div class="tech-icons">
+          <div class="tech-icon"><i class="fab fa-java"></i><span>Java</span></div>
+          <div class="tech-icon"><i class="fas fa-leaf"></i><span>Spring</span></div>
+          <div class="tech-icon"><i class="fas fa-database"></i><span>SQL</span></div>
+          <div class="tech-icon"><i class="fab fa-aws"></i><span>AWS</span></div>
+          <div class="tech-icon"><i class="fab fa-docker"></i><span>Docker</span></div>
+          <div class="tech-icon"><i class="fas fa-dharmachakra"></i><span>Kubernetes</span></div>
+          <div class="tech-icon"><i class="fab fa-git-alt"></i><span>Git</span></div>
+          <div class="tech-icon"><i class="fab fa-jenkins"></i><span>Jenkins</span></div>
+          <div class="tech-icon"><i class="fas fa-code-branch"></i><span>Maven</span></div>
+          <div class="tech-icon"><i class="fas fa-exchange-alt"></i><span>REST</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="services">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Serviços Oferecidos</h2>
+        <p>Soluções especializadas adaptadas às necessidades do seu negócio</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>Desenvolvimento Backend</h3>
+          <p>Construção de sistemas backend robustos e escaláveis usando Java e Spring Boot.</p>
+          <a href="#contact" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3>Arquitetura em Nuvem</h3>
+          <p>Projeto e implementação de aplicações nativas em nuvem em AWS, GCP ou Azure.</p>
+          <a href="#contact" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Design de Banco de Dados</h3>
+          <p>Criação de esquemas de banco de dados eficientes e otimizados com padrões de consulta.</p>
+          <a href="#contact" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3>Arquitetura de Microsserviços</h3>
+          <p>Decomposição de monolitos em microsserviços escaláveis e de fácil manutenção.</p>
+          <a href="#contact" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Implementação de Segurança</h3>
+          <p>Implementação de medidas de segurança robustas e melhores práticas.</p>
+          <a href="#contact" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-icon">
+            <i class="fas fa-code-branch"></i>
+          </div>
+          <h3>Revisão e Otimização de Código</h3>
+          <p>Melhoria de códigos existentes para performance e manutenibilidade.</p>
+          <a href="#contact" class="service-link">Saiba Mais <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Projetos em Destaque</h2>
+        <p>Uma seleção dos meus trabalhos recentes</p>
+      </div>
+      
+      <div class="project-filters" data-aos="fade-up">
+        <button class="filter-btn active" data-filter="all">Todos</button>
+        <button class="filter-btn" data-filter="java">Java</button>
+        <button class="filter-btn" data-filter="microservices">Microsserviços</button>
+        <button class="filter-btn" data-filter="cloud">Cloud</button>
+      </div>
+      
+      <div class="projects-grid">
+        <div class="project-card" data-category="java microservices" data-aos="fade-up" data-aos-delay="100">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400?text=Plataforma+E-Commerce" alt="Plataforma E-Commerce">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Microsserviços de E-Commerce</h3>
+            <p>Plataforma escalável de e-commerce construída com microsserviços Spring Boot, processando mais de 10 mil transações diárias.</p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>Kafka</span>
+              <span>PostgreSQL</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card" data-category="java cloud" data-aos="fade-up" data-aos-delay="200">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400?text=API+Bancária" alt="API Bancária">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>API Bancária</h3>
+            <p>API bancária segura e de alta performance com processamento de transações em tempo real e detecção de fraudes.</p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Spring Security</span>
+              <span>Redis</span>
+              <span>Docker</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card" data-category="java cloud" data-aos="fade-up" data-aos-delay="300">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400?text=Pipeline+de+Processamento" alt="Pipeline de Processamento de Dados">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Pipeline de Processamento de Dados</h3>
+            <p>Sistema de processamento de big data lidando com mais de 5TB de dados diariamente, com tolerância a falhas e escalabilidade horizontal.</p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Apache Kafka</span>
+              <span>Elasticsearch</span>
+              <span>AWS</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="project-card" data-category="microservices cloud" data-aos="fade-up" data-aos-delay="400">
+          <div class="project-image">
+            <img src="https://via.placeholder.com/600x400?text=Plataforma+IoT" alt="Plataforma IoT">
+            <div class="project-overlay">
+              <div class="project-links">
+                <a href="#" class="project-link"><i class="fas fa-link"></i></a>
+                <a href="#" class="project-github"><i class="fab fa-github"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="project-content">
+            <h3>Plataforma de Monitoramento IoT</h3>
+            <p>Sistema de monitoramento em tempo real para dispositivos IoT com recursos de análise e alertas.</p>
+            <div class="project-tech">
+              <span>Java</span>
+              <span>Spring WebFlux</span>
+              <span>MongoDB</span>
+              <span>Kubernetes</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center" data-aos="fade-up">
+        <a href="#" class="btn btn-outline btn-large">Ver Todos os Projetos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience Section -->
+  <section id="experience" class="experience">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Experiência Profissional</h2>
+        <p>Minha jornada na indústria de desenvolvimento de software</p>
+      </div>
+      
+      <div class="timeline" data-aos="fade-up">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2023 - Present</div>
+          <div class="timeline-content">
+            <h3>Backend Developer</h3>
+            <p class="company">Freelancer</p>
+            <ul>
+              <li>Desenvolvimendo de APIs RESTful usando Spring Boot</li>
+              <li>Projeção e implementação arquitetura de microsserviços</li>
+              <li>Implementação de estratégias de otimização de banco de dados</li>
+              <li>Integração com serviços de nuvem e gateways de pagamento</li>
+            </ul>
+            <div class="timeline-tech">
+              <span>Java</span>
+              <span>Spring Boot</span>
+              <span>Microservices</span>
+              <span>AWS</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2018 - 2023</div>
+          <div class="timeline-content">
+            <h3>Web Developer</h3>
+            <p class="company">Freelancer</p>
+            <ul>
+              <li> Desenvolvimento de sites responsivos com HTML5, CSS3 (Flexbox, Grid)
+                e JavaScript (ES6+)</li>
+              <li>Criação de interfaces interativas e animações com CSS3 e JavaScript</li>
+              <li>Otimização de desempenho e SEO</li>
+              <li>Integração com APIs e banco de dados</li>
+            </ul>
+            <div class="timeline-tech">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>Wordpress</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-date">2014 - 2017</div>
+          <div class="timeline-content">
+            <h3>Instrutor de Informática Aprendiz</h3>
+            <p class="company">3º Millenium Informática</p>
+            <ul>
+              <li>Auxiliei alunos no aprendizado de informática</li>
+              <li>Suporte técnico e operacional</li>
+              <li>Introdução a conceitos de programação</li>
+              <li>Suporte na manutenção de sistemas</li>
+            </ul>
+            <div class="timeline-tech">
+              <span>Sistema Operacionais</span>
+              <span>Java</span>
+              <span>Linux</span>
+              <span>Power BI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="education">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Certificações e Formação</h2>
+        <p>Minha formação acadêmica e certificações profissionais</p>
+      </div>
+      
+      <div class="education-grid">
+        <div class="education-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="education-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="education-content">
+            <h3>Graduação em Engenharia de Software</h3>
+            <p class="institution">Universidade Estácio de Sá</p>
+            <p class="period">2025 - 2028</p>
+            <p>Formação completa em Engenharia de Software</p>
+          </div>
+        </div>
+        
+        <div class="education-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="education-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="education-content">
+            <h3>Programa Oracle Next Education F2
+              T6 Back-end</h3>
+            <p class="institution">Alura e Oracle</p>
+            <p class="period">2024</p>
+            <p>Formação completa em Desenvolvimento Back-end Java + Spring Boot + Frameworks</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="certifications" data-aos="fade-up">
+        <h3>Certificações Profissionais</h3>
+        <div class="certifications-grid">
+          
+          <div class="certification-item" data-aos="fade-up" data-aos-delay="400">
+            <div class="certification-logo">
+              <i class="fas fa-database"></i>
+            </div>
+            <div class="certification-content">
+              <h4>SQL com MySQL server da Oracle</h4>
+              <p>Oracle e Alura</p>
+              <p class="certification-date">2024</p>
+            </div>
+          </div>
+          
+          <div class="certification-item" data-aos="fade-up" data-aos-delay="300">
+            <div class="certification-logo">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div class="certification-content">
+              <h4>Hacker Ético - Iso 17024 </h4>
+              <p>Instituto Brasileiro de Cibersegurança</p>
+              <p class="certification-date">2025</p>
+            </div>
+          </div>
+          
+          
+          <div class="certification-item" data-aos="fade-up" data-aos-delay="100">
+            <div class="certification-logo">
+              <i class="fab fa-java"></i>
+            </div>
+            <div class="certification-content">
+              <h4>Oracle Certified Professional: Java SE 11 Developer</h4>
+              <p>Oracle</p>
+              <p class="certification-date">Em Andamento...</p>
+            </div>
+          </div>
+          
+          <div class="certification-item" data-aos="fade-up" data-aos-delay="200">
+            <div class="certification-logo">
+              <i class="fab fa-aws"></i>
+            </div>
+            <div class="certification-content">
+              <h4>AWS Certified Solutions Architect</h4>
+              <p>Amazon Web Services</p>
+              <p class="certification-date">Em Andamento...</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Section -->
+  <section id="blog" class="blog">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Últimos Artigos</h2>
+        <p>Reflexões e insights sobre desenvolvimento de software</p>
+      </div>
+      
+      <div class="blog-grid">
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="blog-image">
+            <img src="https://via.placeholder.com/600x400?text=Arquitetura+de+Microsserviços" alt="Arquitetura de Microsserviços">
+            <div class="blog-date">
+              <span class="day">15</span>
+              <span class="month">Mar</span>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="blog-tags">
+              <span>Microsserviços</span>
+              <span>Arquitetura</span>
+            </div>
+            <h3>Microsserviços vs Monolitos: Quando Escolher Cada Um</h3>
+            <p>Uma análise profunda dos diferentes padrões arquiteturais e seus casos de uso...</p>
+            <a href="#" class="blog-link">Leia Mais <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="blog-image">
+            <img src="https://via.placeholder.com/600x400?text=Performance+Java" alt="Performance Java">
+            <div class="blog-date">
+              <span class="day">28</span>
+              <span class="month">Fev</span>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="blog-tags">
+              <span>Java</span>
+              <span>Performance</span>
+            </div>
+            <h3>10 Técnicas de Otimização de Performance em Java</h3>
+            <p>Dicas práticas para melhorar o desempenho das suas aplicações Java...</p>
+            <a href="#" class="blog-link">Leia Mais <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+        
+        <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="blog-image">
+            <img src="https://via.placeholder.com/600x400?text=Spring+Boot" alt="Spring Boot">
+            <div class="blog-date">
+              <span class="day">10</span>
+              <span class="month">Jan</span>
+            </div>
+          </div>
+          <div class="blog-content">
+            <div class="blog-tags">
+              <span>Spring Boot</span>
+              <span>Tutorial</span>
+            </div>
+            <h3>Construindo APIs Reativas com Spring WebFlux</h3>
+            <p>Um guia passo a passo para criar APIs REST não-bloqueantes e reativas...</p>
+            <a href="#" class="blog-link">Leia Mais <i class="fas fa-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="text-center" data-aos="fade-up">
+        <a href="#" class="btn btn-outline btn-large">Ver Todos os Artigos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Client Testimonials</h2>
+        <p>What people say about working with me</p>
+      </div>
+      
+      <div class="testimonial-slider" data-aos="fade-up">
+        <div class="testimonial-slide active">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p>"Pedro is an exceptional Java developer who transformed our legacy system into a modern, scalable architecture. His expertise in microservices and cloud technologies saved us countless hours and significantly improved our application performance."</p>
+            <div class="testimonial-author">
+              <img src="https://via.placeholder.com/80x80" alt="John Smith">
+              <div>
+                <h4>John Smith</h4>
+                <p>CTO, Tech Innovations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p>"Working with Pedro was a game-changer for our startup. He built our backend infrastructure from scratch, implementing best practices and ensuring our platform could scale with our rapid growth. His attention to detail and problem-solving skills are outstanding."</p>
+            <div class="testimonial-author">
+              <img src="https://via.placeholder.com/80x80" alt="Sarah Johnson">
+              <div>
+                <h4>Sarah Johnson</h4>
+                <p>Founder, DataFlow Systems</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-slide">
+          <div class="testimonial-content">
+            <div class="testimonial-quote">
+              <i class="fas fa-quote-left"></i>
+            </div>
+            <p>"Pedro's deep knowledge of Java and enterprise architecture helped us modernize our banking platform. He delivered high-quality code on time and was always available to address our concerns. I highly recommend him for complex backend projects."</p>
+            <div class="testimonial-author">
+              <img src="https://via.placeholder.com/80x80" alt="Michael Chen">
+              <div>
+                <h4>Michael Chen</h4>
+                <p>Lead Developer, Financial Solutions Inc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-controls">
+          <button class="testimonial-prev"><i class="fas fa-chevron-left"></i></button>
+          <div class="testimonial-dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+          </div>
+          <button class="testimonial-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Let's Work Together</h2>
+        <p>
+          Looking for a skilled Java Backend Developer for your next project? 
+          I'm currently available for freelance work and full-time opportunities.
+        </p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-up" data-aos-delay="100">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h3>Email</h3>
+              <p><a href="mailto:contact@pedroviena.com">contact@pedroviena.com</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div>
+              <h3>Phone</h3>
+              <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h3>Location</h3>
+              <p>São Paulo, Brazil</p>
+            </div>
+          </div>
+          
+          <div class="contact-social">
+            <h3>Connect With Me</h3>
+            <div class="social-icons">
+              <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://medium.com/@pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-medium-m"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form" data-aos="fade-up" data-aos-delay="200">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-large">
+              Send Message
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-info">
+        <h2>Pedro Viena</h2>
+        <p>Java Backend Developer & Software Engineer</p>
+        <p class="footer-bio">Building robust, scalable backend systems with Java and Spring Boot. Specializing in microservices architecture and cloud solutions.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="#skills">Habilidades</a></li>
+            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#experience">Experiência</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#education">Formação</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:contact@pedroviena.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/pedroviena">LinkedIn</a></li>
+            <li><a href="https://github.com/pedroviena">GitHub</a></li>
+            <li><a href="tel:+1234567890">Phone</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-icons">
+            <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://medium.com/@pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-medium-m"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Pedro Viena. All rights reserved.</p>
+      <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

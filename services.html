@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services - Pedro Viena - Java Backend Developer & Software Engineer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="services.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Add Font Awesome for additional icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Add AOS library for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body class="dark">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+  
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </button>
+  
+  <!-- Mouse move effect -->
+  <div id="mouse-move-effect"></div>
+  
+  <!-- Custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  
+  <!-- Background gradients -->
+  <div class="background-gradients">
+    <div class="gradient-overlay"></div>
+    <div class="gradient-top-right"></div>
+    <div class="gradient-bottom-left"></div>
+  </div>
+
+  <!-- Header/Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Pedro Viena</a>
+      <nav class="desktop-nav">
+        <a href="index.html#skills" class="nav-link">Skills</a>
+        <a href="index.html#projects" class="nav-link">Projects</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="services.html" class="nav-link active">Services</a>
+        <a href="index.html#education" class="nav-link">Education</a>
+        <a href="blog.html" class="nav-link">Blog</a>
+      </nav>
+      <div class="nav-buttons">
+        <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer" class="btn-icon">
+          <i class="fab fa-github"></i>
+          <span class="sr-only">GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer" class="btn-icon">
+          <i class="fab fa-linkedin-in"></i>
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <a href="index.html#contact" class="btn btn-primary contact-btn">Contact Me</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo">Pedro Viena</a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav>
+      <a href="index.html#skills" class="nav-link">Skills</a>
+      <a href="index.html#projects" class="nav-link">Projects</a>
+      <a href="index.html#experience" class="nav-link">Experience</a>
+      <a href="services.html" class="nav-link active">Services</a>
+      <a href="index.html#education" class="nav-link">Education</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <div class="social-icons">
+        <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services Hero Section -->
+  <section class="services-hero">
+    <div class="container">
+      <div class="services-hero-content" data-aos="fade-up">
+        <h1>Web Development Services</h1>
+        <p>Expert backend solutions for businesses and startups</p>
+        <div class="hero-cta">
+          <a href="#services-packages" class="btn btn-primary btn-large">View Services</a>
+          <a href="#contact-section" class="btn btn-outline btn-large">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+    <div class="services-hero-pattern"></div>
+  </section>
+
+  <!-- Services Overview -->
+  <section class="services-overview">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>How I Can Help You</h2>
+        <p>I provide end-to-end web development services with a focus on robust backend solutions</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card" data-aos="fade-up">
+          <div class="service-icon">
+            <i class="fas fa-server"></i>
+          </div>
+          <h3>Backend Development</h3>
+          <p>Scalable, secure, and high-performance backend systems using Java, Spring Boot, and microservices architecture.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> RESTful API Development</li>
+            <li><i class="fas fa-check"></i> Microservices Architecture</li>
+            <li><i class="fas fa-check"></i> Database Design & Optimization</li>
+            <li><i class="fas fa-check"></i> Authentication & Authorization</li>
+          </ul>
+        </div>
+        
+        <!-- Service 2 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="service-icon">
+            <i class="fas fa-cloud"></i>
+          </div>
+          <h3>Cloud Solutions</h3>
+          <p>Deploy and manage your applications on AWS, Azure, or Google Cloud with optimized infrastructure and CI/CD pipelines.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Cloud Architecture Design</li>
+            <li><i class="fas fa-check"></i> Containerization (Docker)</li>
+            <li><i class="fas fa-check"></i> Kubernetes Orchestration</li>
+            <li><i class="fas fa-check"></i> CI/CD Implementation</li>
+          </ul>
+        </div>
+        
+        <!-- Service 3 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="service-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Database Solutions</h3>
+          <p>Design, implementation, and optimization of SQL and NoSQL databases for your specific business needs.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Database Schema Design</li>
+            <li><i class="fas fa-check"></i> Performance Optimization</li>
+            <li><i class="fas fa-check"></i> Data Migration</li>
+            <li><i class="fas fa-check"></i> Backup & Recovery Solutions</li>
+          </ul>
+        </div>
+        
+        <!-- Service 4 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+          <div class="service-icon">
+            <i class="fas fa-code"></i>
+          </div>
+          <h3>API Development</h3>
+          <p>Design and develop robust, well-documented APIs that connect your systems and enable seamless integration.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> RESTful API Design</li>
+            <li><i class="fas fa-check"></i> GraphQL Implementation</li>
+            <li><i class="fas fa-check"></i> API Documentation</li>
+            <li><i class="fas fa-check"></i> API Security & Rate Limiting</li>
+          </ul>
+        </div>
+        
+        <!-- Service 5 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+          <div class="service-icon">
+            <i class="fas fa-cogs"></i>
+          </div>
+          <h3>System Integration</h3>
+          <p>Connect your existing systems and third-party services to create a cohesive and efficient technology ecosystem.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Third-party API Integration</li>
+            <li><i class="fas fa-check"></i> Payment Gateway Integration</li>
+            <li><i class="fas fa-check"></i> CRM & ERP Integration</li>
+            <li><i class="fas fa-check"></i> Legacy System Integration</li>
+          </ul>
+        </div>
+        
+        <!-- Service 6 -->
+        <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+          <div class="service-icon">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h3>Security & Performance</h3>
+          <p>Ensure your applications are secure, performant, and can handle high traffic with proper optimization.</p>
+          <ul class="service-features">
+            <li><i class="fas fa-check"></i> Security Audits</li>
+            <li><i class="fas fa-check"></i> Performance Optimization</li>
+            <li><i class="fas fa-check"></i> Load Testing</li>
+            <li><i class="fas fa-check"></i> Monitoring & Alerting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Service Packages -->
+  <section id="services-packages" class="services-packages">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Service Packages</h2>
+        <p>Choose the package that best fits your project needs</p>
+      </div>
+      
+      <div class="packages-grid">
+        <!-- Package 1 -->
+        <div class="package-card" data-aos="fade-up">
+          <div class="package-header">
+            <h3>Starter</h3>
+            <div class="package-price">
+              <span class="price">$2,500</span>
+              <span class="period">starting at</span>
+            </div>
+          </div>
+          <div class="package-body">
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> Single REST API Development</li>
+              <li><i class="fas fa-check"></i> Basic Database Setup</li>
+              <li><i class="fas fa-check"></i> Authentication System</li>
+              <li><i class="fas fa-check"></i> Basic Cloud Deployment</li>
+              <li><i class="fas fa-check"></i> 2 Weeks of Support</li>
+              <li class="not-included"><i class="fas fa-times"></i> Microservices Architecture</li>
+              <li class="not-included"><i class="fas fa-times"></i> CI/CD Pipeline</li>
+              <li class="not-included"><i class="fas fa-times"></i> Performance Optimization</li>
+            </ul>
+            <div class="package-footer">
+              <p>Ideal for MVPs and small projects</p>
+              <a href="#contact-section" class="btn btn-outline btn-block">Get Started</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Package 2 -->
+        <div class="package-card featured" data-aos="fade-up" data-aos-delay="100">
+          <div class="package-badge">Popular</div>
+          <div class="package-header">
+            <h3>Professional</h3>
+            <div class="package-price">
+              <span class="price">$5,000</span>
+              <span class="period">starting at</span>
+            </div>
+          </div>
+          <div class="package-body">
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> Complete Backend System</li>
+              <li><i class="fas fa-check"></i> Advanced Database Design</li>
+              <li><i class="fas fa-check"></i> OAuth & Role-based Auth</li>
+              <li><i class="fas fa-check"></i> Cloud Infrastructure Setup</li>
+              <li><i class="fas fa-check"></i> Basic CI/CD Pipeline</li>
+              <li><i class="fas fa-check"></i> Basic Microservices</li>
+              <li><i class="fas fa-check"></i> 1 Month of Support</li>
+              <li class="not-included"><i class="fas fa-times"></i> Advanced Performance Tuning</li>
+            </ul>
+            <div class="package-footer">
+              <p>Perfect for established businesses</p>
+              <a href="#contact-section" class="btn btn-primary btn-block">Get Started</a>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Package 3 -->
+        <div class="package-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="package-header">
+            <h3>Enterprise</h3>
+            <div class="package-price">
+              <span class="price">$10,000+</span>
+              <span class="period">custom quote</span>
+            </div>
+          </div>
+          <div class="package-body">
+            <ul class="package-features">
+              <li><i class="fas fa-check"></i> Full-scale Microservices</li>
+              <li><i class="fas fa-check"></i> High-performance Database</li>
+              <li><i class="fas fa-check"></i> Advanced Security Features</li>
+              <li><i class="fas fa-check"></i> Complete Cloud Architecture</li>
+              <li><i class="fas fa-check"></i> Advanced CI/CD Pipeline</li>
+              <li><i class="fas fa-check"></i> Performance Optimization</li>
+              <li><i class="fas fa-check"></i> Monitoring & Alerting</li>
+              <li><i class="fas fa-check"></i> 3 Months of Support</li>
+            </ul>
+            <div class="package-footer">
+              <p>For large-scale enterprise solutions</p>
+              <a href="#contact-section" class="btn btn-outline btn-block">Get Custom Quote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="custom-package" data-aos="fade-up">
+        <div class="custom-package-content">
+          <h3>Need a Custom Solution?</h3>
+          <p>I can create a tailored package specifically for your project requirements.</p>
+        </div>
+        <a href="#contact-section" class="btn btn-primary">Contact Me</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Section -->
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>My Development Process</h2>
+        <p>A structured approach to deliver high-quality solutions</p>
+      </div>
+      
+      <div class="process-timeline">
+        <!-- Step 1 -->
+        <div class="process-step" data-aos="fade-up">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3>Discovery & Requirements</h3>
+            <p>I begin by understanding your business goals, project requirements, and technical constraints through in-depth discussions and documentation review.</p>
+            <ul class="step-details">
+              <li>Initial consultation</li>
+              <li>Requirements gathering</li>
+              <li>Technical feasibility analysis</li>
+              <li>Project scope definition</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="process-step" data-aos="fade-up">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3>Architecture & Planning</h3>
+            <p>Based on the requirements, I design a robust architecture and create a detailed development plan with milestones and deliverables.</p>
+            <ul class="step-details">
+              <li>System architecture design</li>
+              <li>Database schema design</li>
+              <li>API endpoint planning</li>
+              <li>Technology stack selection</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="process-step" data-aos="fade-up">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3>Development & Testing</h3>
+            <p>I implement the solution using best practices, with regular code reviews and comprehensive testing to ensure quality.</p>
+            <ul class="step-details">
+              <li>Iterative development</li>
+              <li>Unit and integration testing</li>
+              <li>Code quality assurance</li>
+              <li>Regular progress updates</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="process-step" data-aos="fade-up">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3>Deployment & Integration</h3>
+            <p>I deploy the solution to your preferred environment and ensure it integrates seamlessly with your existing systems.</p>
+            <ul class="step-details">
+              <li>Environment setup</li>
+              <li>Deployment automation</li>
+              <li>Integration testing</li>
+              <li>Performance optimization</li>
+            </ul>
+          </div>
+        </div>
+        
+        <!-- Step 5 -->
+        <div class="process-step" data-aos="fade-up">
+          <div class="step-number">5</div>
+          <div class="step-content">
+            <h3>Support & Maintenance</h3>
+            <p>After launch, I provide ongoing support and maintenance to ensure your solution continues to perform optimally.</p>
+            <ul class="step-details">
+              <li>Bug fixes and updates</li>
+              <li>Performance monitoring</li>
+              <li>Security patches</li>
+              <li>Feature enhancements</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technologies Section -->
+  <section class="technologies-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Technologies I Work With</h2>
+        <p>Modern tools and frameworks for robust backend development</p>
+      </div>
+      
+      <div class="tech-categories">
+        <!-- Category 1 -->
+        <div class="tech-category" data-aos="fade-up">
+          <h3><i class="fas fa-code"></i> Programming Languages</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Java" alt="Java">
+              <span>Java</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Kotlin" alt="Kotlin">
+              <span>Kotlin</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=JavaScript" alt="JavaScript">
+              <span>JavaScript</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=TypeScript" alt="TypeScript">
+              <span>TypeScript</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Category 2 -->
+        <div class="tech-category" data-aos="fade-up">
+          <h3><i class="fas fa-server"></i> Frameworks & Libraries</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Spring" alt="Spring">
+              <span>Spring Boot</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Hibernate" alt="Hibernate">
+              <span>Hibernate</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Node.js" alt="Node.js">
+              <span>Node.js</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Express" alt="Express">
+              <span>Express</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Category 3 -->
+        <div class="tech-category" data-aos="fade-up">
+          <h3><i class="fas fa-database"></i> Databases</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=PostgreSQL" alt="PostgreSQL">
+              <span>PostgreSQL</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=MySQL" alt="MySQL">
+              <span>MySQL</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=MongoDB" alt="MongoDB">
+              <span>MongoDB</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Redis" alt="Redis">
+              <span>Redis</span>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Category 4 -->
+        <div class="tech-category" data-aos="fade-up">
+          <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+          <div class="tech-items">
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=AWS" alt="AWS">
+              <span>AWS</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Docker" alt="Docker">
+              <span>Docker</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Kubernetes" alt="Kubernetes">
+              <span>Kubernetes</span>
+            </div>
+            <div class="tech-item">
+              <img src="https://via.placeholder.com/80x80?text=Jenkins" alt="Jenkins">
+              <span>Jenkins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Client Testimonials</h2>
+        <p>What my clients say about working with me</p>
+      </div>
+      
+      <div class="testimonials-slider" data-aos="fade-up">
+        <div class="testimonial-slides">
+          <!-- Testimonial 1 -->
+          <div class="testimonial-slide active">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">
+                <i class="fas fa-quote-left"></i>
+                <p>Pedro delivered an exceptional backend system for our e-commerce platform. His expertise in Java and microservices architecture resulted in a scalable solution that has easily handled our growth. Highly recommended!</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="https://via.placeholder.com/80x80" alt="John Smith">
+                </div>
+                <div class="author-info">
+                  <h4>John Smith</h4>
+                  <p>CTO, E-Commerce Solutions Inc.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 2 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">
+                <i class="fas fa-quote-left"></i>
+                <p>We hired Pedro to redesign our legacy banking API, and the results exceeded our expectations. The new system is not only more secure but also significantly faster. Pedro's attention to detail and commitment to quality are outstanding.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="https://via.placeholder.com/80x80" alt="Sarah Johnson">
+                </div>
+                <div class="author-info">
+                  <h4>Sarah Johnson</h4>
+                  <p>Product Manager, FinTech Innovations</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Testimonial 3 -->
+          <div class="testimonial-slide">
+            <div class="testimonial-content">
+              <div class="testimonial-quote">
+                <i class="fas fa-quote-left"></i>
+                <p>Working with Pedro was a game-changer for our startup. He built a robust backend infrastructure that has scaled seamlessly as we've grown from 100 to 10,000 users. His technical expertise and clear communication made the process smooth.</p>
+              </div>
+              <div class="testimonial-author">
+                <div class="author-image">
+                  <img src="https://via.placeholder.com/80x80" alt="Michael Chen">
+                </div>
+                <div class="author-info">
+                  <h4>Michael Chen</h4>
+                  <p>Founder, TechStart Solutions</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="testimonial-controls">
+          <button class="testimonial-prev" aria-label="Previous testimonial">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="testimonial-dots">
+            <button class="dot active" aria-label="Testimonial 1"></button>
+            <button class="dot" aria-label="Testimonial 2"></button>
+            <button class="dot" aria-label="Testimonial 3"></button>
+          </div>
+          <button class="testimonial-next" aria-label="Next testimonial">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <p>Common questions about my services and process</p>
+      </div>
+      
+      <div class="faq-grid">
+        <!-- FAQ Item 1 -->
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">
+            <h3>What types of projects do you specialize in?</h3>
+            <button class="faq-toggle">
+              <i class="fas fa-plus"></i>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>I specialize in backend development for web applications, particularly those requiring robust, scalable architectures. This includes e-commerce platforms, financial systems, content management systems, and data-intensive applications. My expertise is in Java and Spring Boot, but I also work with other technologies as needed.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 2 -->
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">
+            <h3>How long does a typical project take?</h3>
+            <button class="faq-toggle">
+              <i class="fas fa-plus"></i>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Project timelines vary based on complexity and scope. A simple API might take 2-4 weeks, while a comprehensive microservices architecture could take 3-6 months. During our initial consultation, I'll provide a detailed timeline based on your specific requirements. I always aim to be transparent about timelines and keep you updated on progress throughout the development process.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 3 -->
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">
+            <h3>Do you offer ongoing maintenance and support?</h3>
+            <button class="faq-toggle">
+              <i class="fas fa-plus"></i>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, I offer ongoing maintenance and support packages for all projects I develop. Each service package includes a specific support period, and I also provide extended maintenance contracts for clients who need long-term support. This includes bug fixes, security updates, performance optimization, and minor feature enhancements.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 4 -->
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">
+            <h3>How do you handle project communication?</h3>
+            <button class="faq-toggle">
+              <i class="fas fa-plus"></i>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Clear communication is essential for project success. I typically use a combination of regular video calls, email updates, and project management tools like Jira or Trello. I provide weekly progress reports and am available for questions via email or chat during business hours. For urgent matters, I'm also available by phone.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 5 -->
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">
+            <h3>What is your payment structure?</h3>
+            <button class="faq-toggle">
+              <i class="fas fa-plus"></i>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>I typically work with a 50% upfront deposit and the remaining 50% upon project completion for smaller projects. For larger projects, I offer milestone-based payments (e.g., 30% upfront, 30% at midpoint, 40% upon completion). I can also accommodate monthly retainer arrangements for ongoing development work. All payment terms are clearly outlined in our contract.</p>
+          </div>
+        </div>
+        
+        <!-- FAQ Item 6 -->
+        <div class="faq-item" data-aos="fade-up">
+          <div class="faq-question">
+            <h3>Do you work with clients internationally?</h3>
+            <button class="faq-toggle">
+              <i class="fas fa-plus"></i>
+              <i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, I work with clients globally. I'm comfortable with remote collaboration and have experience working across different time zones. I use tools like Zoom, Slack, and project management software to ensure smooth communication regardless of location. I'm also flexible with scheduling meetings to accommodate different time zones.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact-section" class="contact-section">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up">
+        <h2>Get in Touch</h2>
+        <p>Ready to discuss your project? Let's talk!</p>
+      </div>
+      
+      <div class="contact-grid">
+        <div class="contact-info" data-aos="fade-up">
+          <div class="contact-methods">
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="method-details">
+                <h3>Email</h3>
+                <p><a href="mailto:contact@pedroviena.com">contact@pedroviena.com</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="method-details">
+                <h3>Phone</h3>
+                <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+              </div>
+            </div>
+            
+            <div class="contact-method">
+              <div class="method-icon">
+                <i class="fas fa-calendar-alt"></i>
+              </div>
+              <div class="method-details">
+                <h3>Schedule a Call</h3>
+                <p><a href="https://calendly.com/pedroviena" target="_blank" rel="noreferrer">Book a consultation</a></p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="contact-social">
+            <h3>Connect With Me</h3>
+            <div class="social-icons">
+              <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-twitter"></i>
+              </a>
+              <a href="https://medium.com/@pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-medium-m"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-container" data-aos="fade-up">
+          <form id="contactForm" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="">Select a range</option>
+                <option value="$1,000 - $5,000">$1,000 - $5,000</option>
+                <option value="$5,000 - $10,000">$5,000 - $10,000</option>
+                <option value="$10,000 - $20,000">$10,000 - $20,000</option>
+                <option value="$20,000+">$20,000+</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Project Details</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content" data-aos="fade-up">
+        <h2>Ready to Build Your Next Web Project?</h2>
+        <p>Let's create a robust, scalable solution that meets your business needs.</p>
+        <div class="cta-buttons">
+          <a href="#services-packages" class="btn btn-primary btn-large">View Services</a>
+          <a href="#contact-section" class="btn btn-outline btn-large">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-info">
+        <h2>Pedro Viena</h2>
+        <p>Java Backend Developer & Software Engineer</p>
+        <p class="footer-bio">Building robust, scalable backend systems with Java and Spring Boot. Specializing in microservices architecture and cloud solutions.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:contact@pedroviena.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/pedroviena">LinkedIn</a></li>
+            <li><a href="https://github.com/pedroviena">GitHub</a></li>
+            <li><a href="tel:+1234567890">Phone</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-icons">
+            <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://medium.com/@pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-medium-m"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Pedro Viena. All rights reserved.</p>
+      <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script src="services.js"></script>
+</body>
+</html>

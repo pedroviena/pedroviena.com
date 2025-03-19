@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Links - Pedro Viena - Java Backend Developer & Software Engineer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="links.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Add Font Awesome for additional icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Add AOS library for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body class="dark links-page">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+  
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </button>
+  
+  <!-- Mouse move effect -->
+  <div id="mouse-move-effect"></div>
+  
+  <!-- Background gradients -->
+  <div class="background-gradients">
+    <div class="gradient-overlay"></div>
+    <div class="gradient-top-right"></div>
+    <div class="gradient-bottom-left"></div>
+  </div>
+
+  <!-- Links Container -->
+  <div class="links-container">
+    <!-- Profile Section -->
+    <div class="profile-section" data-aos="fade-up">
+      <div class="profile-image">
+        <img src="https://via.placeholder.com/200x200" alt="Pedro Viena">
+      </div>
+      <h1>Pedro Viena</h1>
+      <p class="profile-title">Java Backend Developer & Software Engineer</p>
+      <p class="profile-bio">Building robust, scalable backend systems with Java and Spring Boot. Specializing in microservices architecture and cloud solutions.</p>
+      <div class="profile-social">
+        <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer" class="social-icon">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer" class="social-icon">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer" class="social-icon">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://medium.com/@pedroviena" target="_blank" rel="noreferrer" class="social-icon">
+          <i class="fab fa-medium-m"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Links Section -->
+    <div class="links-section">
+      <!-- Main Links -->
+      <div class="links-group" data-aos="fade-up">
+        <h2>Main Links</h2>
+        <a href="index.html" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-home"></i>
+          </div>
+          <div class="link-text">
+            <span>Portfolio Website</span>
+            <small>Check out my full portfolio</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="blog.html" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-blog"></i>
+          </div>
+          <div class="link-text">
+            <span>Blog & Articles</span>
+            <small>Read my latest tech articles</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="index.html#contact" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="link-text">
+            <span>Contact Me</span>
+            <small>Get in touch for projects or inquiries</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="https://calendly.com/pedroviena" target="_blank" rel="noreferrer" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+          <div class="link-text">
+            <span>Schedule a Meeting</span>
+            <small>Book a consultation call</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Featured Projects -->
+      <div class="links-group" data-aos="fade-up">
+        <h2>Featured Projects</h2>
+        <a href="#" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="link-text">
+            <span>E-Commerce Microservices</span>
+            <small>Scalable e-commerce platform</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="#" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-university"></i>
+          </div>
+          <div class="link-text">
+            <span>Banking API</span>
+            <small>Secure financial transactions system</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="#" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <div class="link-text">
+            <span>Data Processing Pipeline</span>
+            <small>Big data processing system</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Latest Articles -->
+      <div class="links-group" data-aos="fade-up">
+        <h2>Latest Articles</h2>
+        <a href="blog-post.html" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <div class="link-text">
+            <span>Microservices Architecture: Best Practices</span>
+            <small>Published on April 15, 2025</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="blog-post.html" class="link-item">
+          <div class="link-icon">
+            <i class="fab fa-java"></i>
+          </div>
+          <div class="link-text">
+            <span>Java Performance Optimization Techniques</span>
+            <small>Published on March 28, 2025</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="blog-post.html" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-code-branch"></i>
+          </div>
+          <div class="link-text">
+            <span>Building Reactive APIs with Spring WebFlux</span>
+            <small>Published on February 10, 2025</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+      
+      <!-- Resources -->
+      <div class="links-group" data-aos="fade-up">
+        <h2>Resources</h2>
+        <a href="#" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="link-text">
+            <span>Download Resume</span>
+            <small>Get my full CV in PDF format</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="#" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-book"></i>
+          </div>
+          <div class="link-text">
+            <span>Java Best Practices Guide</span>
+            <small>Free e-book for Java developers</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+        <a href="#" class="link-item">
+          <div class="link-icon">
+            <i class="fas fa-video"></i>
+          </div>
+          <div class="link-text">
+            <span>Microservices Workshop</span>
+            <small>Free video tutorial series</small>
+          </div>
+          <div class="link-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Newsletter Section -->
+    <div class="newsletter-section" data-aos="fade-up">
+      <h2>Subscribe to My Newsletter</h2>
+      <p>Get the latest articles and resources straight to your inbox.</p>
+      <form id="newsletter-form">
+        <input type="email" placeholder="Your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
+    
+    <!-- Footer -->
+    <div class="links-footer">
+      <p>&copy; 2025 Pedro Viena. All rights reserved.</p>
+      <a href="index.html" class="footer-link">Back to Portfolio</a>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script src="links.js"></script>
+</body>
+</html>

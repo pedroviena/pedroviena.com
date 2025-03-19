@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Pedro Viena - Java Backend Developer & Software Engineer</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="blog.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Add Font Awesome for additional icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Add AOS library for scroll animations -->
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body class="dark">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="circle"></div>
+      <div class="circle"></div>
+      <div class="circle"></div>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Indicator -->
+  <div class="scroll-progress"></div>
+  
+  <!-- Theme Toggle Button -->
+  <button id="theme-toggle" aria-label="Toggle dark/light mode">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </button>
+  
+  <!-- Mouse move effect -->
+  <div id="mouse-move-effect"></div>
+  
+  <!-- Custom cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-outline"></div>
+  
+  <!-- Background gradients -->
+  <div class="background-gradients">
+    <div class="gradient-overlay"></div>
+    <div class="gradient-top-right"></div>
+    <div class="gradient-bottom-left"></div>
+  </div>
+
+  <!-- Header/Navigation -->
+  <header class="navbar">
+    <div class="container">
+      <a href="index.html" class="logo">Pedro Viena</a>
+      <nav class="desktop-nav">
+        <a href="index.html#skills" class="nav-link">Skills</a>
+        <a href="index.html#projects" class="nav-link">Projects</a>
+        <a href="index.html#experience" class="nav-link">Experience</a>
+        <a href="index.html#services" class="nav-link">Services</a>
+        <a href="index.html#education" class="nav-link">Education</a>
+        <a href="blog.html" class="nav-link active">Blog</a>
+      </nav>
+      <div class="nav-buttons">
+        <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer" class="btn-icon">
+          <i class="fab fa-github"></i>
+          <span class="sr-only">GitHub</span>
+        </a>
+        <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer" class="btn-icon">
+          <i class="fab fa-linkedin-in"></i>
+          <span class="sr-only">LinkedIn</span>
+        </a>
+        <a href="index.html#contact" class="btn btn-primary contact-btn">Contact Me</a>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav">
+    <div class="mobile-nav-header">
+      <a href="index.html" class="logo">Pedro Viena</a>
+      <button class="mobile-nav-close" aria-label="Close menu">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav>
+      <a href="index.html#skills" class="nav-link">Skills</a>
+      <a href="index.html#projects" class="nav-link">Projects</a>
+      <a href="index.html#experience" class="nav-link">Experience</a>
+      <a href="index.html#services" class="nav-link">Services</a>
+      <a href="index.html#education" class="nav-link">Education</a>
+      <a href="blog.html" class="nav-link active">Blog</a>
+      <a href="index.html#contact" class="nav-link">Contact</a>
+    </nav>
+    <div class="mobile-nav-footer">
+      <div class="social-icons">
+        <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Header -->
+  <section class="blog-header">
+    <div class="container">
+      <div class="blog-header-content" data-aos="fade-up">
+        <h1>Blog & Articles</h1>
+        <p>Thoughts, insights, and tutorials on Java, microservices, and software engineering</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Content -->
+  <section class="blog-content">
+    <div class="container">
+      <div class="blog-layout">
+        <!-- Main Content -->
+        <div class="blog-main">
+          <!-- Search and Filters -->
+          <div class="blog-search-filters" data-aos="fade-up">
+            <div class="blog-search">
+              <input type="text" placeholder="Search articles..." id="blog-search-input">
+              <button class="search-btn">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+            <div class="blog-filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="java">Java</button>
+              <button class="filter-btn" data-filter="microservices">Microservices</button>
+              <button class="filter-btn" data-filter="architecture">Architecture</button>
+              <button class="filter-btn" data-filter="cloud">Cloud</button>
+            </div>
+          </div>
+
+          <!-- Featured Post -->
+          <div class="featured-post" data-aos="fade-up">
+            <div class="featured-post-badge">Featured</div>
+            <div class="featured-post-image">
+              <img src="https://via.placeholder.com/1200x600?text=Microservices+Best+Practices" alt="Microservices Best Practices">
+            </div>
+            <div class="featured-post-content">
+              <div class="post-meta">
+                <span class="post-date"><i class="far fa-calendar-alt"></i> April 15, 2025</span>
+                <span class="post-read-time"><i class="far fa-clock"></i> 12 min read</span>
+              </div>
+              <h2>Microservices Architecture: Best Practices for 2025</h2>
+              <p>The landscape of microservices architecture has evolved significantly over the past few years. In this comprehensive guide, I'll share the latest best practices, patterns, and anti-patterns for building resilient, scalable microservices in 2025.</p>
+              <div class="post-tags">
+                <span class="post-tag">Microservices</span>
+                <span class="post-tag">Architecture</span>
+                <span class="post-tag">Best Practices</span>
+              </div>
+              <a href="blog-post.html" class="btn btn-primary">Read Article</a>
+            </div>
+          </div>
+
+          <!-- Blog Posts Grid -->
+          <div class="blog-posts-grid">
+            <!-- Post 1 -->
+            <div class="blog-post-card" data-aos="fade-up" data-category="java performance">
+              <div class="post-image">
+                <img src="https://via.placeholder.com/600x400?text=Java+Performance" alt="Java Performance">
+                <div class="post-date">
+                  <span class="day">28</span>
+                  <span class="month">Mar</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-read-time"><i class="far fa-clock"></i> 8 min read</span>
+                  <span class="post-views"><i class="far fa-eye"></i> 1.2K views</span>
+                </div>
+                <h3>10 Java Performance Optimization Techniques You Should Know</h3>
+                <p>Practical tips to improve the performance of your Java applications, from JVM tuning to code-level optimizations that can make a significant difference in your application's speed and resource usage.</p>
+                <div class="post-tags">
+                  <span class="post-tag">Java</span>
+                  <span class="post-tag">Performance</span>
+                </div>
+                <a href="blog-post.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div class="blog-post-card" data-aos="fade-up" data-category="microservices architecture">
+              <div class="post-image">
+                <img src="https://via.placeholder.com/600x400?text=Microservices+vs+Monoliths" alt="Microservices vs Monoliths">
+                <div class="post-date">
+                  <span class="day">15</span>
+                  <span class="month">Mar</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-read-time"><i class="far fa-clock"></i> 10 min read</span>
+                  <span class="post-views"><i class="far fa-eye"></i> 2.5K views</span>
+                </div>
+                <h3>Microservices vs Monoliths: When to Choose What</h3>
+                <p>An in-depth analysis of different architectural patterns and their use cases. Learn when to choose microservices over monoliths and how to make the transition if you're considering breaking down your monolith.</p>
+                <div class="post-tags">
+                  <span class="post-tag">Microservices</span>
+                  <span class="post-tag">Architecture</span>
+                  <span class="post-tag">Monoliths</span>
+                </div>
+                <a href="blog-post.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div class="blog-post-card" data-aos="fade-up" data-category="java spring">
+              <div class="post-image">
+                <img src="https://via.placeholder.com/600x400?text=Spring+WebFlux" alt="Spring WebFlux">
+                <div class="post-date">
+                  <span class="day">10</span>
+                  <span class="month">Feb</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-read-time"><i class="far fa-clock"></i> 15 min read</span>
+                  <span class="post-views"><i class="far fa-eye"></i> 1.8K views</span>
+                </div>
+                <h3>Building Reactive APIs with Spring WebFlux</h3>
+                <p>A step-by-step guide to creating non-blocking, reactive REST APIs with Spring WebFlux. Learn how to handle backpressure, work with Flux and Mono, and implement reactive patterns in your applications.</p>
+                <div class="post-tags">
+                  <span class="post-tag">Spring</span>
+                  <span class="post-tag">WebFlux</span>
+                  <span class="post-tag">Reactive</span>
+                </div>
+                <a href="blog-post.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Post 4 -->
+            <div class="blog-post-card" data-aos="fade-up" data-category="cloud aws">
+              <div class="post-image">
+                <img src="https://via.placeholder.com/600x400?text=AWS+Lambda+Java" alt="AWS Lambda Java">
+                <div class="post-date">
+                  <span class="day">25</span>
+                  <span class="month">Jan</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-read-time"><i class="far fa-clock"></i> 12 min read</span>
+                  <span class="post-views"><i class="far fa-eye"></i> 3.1K views</span>
+                </div>
+                <h3>Optimizing Java Applications for AWS Lambda</h3>
+                <p>Learn how to build efficient Java applications for AWS Lambda, including cold start optimization, memory tuning, and implementing effective patterns for serverless Java applications.</p>
+                <div class="post-tags">
+                  <span class="post-tag">AWS</span>
+                  <span class="post-tag">Lambda</span>
+                  <span class="post-tag">Java</span>
+                </div>
+                <a href="blog-post.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Post 5 -->
+            <div class="blog-post-card" data-aos="fade-up" data-category="architecture patterns">
+              <div class="post-image">
+                <img src="https://via.placeholder.com/600x400?text=Design+Patterns" alt="Design Patterns">
+                <div class="post-date">
+                  <span class="day">12</span>
+                  <span class="month">Jan</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-read-time"><i class="far fa-clock"></i> 14 min read</span>
+                  <span class="post-views"><i class="far fa-eye"></i> 2.3K views</span>
+                </div>
+                <h3>5 Design Patterns Every Java Developer Should Know</h3>
+                <p>A deep dive into essential design patterns for Java developers, with practical examples and use cases. Learn how to implement Singleton, Factory, Observer, Strategy, and Builder patterns effectively.</p>
+                <div class="post-tags">
+                  <span class="post-tag">Design Patterns</span>
+                  <span class="post-tag">Java</span>
+                  <span class="post-tag">Architecture</span>
+                </div>
+                <a href="blog-post.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+
+            <!-- Post 6 -->
+            <div class="blog-post-card" data-aos="fade-up" data-category="microservices kafka">
+              <div class="post-image">
+                <img src="https://via.placeholder.com/600x400?text=Kafka+Microservices" alt="Kafka Microservices">
+                <div class="post-date">
+                  <span class="day">05</span>
+                  <span class="month">Jan</span>
+                </div>
+              </div>
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="post-read-time"><i class="far fa-clock"></i> 11 min read</span>
+                  <span class="post-views"><i class="far fa-eye"></i> 1.9K views</span>
+                </div>
+                <h3>Event-Driven Microservices with Apache Kafka</h3>
+                <p>Explore how to build event-driven microservices using Apache Kafka. This article covers Kafka architecture, Spring Kafka integration, and patterns for reliable event processing.</p>
+                <div class="post-tags">
+                  <span class="post-tag">Kafka</span>
+                  <span class="post-tag">Microservices</span>
+                  <span class="post-tag">Event-Driven</span>
+                </div>
+                <a href="blog-post.html" class="post-link">Read More <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pagination -->
+          <div class="pagination" data-aos="fade-up">
+            <a href="#" class="pagination-prev disabled">
+              <i class="fas fa-chevron-left"></i> Previous
+            </a>
+            <div class="pagination-numbers">
+              <a href="#" class="active">1</a>
+              <a href="#">2</a>
+              <a href="#">3</a>
+              <span>...</span>
+              <a href="#">8</a>
+            </div>
+            <a href="#" class="pagination-next">
+              Next <i class="fas fa-chevron-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="blog-sidebar">
+          <!-- About Author -->
+          <div class="sidebar-widget about-author" data-aos="fade-up">
+            <div class="author-image">
+              <img src="https://via.placeholder.com/150x150" alt="Pedro Viena">
+            </div>
+            <h3>Pedro Viena</h3>
+            <p>Java Backend Developer & Software Engineer with 7+ years of experience. I write about Java, microservices, and software architecture.</p>
+            <div class="author-social">
+              <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-github"></i>
+              </a>
+              <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+              <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Categories -->
+          <div class="sidebar-widget categories" data-aos="fade-up">
+            <h3>Categories</h3>
+            <ul>
+              <li><a href="#">Java <span>(12)</span></a></li>
+              <li><a href="#">Microservices <span>(8)</span></a></li>
+              <li><a href="#">Spring Boot <span>(7)</span></a></li>
+              <li><a href="#">Architecture <span>(6)</span></a></li>
+              <li><a href="#">Cloud <span>(5)</span></a></li>
+              <li><a href="#">DevOps <span>(4)</span></a></li>
+              <li><a href="#">Databases <span>(3)</span></a></li>
+            </ul>
+          </div>
+
+          <!-- Popular Posts -->
+          <div class="sidebar-widget popular-posts" data-aos="fade-up">
+            <h3>Popular Posts</h3>
+            <div class="popular-post">
+              <div class="popular-post-image">
+                <img src="https://via.placeholder.com/100x100?text=Java" alt="Java">
+              </div>
+              <div class="popular-post-content">
+                <h4><a href="blog-post.html">Java 21 Features You Should Start Using Today</a></h4>
+                <span class="post-date"><i class="far fa-calendar-alt"></i> Mar 10, 2025</span>
+              </div>
+            </div>
+            <div class="popular-post">
+              <div class="popular-post-image">
+                <img src="https://via.placeholder.com/100x100?text=Spring" alt="Spring">
+              </div>
+              <div class="popular-post-content">
+                <h4><a href="blog-post.html">Spring Boot 3.0: What's New and Improved</a></h4>
+                <span class="post-date"><i class="far fa-calendar-alt"></i> Feb 22, 2025</span>
+              </div>
+            </div>
+            <div class="popular-post">
+              <div class="popular-post-image">
+                <img src="https://via.placeholder.com/100x100?text=Docker" alt="Docker">
+              </div>
+              <div class="popular-post-content">
+                <h4><a href="blog-post.html">Docker Optimization for Java Applications</a></h4>
+                <span class="post-date"><i class="far fa-calendar-alt"></i> Jan 15, 2025</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tags Cloud -->
+          <div class="sidebar-widget tags-cloud" data-aos="fade-up">
+            <h3>Tags</h3>
+            <div class="tags">
+              <a href="#" class="tag">Java</a>
+              <a href="#" class="tag">Spring Boot</a>
+              <a href="#" class="tag">Microservices</a>
+              <a href="#" class="tag">AWS</a>
+              <a href="#" class="tag">Docker</a>
+              <a href="#" class="tag">Kubernetes</a>
+              <a href="#" class="tag">Architecture</a>
+              <a href="#" class="tag">Performance</a>
+              <a href="#" class="tag">Security</a>
+              <a href="#" class="tag">Testing</a>
+              <a href="#" class="tag">DevOps</a>
+              <a href="#" class="tag">Kafka</a>
+            </div>
+          </div>
+
+          <!-- Newsletter -->
+          <div class="sidebar-widget newsletter" data-aos="fade-up">
+            <h3>Subscribe to Newsletter</h3>
+            <p>Get the latest articles and resources straight to your inbox.</p>
+            <form id="newsletter-form">
+              <input type="email" placeholder="Your email address" required>
+              <button type="submit" class="btn btn-primary">Subscribe</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="blog-cta" data-aos="fade-up">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Need help with your Java project?</h2>
+        <p>I'm available for freelance work and consulting. Let's discuss how I can help you build robust, scalable backend systems.</p>
+        <a href="index.html#contact" class="btn btn-primary btn-large">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <div class="footer-info">
+        <h2>Pedro Viena</h2>
+        <p>Java Backend Developer & Software Engineer</p>
+        <p class="footer-bio">Building robust, scalable backend systems with Java and Spring Boot. Specializing in microservices architecture and cloud solutions.</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-section">
+          <h3>Navigation</h3>
+          <ul>
+            <li><a href="index.html#skills">Skills</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#experience">Experience</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#education">Education</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Contact</h3>
+          <ul>
+            <li><a href="mailto:contact@pedroviena.com">Email</a></li>
+            <li><a href="https://linkedin.com/in/pedroviena">LinkedIn</a></li>
+            <li><a href="https://github.com/pedroviena">GitHub</a></li>
+            <li><a href="tel:+1234567890">Phone</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h3>Connect</h3>
+          <div class="social-icons">
+            <a href="https://github.com/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://twitter.com/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://linkedin.com/in/pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://medium.com/@pedroviena" target="_blank" rel="noreferrer">
+              <i class="fab fa-medium-m"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 Pedro Viena. All rights reserved.</p>
+      <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+      </a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script src="script.js"></script>
+  <script src="blog.js"></script>
+</body>
+</html>
