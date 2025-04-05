@@ -1,0 +1,2337 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial - Pedro Viena</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #1e293b;
+            --primary-dark: #1e293b;
+            --primary-light: #1e293b;
+            --primary-rgb: 59, 130, 246;
+            --accent-color: #10b981;
+            --accent-rgb: 16, 185, 129;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-card: #1e293b;
+            --bg-card-hover: #263449;
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --gradient-bg: linear-gradient(135deg, #1e40af, #3b82f6);
+            --gradient-accent: linear-gradient(135deg, #0d9488, #10b981);
+            --card-hover-shadow: 0 10px 25px rgba(59, 130, 246, 0.2);
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition-normal: all 0.3s ease;
+            --transition-slow: all 0.5s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+            margin: 0;
+            padding: 0;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Scrollbar styling */
+        ::-webkit-scrollbar {
+            width: 10px;
+            background-color: var(--bg-primary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Background effects */
+        .background-gradients {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--bg-primary);
+            opacity: 0.92;
+        }
+
+        .gradient-top-right {
+            position: absolute;
+            top: -300px;
+            right: -300px;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(var(--primary-rgb), 0.15) 0%, rgba(var(--primary-rgb), 0) 70%);
+            animation: pulse 15s infinite alternate;
+        }
+
+        .gradient-bottom-left {
+            position: absolute;
+            bottom: -300px;
+            left: -300px;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(var(--accent-rgb), 0.15) 0%, rgba(var(--accent-rgb), 0) 70%);
+            animation: pulse 15s infinite alternate-reverse;
+        }
+
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.15;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.2;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.15;
+            }
+        }
+
+        /* Custom Bootstrap Overrides */
+        .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: var(--transition-normal);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            border-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+        }
+
+        .btn-accent {
+            background: var(--accent-color);
+            border-color: var(--accent-color);
+            color: white;
+            transition: var(--transition-normal);
+        }
+
+        .btn-accent:hover {
+            background: #0d9488;
+            border-color: #0d9488;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.3);
+        }
+
+        .btn-outline-primary {
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+            transition: var(--transition-normal);
+        }
+
+        .btn-outline-primary:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.3);
+        }
+
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            transition: var(--transition-normal);
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+            background: var(--bg-card-hover);
+        }
+
+        .card-header {
+            background: rgba(var(--primary-rgb), 0.1);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.25rem 1.5rem;
+        }
+
+        .card-footer {
+            background: rgba(var(--primary-rgb), 0.05);
+            border-top: 1px solid var(--border-color);
+            padding: 1.25rem 1.5rem;
+        }
+
+        .table {
+            color: var(--text-primary);
+            border-color: var(--border-color);
+        }
+
+        .table-dark {
+            background-color: var(--bg-secondary);
+        }
+
+        .table-dark thead th {
+            background-color: rgba(var(--primary-rgb), 0.1);
+            border-color: var(--border-color);
+            font-weight: 600;
+            padding: 1rem 1.5rem;
+        }
+
+        .table-dark td {
+            padding: 1rem 1.5rem;
+        }
+
+        .total-row {
+            background-color: rgba(var(--primary-rgb), 0.1);
+            font-weight: 700;
+        }
+
+        .badge {
+            padding: 0.5em 0.8em;
+            font-weight: 500;
+            border-radius: 6px;
+        }
+
+        .badge-primary {
+            background-color: rgba(var(--primary-rgb), 0.2);
+            color: var(--primary-light);
+        }
+
+        .badge-success {
+            background-color: rgba(var(--accent-rgb), 0.2);
+            color: var(--accent-color);
+        }
+
+        .badge-warning {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: var(--warning-color);
+        }
+
+        .badge-danger {
+            background-color: rgba(239, 68, 68, 0.2);
+            color: var(--danger-color);
+        }
+
+        .nav-pills .nav-link {
+            color: var(--text-secondary);
+            border-radius: 8px;
+            padding: 0.75rem 1.25rem;
+            transition: var(--transition-normal);
+        }
+
+        .nav-pills .nav-link:hover {
+            color: var(--text-primary);
+            background-color: rgba(var(--primary-rgb), 0.1);
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header Styles */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: var(--transition-normal);
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(15, 23, 42, 0.95);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .navbar-brand span {
+            color: var(--primary-color);
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: var(--transition-normal);
+        }
+
+        .navbar-nav .nav-link:hover,
+        .navbar-nav .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .header {
+            background: var(--gradient-bg);
+            padding: 8rem 0 5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .header p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 600px;
+        }
+
+        .header-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .header-badge i {
+            margin-right: 0.5rem;
+        }
+
+        /* Client Info Section */
+        .client-info {
+            border-left: 4px solid var(--primary-color);
+        }
+
+        /* Feature Cards */
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            transition: var(--transition-normal);
+        }
+
+        .card:hover .feature-icon {
+            transform: scale(1.1);
+            color: var(--primary-light);
+        }
+
+        .feature-card {
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-bg);
+            transition: var(--transition-normal);
+        }
+
+        .feature-card:hover::before {
+            height: 8px;
+        }
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 4px;
+            background: var(--gradient-bg);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -34px;
+            top: 0;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 0 3px rgba(var(--primary-rgb), 0.3);
+            transition: var(--transition-normal);
+        }
+
+        .timeline-item:hover::before {
+            transform: scale(1.2);
+            background: var(--primary-light);
+        }
+
+        .timeline-marker {
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Investment Table */
+        .investment-card {
+            overflow: hidden;
+            border-radius: 12px;
+        }
+
+        .investment-header {
+            background: var(--gradient-bg);
+            padding: 2rem;
+            color: white;
+        }
+
+        .investment-body {
+            padding: 0;
+        }
+
+        /* Payment Plan Cards */
+        .payment-card {
+            border-radius: 12px;
+            overflow: hidden;
+            transition: var(--transition-normal);
+            height: 100%;
+        }
+
+        .payment-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .payment-header {
+            background: rgba(var(--primary-rgb), 0.1);
+            padding: 1.5rem;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .payment-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .payment-amount {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .payment-label {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: var(--gradient-bg);
+            padding: 6rem 0;
+            position: relative;
+            overflow: hidden;
+            margin-top: 5rem;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: var(--transition-normal);
+            height: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            transition: var(--transition-normal);
+        }
+
+        .contact-card:hover .contact-icon {
+            transform: scale(1.1);
+        }
+
+        /* Signature Section */
+        .signature-section {
+            margin-top: 5rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .signature-line {
+            width: 250px;
+            height: 1px;
+            background-color: var(--text-secondary);
+            margin: 1.5rem 0;
+        }
+
+        /* Testimonial Section */
+        .testimonial-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: var(--transition-normal);
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-family: Georgia, serif;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            font-size: 5rem;
+            color: rgba(var(--primary-rgb), 0.1);
+            line-height: 1;
+        }
+
+        .testimonial-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 1rem;
+            object-fit: cover;
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .testimonial-role {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            padding: 1.25rem;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            transition: var(--transition-normal);
+            border: 1px solid var(--border-color);
+            font-weight: 500;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-card-hover);
+        }
+
+        .faq-question::after {
+            content: '\f107';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 1.25rem;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition-normal);
+        }
+
+        .faq-question.active {
+            background: rgba(var(--primary-rgb), 0.1);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+            border-bottom: none;
+        }
+
+        .faq-question.active::after {
+            transform: translateY(-50%) rotate(180deg);
+        }
+
+        .faq-answer {
+            background: var(--bg-card);
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition-normal);
+            border-bottom-left-radius: 8px;
+            border-bottom-right-radius: 8px;
+            border: 1px solid var(--border-color);
+            border-top: none;
+        }
+
+        .faq-answer.active {
+            padding: 1.25rem;
+            max-height: 1000px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-secondary);
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-bg);
+        }
+
+        .footer-heading {
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.75rem;
+            transition: var(--transition-normal);
+        }
+
+        .footer-link:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(var(--primary-rgb), 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: var(--transition-normal);
+        }
+
+        .social-icon:hover {
+            background: var(--primary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            color: var(--text-muted);
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 3rem;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .float-animation {
+            animation: float 5s ease-in-out infinite;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .header {
+                padding: 7rem 0 4rem;
+            }
+            
+            .header h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                padding: 6rem 0 3rem;
+            }
+            
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .timeline {
+                padding-left: 20px;
+            }
+            
+            .timeline-item::before {
+                left: -24px;
+            }
+
+            .navbar-collapse {
+                background-color: var(--bg-secondary);
+                padding: 1rem;
+                border-radius: 8px;
+                margin-top: 1rem;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        @media (max-width: 576px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Utility Classes */
+        .text-gradient {
+            background: linear-gradient(to right, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .bg-gradient {
+            background: var(--gradient-bg);
+        }
+
+        .bg-gradient-accent {
+            background: var(--gradient-accent);
+        }
+
+        .border-gradient {
+            position: relative;
+        }
+
+        .border-gradient::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-bg);
+            border-radius: 4px 0 0 4px;
+        }
+
+        .shadow-card {
+            box-shadow: var(--card-shadow);
+        }
+
+        .rounded-xl {
+            border-radius: 12px;
+        }
+
+        .blur-bg {
+            backdrop-filter: blur(10px);
+        }
+
+        /* Regras adicionais para garantir tema escuro */
+        .card, .modal-content, .dropdown-menu {
+            background-color: var(--bg-card) !important;
+            color: var(--text-primary) !important;
+        }
+
+        /* Garantir que todo texto seja branco */
+        p, h1, h2, h3, h4, h5, h6, span, div, li, a, label, input, textarea, select, button, .btn {
+            color: var(--text-primary) !important;
+        }
+
+        /* Exceções para links e elementos interativos */
+        a:hover, .btn:hover {
+            color: var(--accent-color) !important;
+        }
+
+        /* Ajustes para elementos específicos do Bootstrap */
+        .navbar, .navbar-brand, .nav-link, .dropdown-item {
+            color: var(--text-primary) !important;
+        }
+
+        .dropdown-item:hover {
+            color: var(--accent-color) !important;
+            background-color: var(--bg-card-hover) !important;
+        }
+
+        /* Ajustes para formulários */
+        input::placeholder, textarea::placeholder {
+            color: var(--text-muted) !important;
+        }
+
+        /* Ajustes para tabelas */
+        .table {
+            color: var(--text-primary) !important;
+        }
+
+        .table td, .table th {
+            border-color: var(--border-color) !important;
+            color: var(--text-primary) !important;
+        }
+
+        /* Ajustes para modais e popovers */
+        .modal-title, .modal-body, .popover-body {
+            color: var(--text-primary) !important;
+        }
+
+        /* Ajustes para tooltips */
+        .tooltip-inner {
+            color: var(--text-primary) !important;
+            background-color: var(--bg-card) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background gradients -->
+    <div class="background-gradients">
+        <div class="gradient-overlay"></div>
+        <div class="gradient-top-right"></div>
+        <div class="gradient-bottom-left"></div>
+        <div class="particles" id="particles"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pedro<span> Viena</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars" style="color: var(--text-primary);"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#solucao">Solução</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#cronograma">Cronograma</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#investimento">Investimento</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#garantias">Garantias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://wa.me/5511911140374">Contato</a>
+                    </li>
+                </ul>
+                <div class="ms-lg-3 mt-3 mt-lg-0">
+                    <a href="#contato" class="btn btn-primary">Fale Comigo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <header class="header" id="home">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <h1 class="display-4 fw-bold mb-4">Proposta Comercial</h1>
+                    <p class="lead mb-4">Desenvolvimento de websites profissionais, modernos e responsivos utilizando as melhores tecnologias do mercado.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body p-4">
+                            <h3 class="card-title mb-4">Nossas Tecnologias</h3>
+                            <div class="row g-4">
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-php fa-2x me-3 text-primary"></i>
+                                        <span>PHP</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-wordpress fa-2x me-3 text-primary"></i>
+                                        <span>WordPress</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-html5 fa-2x me-3 text-primary"></i>
+                                        <span>HTML5</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-css3-alt fa-2x me-3 text-primary"></i>
+                                        <span>CSS3</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fab fa-js fa-2x me-3 text-primary"></i>
+                                        <span>JavaScript</span>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="d-flex align-items-center">
+                                        <i class="fas fa-database fa-2x me-3 text-primary"></i>
+                                        <span>MySQL</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="mb-5" data-aos="fade-up" data-aos-duration="800">
+            <div class="card client-info">
+                <div class="card-body p-4">
+                    <h2 class="card-title fs-1 mb-4">Prezado <span class="text-primary">Filipe</span>,</h2>
+                    <p class="card-text fs-5">É com grande satisfação que apresento esta proposta comercial para o desenvolvimento do <strong class="text-primary">Site Institucional do ramo do segmento Engenharia Civil</strong>. Com base em nossa conversa e análise detalhada das suas necessidades, elaboramos uma solução personalizada que atenderá perfeitamente aos objetivos do seu negócio.</p>
+                    <p class="card-text fs-5">Esta proposta representa não apenas um serviço, mas uma <strong>parceria estratégica</strong> para impulsionar o crescimento e a eficiência da sua empresa através de tecnologia de ponta.</p>
+                    
+                    <div class="row mt-4 g-4">
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle text-primary" style="font-size: 2rem;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Solução Personalizada</h5>
+                                    <p class="mb-1">Desenvolvida para suas necessidades específicas</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle text-primary" style="font-size: 2rem;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Tecnologia Avançada</h5>
+                                    <p class="mb-1">Utilizando as melhores práticas do mercado</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="d-flex align-items-center">
+                                <div class="me-3">
+                                    <i class="fas fa-check-circle text-primary" style="font-size: 2rem;"></i>
+                                </div>
+                                <div>
+                                    <h5 class="mb-1">Suporte Completo</h5>
+                                    <p class="mb-1">Acompanhamento em todas as etapas</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5" id="solucao" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex align-items-center mb-4">
+                <div class="me-3">
+                    <div class="bg-gradient rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-lightbulb text-white"></i>
+                    </div>
+                </div>
+                <h2 class="fs-1 mb-0">Solução Proposta</h2>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-body p-4">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8">
+                            <h3 class="card-title fs-2 mb-3">Visão Geral</h3>
+                            <p class="card-text fs-5">Desenvolvimento de um site profissional e moderno, utilizando as melhores tecnologias do mercado para criar uma presença digital impactante para seu negócio.</p>
+                            <div class="alert alert-primary bg-opacity-10 border-0 mb-0 text-muted">
+                                <i class="fas fa-info-circle me-2"></i>
+                                Nossas soluções web são totalmente personalizadas para atender às necessidades específicas do seu negócio, garantindo uma experiência digital única e eficiente.
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="text-center">
+                                <div class="rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 120px; height: 120px; background: rgba(var(--primary-rgb), 0.1);">
+                                    <i class="fas fa-laptop-code text-primary" style="font-size: 3rem;"></i>
+                                </div>
+                                <h4>Web Design Profissional</h4>
+                                <p class="text-muted">Moderno e Responsivo</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabs for solution details -->
+            <ul class="nav nav-pills mb-4" id="solutionTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="features-tab" data-bs-toggle="pill" data-bs-target="#features" type="button" role="tab" aria-controls="features" aria-selected="true">Características</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="tech-tab" data-bs-toggle="pill" data-bs-target="#tech" type="button" role="tab" aria-controls="tech" aria-selected="false">Tecnologias</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="benefits-tab" data-bs-toggle="pill" data-bs-target="#benefits" type="button" role="tab" aria-controls="benefits" aria-selected="false">Benefícios</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="solutionTabsContent">
+                <div class="tab-pane fade show active" id="features" role="tabpanel" aria-labelledby="features-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body p-4 text-center">
+                                    <i class="fas fa-mobile-alt feature-icon"></i>
+                                    <h4 class="card-title">Design Responsivo</h4>
+                                    <p class="card-text">Sites adaptáveis para todos os dispositivos, garantindo a melhor experiência em qualquer tela.</p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-primary">HTML5</span>
+                                        <span class="badge badge-primary">CSS3</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body p-4 text-center">
+                                    <i class="fab fa-wordpress feature-icon"></i>
+                                    <h4 class="card-title">WordPress</h4>
+                                    <p class="card-text">Desenvolvimento e personalização de sites em WordPress, incluindo temas e plugins.</p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-primary">WordPress</span>
+                                        <span class="badge badge-primary">PHP</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body p-4 text-center">
+                                    <i class="fas fa-search feature-icon"></i>
+                                    <h4 class="card-title">SEO Otimizado</h4>
+                                    <p class="card-text">Estratégias de otimização para mecanismos de busca, aumentando sua visibilidade online.</p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-primary">SEO</span>
+                                        <span class="badge badge-primary">Performance</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card feature-card h-100">
+                                <div class="card-body p-4 text-center">
+                                    <i class="fas fa-shopping-cart feature-icon"></i>
+                                    <h4 class="card-title">Segurança</h4>
+                                    <p class="card-text">aplicação segura e protegida em cada página do site institucional</p>
+                                    <div class="mt-3">
+                                        <span class="badge badge-primary">WORDPRESS</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="tech" role="tabpanel" aria-labelledby="tech-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body p-4">
+                                    <h4 class="card-title mb-4">Frontend</h4>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="tech-item">
+                                            <i class="fab fa-html5 fa-2x text-primary"></i>
+                                            <span>HTML5</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fab fa-css3-alt fa-2x text-primary"></i>
+                                            <span>CSS3</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fab fa-js fa-2x text-primary"></i>
+                                            <span>JavaScript</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fab fa-react fa-2x text-primary"></i>
+                                            <span>React</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fab fa-bootstrap fa-2x text-primary"></i>
+                                            <span>Bootstrap</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body p-4">
+                                    <h4 class="card-title mb-4">Backend</h4>
+                                    <div class="d-flex flex-wrap gap-3">
+                                        <div class="tech-item">
+                                            <i class="fab fa-php fa-2x text-primary"></i>
+                                            <span>PHP</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fab fa-wordpress fa-2x text-primary"></i>
+                                            <span>WordPress</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fas fa-database fa-2x text-primary"></i>
+                                            <span>MySQL</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fab fa-node-js fa-2x text-primary"></i>
+                                            <span>Node.js</span>
+                                        </div>
+                                        <div class="tech-item">
+                                            <i class="fas fa-server fa-2x text-primary"></i>
+                                            <span>Apache</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="benefits" role="tabpanel" aria-labelledby="benefits-tab">
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body p-4">
+                                    <h4 class="card-title mb-4">Benefícios para seu Negócio</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-3">
+                                            <i class="fas fa-chart-line text-primary me-2"></i>
+                                            <strong>Aumento da Visibilidade Online</strong>
+                                            <p class="mb-1">Sites otimizados para SEO que melhoram seu ranking nos mecanismos de busca.</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fas fa-mobile-alt text-primary me-2"></i>
+                                            <strong>Experiência Mobile-First</strong>
+                                            <p class="mb-1">Design responsivo que funciona perfeitamente em todos os dispositivos.</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fas fa-shopping-cart text-primary me-2"></i>
+                                            <strong>Blog e Area de Login</strong>
+                                            <p class="mb-1">integração com o sistema de gerenciamento de conteúdo.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card h-100">
+                                <div class="card-body p-4">
+                                    <h4 class="card-title mb-4">Vantagens Competitivas</h4>
+                                    <ul class="list-unstyled">
+                                        <li class="mb-3">
+                                            <i class="fas fa-tachometer-alt text-primary me-2"></i>
+                                            <strong>Alta Performance</strong>
+                                            <p class="mb-1">Sites rápidos e otimizados para melhor experiência do usuário.</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fas fa-lock text-primary me-2"></i>
+                                            <strong>Segurança Garantida</strong>
+                                            <p class="mb-1">Proteção contra ameaças e certificados SSL para dados seguros.</p>
+                                        </li>
+                                        <li class="mb-3">
+                                            <i class="fas fa-sync text-primary me-2"></i>
+                                            <strong>Manutenção Contínua</strong>
+                                            <p class="mb-1">Suporte técnico e atualizações regulares para manter seu site sempre atualizado.</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card mt-4">
+                        <div class="card-body p-4">
+                            <h4 class="mb-4">Impacto no ROI</h4>
+                            <div class="row">
+                                <div class="col-lg-8">
+                                    <canvas id="roiChart" height="250"></canvas>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="mt-4 mt-lg-0">
+                                        <h5 class="mb-3">Projeção de Retorno</h5>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <span><i class="fas fa-circle text-primary me-2"></i> Curto prazo (3 meses)</span>
+                                                    <span class="fw-bold">25%</span>
+                                                </div>
+                                            </li>
+                                            <li class="mb-3">
+                                                <div class="d-flex justify-content-between">
+                                                    <span><i class="fas fa-circle text-info me-2"></i> Médio prazo (6 meses)</span>
+                                                    <span class="fw-bold">45%</span>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <div class="d-flex justify-content-between">
+                                                    <span><i class="fas fa-circle text-success me-2"></i> Longo prazo (12 meses)</span>
+                                                    <span class="fw-bold">95%</span>
+                                                </div>
+                                            </li>
+                                        </ul>
+                                        <div class="alert alert-primary bg-opacity-10 mt-4 mb-0 border-0 mb-0 text-muted">
+                                            <i class="fas fa-info-circle me-2 mb-0 text-muted"></i>
+                                            Estimativa baseada em projetos de web design implementados anteriormente.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5" id="cronograma" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex align-items-center mb-4">
+                <div class="me-3">
+                    <div class="bg-gradient rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-calendar-alt text-white"></i>
+                    </div>
+                </div>
+                <h2 class="fs-1 mb-0">Cronograma de Desenvolvimento</h2>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-body p-4">
+                    <p class="card-text fs-5">Nosso processo de desenvolvimento é estruturado em fases bem definidas, garantindo entregas consistentes e dentro do prazo estabelecido.</p>
+                    
+                    <div class="row align-items-center mt-4">
+                        <div class="col-lg-8">
+                            <div class="progress mb-3" style="height: 40px; background-color: var(--bg-primary); border-radius: 20px; overflow: hidden;">
+                                <div class="progress-bar position-relative" role="progressbar" style="width: 15%; background-color: var(--primary-color); border-radius: 20px 0 0 20px;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="position-absolute top-50 start-50 translate-middle fw-bold">Fase 1</span>
+                                </div>
+                                <div class="progress-bar bg-info position-relative" role="progressbar" style="width: 60%; opacity: 0.8;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="position-absolute top-50 start-50 translate-middle fw-bold">Fase 2</span>
+                                </div>
+                                <div class="progress-bar bg-warning position-relative" role="progressbar" style="width: 15%; opacity: 0.8;" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="position-absolute top-50 start-50 translate-middle fw-bold text-dark">Fase 3</span>
+                                </div>
+                                <div class="progress-bar bg-success position-relative" role="progressbar" style="width: 10%; opacity: 0.8; border-radius: 0 20px 20px 0;" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100">
+                                    <span class="position-absolute top-50 start-50 translate-middle fw-bold">Fase 4</span>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between text-muted small">
+                                <span>Início</span>
+                                <span>Tempo total estimado: 03 semanas</span>
+                                <span>Entrega</span>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="card bg-opacity-10" style="background-color: rgba(var(--primary-rgb), 0.05);">
+                                <div class="card-body">
+                                    <h5 class="card-title">Marcos Principais</h5>
+                                    <ul class="mb-0 ps-3">
+                                        <li>Aprovação do Projeto: Dia 0</li>
+                                        <li>Primeira Entrega: Semana 1</li>
+                                        <li>Revisão de Meio Termo: Semana 2</li>
+                                        <li>Testes de Aceitação: Semana 2</li>
+                                        <li>Entrega Final: Semana 3</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="timeline">
+                <div class="card timeline-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="card-body p-4">
+                        <div class="timeline-marker">Fase 1: Planejamento</div>
+                        <div class="timeline-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="fs-5">Análise detalhada dos requisitos e elaboração da arquitetura do site.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="fs-6"><strong>Duração:</strong> 1 semana</span>
+                                        <span class="badge bg-primary px-3 py-2">15%</span>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6 class="text-primary">Entregas:</h6>
+                                        <ul class="mb-0">
+                                            <li>Documento de requisitos detalhado</li>
+                                            <li>Diagrama de arquitetura do sistema</li>
+                                            <li>Cronograma detalhado com milestones</li>
+                                            <li>Definição de KPIs para acompanhamento</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-4 mt-md-0">
+                                    <div class="card h-100 bg-opacity-10" style="background-color: rgba(var(--primary-rgb), 0.05);">
+                                        <div class="card-body">
+                                            <h6 class="text-primary mb-3">Atividades Principais</h6>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle text-primary"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Levantamento de requisitos</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle text-primary"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Análise de processos</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle text-primary"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Definição de arquitetura</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle text-primary"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Planejamento de sprints</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card timeline-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="card-body p-4">
+                        <div class="timeline-marker">Fase 2: Desenvolvimento</div>
+                        <div class="timeline-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="fs-5">Desenvolvimento do site seguindo metodologia ágil.</p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="fs-6"><strong>Duração:</strong> 2 semanas</span>
+                                        <span class="badge bg-info px-3 py-2">60%</span>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6 class="text-primary">Entregas:</h6>
+                                        <ul class="mb-0">
+                                            <li>Desenvolvimento do wireframe</li>
+                                            <li>Criação da paleta de cores e composição visual</li>
+                                            <li>Desenvolvimento da estrutura do site</li>
+                                            <li>Desenvolvimento responsivo das páginas (desktop e mobile)                                            </li>
+                                            <li>Entrega de layout para aprovação</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-4 mt-md-0">
+                                    <div class="card h-100">
+                                        <div class="card-body p-0">
+                                            <div class="p-3 border-bottom" style="border-color: var(--border-color) !important;">
+                                                <h6 class="mb-0">Progresso por Sprint</h6>
+                                            </div>
+                                            <div class="p-3">
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <span>Wireframes e identidade visual</span>
+                                                        <span>25%</span>
+                                                    </div>
+                                                    <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <span>Estrutura base do site</span>
+                                                        <span>25%</span>
+                                                    </div>
+                                                    <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <span>Finalização das páginas</span>
+                                                        <span>25%</span>
+                                                    </div>
+                                                    <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div class="d-flex justify-content-between mb-1">
+                                                        <span>Integrações e refinamento</span>
+                                                        <span>25%</span>
+                                                    </div>
+                                                    <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card timeline-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="card-body p-4">
+                        <div class="timeline-marker">Fase 3: Testes</div>
+                        <div class="timeline-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="fs-5">Testes de qualidade visual, funcionalidade e usabilidade do site para garantir uma navegação fluida e sem erros.
+
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="fs-6"><strong>Duração:</strong> 1 semana</span>
+                                        <span class="badge bg-warning text-dark px-3 py-2">15%</span>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6 class="text-primary">Entregas:</h6>
+                                        <ul class="mb-0">
+                                            <li>Relatório de testes de navegação e performance</li>
+                                            <li>Correção de erros visuais e funcionais</li>
+                                            <li>Otimização de carregamento e SEO básico</li>
+                                            <li>Testes em múltiplos navegadores e dispositivos</li>
+                                            <li>Verificação de segurança básica (formulários, links, etc.)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-4 mt-md-0">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <h6 class="text-primary mb-3">Tipos de Testes</h6>
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span>Testes de Navegabilidade</span>
+                                                    <span>100%</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span>Testes de Responsividade</span>
+                                                    <span>100%</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div class="mb-3">
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span>Testes de Performance</span>
+                                                    <span>100%</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <div class="d-flex justify-content-between mb-1">
+                                                    <span>Testes de Segurança</span>
+                                                    <span>100%</span>
+                                                </div>
+                                                <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card timeline-item" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
+                    <div class="card-body p-4">
+                        <div class="timeline-marker">Fase 4: Implantação</div>
+                        <div class="timeline-content">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <p class="fs-5">Publicação do site no ambiente de produção e orientações para uso e atualização de conteúdo.
+
+                                    </p>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <span class="fs-6"><strong>Duração:</strong> 1 semana</span>
+                                        <span class="badge bg-success px-3 py-2">10%</span>
+                                    </div>
+                                    <div class="mt-3">
+                                        <h6 class="text-primary">Entregas:</h6>
+                                        <ul class="mb-0">
+                                            <li>Site publicado e acessível ao público</li>
+                                            <li>Manual do cliente para gerenciamento de conteúdo</li>
+                                            <li>Sessão de orientação</li>
+                                            <li>Backup inicial e documentação técnica</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-4 mt-md-0">
+                                    <div class="card h-100 bg-opacity-10" style="background-color: rgba(var(--accent-rgb), 0.05);">
+                                        <div class="card-body">
+                                            <h6 class="mb-3" style="color: var(--accent-color);">Checklist de Implantação</h6>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Configuração do ambiente</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Migração de dados</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Testes de aceitação</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center mb-2">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Treinamento dos usuários</p>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center">
+                                                <div class="me-2">
+                                                    <i class="fas fa-check-circle" style="color: var(--accent-color);"></i>
+                                                </div>
+                                                <div>
+                                                    <p class="mb-0">Go-live e monitoramento</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5" id="investimento" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex align-items-center mb-4">
+                <div class="me-3">
+                    <div class="bg-gradient rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-hand-holding-usd text-white"></i>
+                    </div>
+                </div>
+                <h2 class="fs-1 mb-0">Investimento</h2>
+            </div>
+            
+            <div class="card investment-card mb-4">
+                <div class="investment-header">
+                    <div class="row align-items-center">
+                        <div class="col-md-8">
+                            <h3 class="mb-3">Detalhamento do Investimento</h3>
+                            <p class="mb-0">O investimento apresentado abaixo representa o valor total para o desenvolvimento completo do sistema, incluindo todas as fases e entregas descritas nesta proposta.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <span class="badge bg-light text-dark px-3 py-2 fs-6">Validade: 15 dias</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="investment-body">
+                    <div class="table-responsive">
+                        <table class="table table-dark table-bordered table-hover mb-0">
+                            <thead>
+                                <tr>
+                                    <th scope="col" width="20%">Item</th>
+                                    <th scope="col" width="50%">Descrição</th>
+                                    <th scope="col" width="15%">Horas</th>
+                                    <th scope="col" width="15%">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Planejamento e Wireframes</td>
+                                    <td>Estruturação inicial do site com wireframes, arquitetura da informação e UX base</td>
+                                    <td>10h</td>
+                                    <td>R$ 200,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Identidade Visual e UI Design</td>
+                                    <td>Criação da paleta de cores, tipografia e layout visual das páginas do site</td>
+                                    <td>20h</td>
+                                    <td>R$ 400,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Desenvolvimento Frontend</td>
+                                    <td>Construção do site com HTML, CSS, JavaScript e responsividade completa</td>
+                                    <td>30h</td>
+                                    <td>R$ 600,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Integração com CMS</td>
+                                    <td>Integração com CMS, criando páginas editáveis</td>
+                                    <td>20h</td>
+                                    <td>R$ 400,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Testes e Otimizações</td>
+                                    <td>Deploy e configuração em ambiente de produção</td>
+                                    <td>10h</td>
+                                    <td>R$ 200,00</td>
+                                </tr>
+                                <tr>
+                                    <td>Deploy</td>
+                                    <td>Deploy no servidor, configuração de domínio, e-mail, Google Analytics, etc.</td>
+                                    <td>10h</td>
+                                    <td>R$ 200,00</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td colspan="3" class="text-end fw-bold">Total do Investimento</td>
+                                    <td class="fw-bold">R$ 1.997,00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+ 
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="card payment-card">
+                        <div class="payment-header">
+                            <h4 class="mb-0">1ª Parcela</h4>
+                        </div>
+                        <div class="payment-body">
+                            <div class="payment-amount">30%</div>
+                            <div class="payment-label">Na aprovação da proposta</div>
+                            <p class="mb-1">Permite iniciar o planejamento e análise detalhada do projeto.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="card payment-card">
+                        <div class="payment-header">
+                            <h4 class="mb-0">2ª Parcela</h4>
+                        </div>
+                        <div class="payment-body">
+                            <div class="payment-amount">30%</div>
+                            <div class="payment-label">Na entrega da primeira fase</div>
+                            <p class="mb-1">Após a conclusão da fase de desenvolvimento inicial e primeira demonstração.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="card payment-card">
+                        <div class="payment-header">
+                            <h4 class="mb-0">3ª Parcela</h4>
+                        </div>
+                        <div class="payment-body">
+                            <div class="payment-amount">40%</div>
+                            <div class="payment-label">Na conclusão do projeto</div>
+                            <p class="mb-1">Após a entrega final, implantação e treinamento da equipe.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mb-5" id="garantias" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex align-items-center mb-4">
+                <div class="me-3">
+                    <div class="bg-gradient rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-shield-alt text-white"></i>
+                    </div>
+                </div>
+                <h2 class="fs-1 mb-0">Garantias e Suporte</h2>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-body p-4">
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <h3 class="mb-4">Nosso Compromisso com a Qualidade</h3>
+                            <p class="fs-5">Oferecemos garantias sólidas e suporte abrangente para assegurar que sua solução funcione perfeitamente e continue a agregar valor ao seu negócio.</p>
+                            
+                            <div class="row g-4 mt-3">
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="me-3">
+                                                    <div class="rounded-circle bg-gradient d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                        <i class="fas fa-calendar-check text-white"></i>
+                                                    </div>
+                                                </div>
+                                                <h5 class="mb-0">Garantia de 3 Meses</h5>
+                                            </div>
+                                            <p class="mb-0">Cobertura completa para correção de bugs e ajustes necessários após a entrega, sem custos adicionais.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="card h-100">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center mb-3">
+                                                <div class="me-3">
+                                                    <div class="rounded-circle bg-gradient d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                                        <i class="fas fa-headset text-white"></i>
+                                                    </div>
+                                                </div>
+                                                <h5 class="mb-0">Suporte Prioritário</h5>
+                                            </div>
+                                            <p class="mb-0">Atendimento prioritário durante todo o período de garantia, com tempo de resposta de até 4 horas úteis.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 mt-4 mt-lg-0">
+                            <div class="card h-100 bg-opacity-10" style="background-color: rgba(var(--primary-rgb), 0.05);">
+                                <div class="card-body">
+                                    <h4 class="mb-3">SLA de Suporte</h4>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Crítico</span>
+                                            <span>4h</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                            <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Alto</span>
+                                            <span>8h</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                            <div class="progress-bar bg-warning" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Médio</span>
+                                            <span>24h</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                            <div class="progress-bar bg-info" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Baixo</span>
+                                            <span>48h</span>
+                                        </div>
+                                        <div class="progress" style="height: 8px; background-color: var(--bg-primary);">
+                                            <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-3"><i class="fas fa-check-circle me-2 text-primary"></i>O que oferecemos</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent text-light border-bottom" style="border-color: var(--border-color) !important;">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Garantia de 3 meses após a entrega</h6>
+                                            <p class="mb-0 text-muted small">Correção de bugs e ajustes sem custo adicional</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item bg-transparent text-light border-bottom" style="border-color: var(--border-color) !important;">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Suporte técnico durante todo o desenvolvimento</h6>
+                                            <p class="mb-0 text-muted small">Acompanhamento contínuo e esclarecimento de dúvidas</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item bg-transparent text-light border-bottom" style="border-color: var(--border-color) !important;">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Documentação completa do sistema</h6>
+                                            <p class="mb-0 text-muted small">Manual técnico e de usuário detalhados</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item bg-transparent text-light">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Treinamento da equipe incluído</h6>
+                                            <p class="mb-0 text-muted small">Capacitação completa para utilização do sistema</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="card h-100">
+                        <div class="card-body p-4">
+                            <h4 class="mb-3"><i class="fas fa-plus-circle me-2 text-primary"></i>Benefícios adicionais</h4>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item bg-transparent text-light border-bottom" style="border-color: var(--border-color) !important;">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Reuniões semanais de acompanhamento</h6>
+                                            <p class="mb-0 text-muted small">Transparência total durante todo o processo</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item bg-transparent text-light border-bottom" style="border-color: var(--border-color) !important;">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Ambiente de homologação para testes</h6>
+                                            <p class="mb-0 text-muted small">Validação segura antes da implantação em produção</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item bg-transparent text-light border-bottom" style="border-color: var(--border-color) !important;">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Código-fonte comentado e organizado</h6>
+                                            <p class="mb-0 text-muted small">Facilitando futuras manutenções e evoluções</p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item bg-transparent text-light">
+                                    <div class="d-flex">
+                                        <div class="me-3">
+                                            <i class="fas fa-check text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h6 class="mb-1">Possibilidade de contrato de manutenção após garantia</h6>
+                                            <p class="mb-0 text-muted small">Continuidade do suporte e evolução do sistema</p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </section>
+
+       
+
+        <section class="mb-5" data-aos="fade-up" data-aos-duration="800">
+            <div class="d-flex align-items-center mb-4">
+                <div class="me-3">
+                    <div class="bg-gradient rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <i class="fas fa-question-circle text-white"></i>
+                    </div>
+                </div>
+                <h2 class="fs-1 mb-0">Perguntas Frequentes</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            Quanto tempo leva para desenvolver o sistema completo?
+                        </div>
+                        <div class="faq-answer">
+                            <p>O tempo total de desenvolvimento é estimado em 5 semanas, divididas em 4 fases principais: Planejamento (1 semanas), Desenvolvimento (2 semanas), Testes (1 semanas) e Implantação (1 semana). Este cronograma pode variar ligeiramente dependendo da complexidade específica do seu projeto e da velocidade de feedback durante as revisões.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            Como funciona o processo de desenvolvimento?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Utilizamos metodologia ágil com sprints de 1 semana. Cada sprint termina com uma demonstração do progresso e coleta de feedback. Isso permite ajustes contínuos e garante que o desenvolvimento esteja alinhado às suas expectativas. Realizamos reuniões semanais de acompanhamento para manter total transparência durante todo o processo.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            O que acontece após o término da garantia?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Após o período de garantia de 3 meses, oferecemos diferentes planos de suporte contínuo para manutenção e evolução do sistema. Estes planos são opcionais e podem ser contratados de acordo com suas necessidades específicas. Mesmo sem um plano de suporte, você terá total propriedade do código-fonte e poderá gerenciar o sistema com sua equipe interna ou outro fornecedor.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            É possível adicionar novas funcionalidades no futuro?
+                        </div>
+                        <div class="faq-answer">
+                            <p>Sim, o sistema é desenvolvido com arquitetura modular e escalável, permitindo a adição de novas funcionalidades no futuro. Podemos desenvolver estas novas funcionalidades como parte de um contrato de manutenção ou como projetos específicos. A documentação técnica detalhada e o código bem estruturado facilitam a evolução contínua do sistema.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question" onclick="toggleFaq(this)">
+                            Como é feito o treinamento da equipe?
+                        </div>
+                        <div class="faq-answer">
+                            <p>O treinamento é realizado durante a fase de implantação e inclui sessões práticas com sua equipe. Fornecemos documentação detalhada e manuais de usuário. Além disso, disponibilizamos vídeos tutoriais para consulta futura. O treinamento é personalizado de acordo com os diferentes perfis de usuários do sistema, garantindo que todos possam utilizar as funcionalidades relevantes para suas atividades.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+    </div>
+
+    <section class="cta-section" id="contato">
+        <div class="container text-center" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="display-5 mb-4 text-white">Vamos Transformar sua Ideia em Realidade</h2>
+            <p class="lead mb-5">Estou à disposição para esclarecer qualquer dúvida e iniciar este projeto que transformará seu negócio.</p>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
+                    <div class="contact-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-envelope contact-icon"></i>
+                            <h4 class="card-title text-white">E-mail</h4>
+                            <p class="card-text"><a href="mailto:contato@exemplo.com" class="text-white text-decoration-none">pedro.arian.viena@gmail.com</a></p>
+                            <div class="mt-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
+                    <div class="contact-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-phone contact-icon"></i>
+                            <h4 class="card-title text-white">Telefone</h4>
+                            <p class="card-text text-white">+55 (11) 9 1114-0374</p>
+                            <div class="mt-4">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
+                    <div class="contact-card h-100">
+                        <div class="card-body text-center p-4">
+                            <i class="fas fa-calendar-alt contact-icon"></i>
+                            <h4 class="card-title text-white">Agendar Reunião</h4>
+                            <p class="card-text text-white">Escolha o melhor horário para conversarmos</p>
+                            <div class="mt-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3 class="footer-heading">Pedro Viena</h3>
+                    <p class="mb-1">Desenvolvimento de sistemas personalizados para transformar seu negócio e impulsionar seus resultados.</p>
+                    <div class="footer-social">
+                        <a href="https://www.linkedin.com/in/pedro-arian-viena/" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://github.com/pedroviena" class="social-icon"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Links Rápidos</h5>
+                    <a href="#solucao" class="footer-link">Solução</a>
+                    <a href="#cronograma" class="footer-link">Cronograma</a>
+                    <a href="#investimento" class="footer-link">Investimento</a>
+                    <a href="#garantias" class="footer-link">Garantias</a>
+                    <a href="#contato" class="footer-link">Contato</a>
+                </div>
+                <div class="col-lg-3 col-md-4 mb-4 mb-md-0">
+                    <h5 class="footer-heading">Serviços</h5>
+                    <a href="#" class="footer-link">Desenvolvimento de Sistemas</a>
+                    <a href="#" class="footer-link">Consultoria em TI</a>
+                    <a href="#" class="footer-link">Integração de APIs</a>
+                    <a href="#" class="footer-link">Migração de Dados</a>
+                    <a href="#" class="footer-link">Suporte Técnico</a>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="footer-heading">Contato</h5>
+                    <p class="mb-1"><i class="fas fa-envelope me-2"></i> pedro.arian.viena@gmail</p>
+                    <p class="mb-1"><i class="fas fa-phone me-2"></i> +55 (11) 9 1114-0374</p>
+                    <p class="mb-1"><i class="fas fa-map-marker-alt me-2"></i> Aracaju - SE - Brasil</p>
+                    <a href="https://wa.me/5511911140374" class="btn btn-outline-primary mt-3">
+                        <i class="fas fa-paper-plane me-2"></i>
+                        Enviar Mensagem
+                    </a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p class="mb-0">© 2025 Pedro Viena. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        // Initialize AOS animation library
+        AOS.init({
+            once: true,
+            duration: 800,
+            easing: 'ease-in-out'
+        });
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Toggle FAQ answers
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+            const answer = element.nextElementSibling;
+            answer.classList.toggle('active');
+        }
+        
+        // Create particles for background effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Random position
+                const posX = Math.random() * 100;
+                const posY = Math.random() * 100;
+                
+                // Random size
+                const size = Math.random() * 3 + 1;
+                
+                // Random opacity
+                const opacity = Math.random() * 0.5 + 0.1;
+                
+                // Apply styles
+                particle.style.left = `${posX}%`;
+                particle.style.top = `${posY}%`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.opacity = opacity;
+                
+                // Add to container
+                particlesContainer.appendChild(particle);
+            }
+        });
+        
+        // ROI Chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const roiCtx = document.getElementById('roiChart').getContext('2d');
+            const roiChart = new Chart(roiCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+                    datasets: [{
+                        label: 'ROI (%)',
+                        data: [0, 5, 25, 30, 35, 45, 55, 65, 75, 85, 90, 95],
+                        borderColor: '#3b82f6',
+                        backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#94a3b8'
+                            }
+                        },
+                        x: {
+                            grid: {
+                                color: 'rgba(255, 255, 255, 0.1)'
+                            },
+                            ticks: {
+                                color: '#94a3b8'
+                            }
+                        }
+                    }
+                }
+            });
+            
+            // Savings Chart
+            const savingsCtx = document.getElementById('savingsChart').getContext('2d');
+            const savingsChart = new Chart(savingsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Tempo', 'Recursos', 'Erros', 'Oportunidades'],
+                    datasets: [{
+                        data: [40, 25, 20, 15],
+                        backgroundColor: [
+                            '#3b82f6',
+                            '#10b981',
+                            '#f59e0b',
+                            '#8b5cf6'
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#94a3b8',
+                                padding: 15,
+                                usePointStyle: true,
+                                pointStyle: 'circle'
+                            }
+                        },
+                        tooltip: {
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            titleColor: '#fff',
+                            bodyColor: '#fff',
+                            padding: 12,
+                            displayColors: false,
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.label}: ${context.parsed}%`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+        
+        // Add smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                    const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
