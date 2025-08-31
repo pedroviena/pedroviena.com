@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio de Projetos - IA e Automação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --dark-bg: #0a0a0a;
+            --card-bg: rgba(26, 26, 26, 0.5);
+            --border-color: rgba(51, 51, 51, 0.6);
+            --primary-yellow: #FFD60A;
+            --primary-blue: #33bbff;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            overflow-x: hidden;
+        }
+
+        .animated-gradient-bg {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: linear-gradient(-45deg, #0a0a0a, #0d1a26, #1a0f1f, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradientBG 25s ease infinite;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-blue) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .card-project {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .card-project:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-yellow);
+            box-shadow: 0 0 40px rgba(255, 214, 10, 0.15);
+        }
+        
+        .skill-tag {
+             transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(51, 187, 255, 0.3);
+        }
+
+        .flow-item::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 28px;
+            height: calc(100% - 20px);
+            width: 2px;
+            background: linear-gradient(to bottom, var(--primary-blue), var(--primary-yellow));
+            z-index: 0;
+        }
+        .flow-item:last-child::before {
+            display: none;
+        }
+
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Estilos da Jornada Interativa */
+        .journey-line-progress {
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .journey-line-container.visible .journey-line-progress {
+            transform: scaleX(1);
+        }
+
+        .journey-step {
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .journey-step:hover {
+            transform: translateY(-12px);
+        }
+        .journey-step .journey-icon-wrapper {
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .journey-step:hover .journey-icon-wrapper {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 214, 10, 0.2), 0 0 20px rgba(51, 187, 255, 0.15);
+        }
+        .journey-step:hover i {
+            animation: icon-float 1.5s ease-in-out infinite;
+        }
+
+        @keyframes icon-float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* Animação Botão Flutuante */
+        @keyframes fab-pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(34, 197, 94, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+            }
+        }
+        .animate-fab-pulse {
+            animation: fab-pulse 2s infinite;
+        }
+
+        /* Animação da Borda da Foto de Perfil */
+        .profile-pic-wrapper {
+            position: relative;
+            width: 144px; /* w-36 */
+            height: 144px; /* h-36 */
+            padding: 3px;
+            border-radius: 50%;
+        }
+        .profile-pic-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background: conic-gradient(from 180deg at 50% 50%, var(--primary-blue) 0deg, var(--primary-yellow) 180deg, var(--primary-blue) 360deg);
+            animation: spin-border 3s linear infinite;
+        }
+        @keyframes spin-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Indicador de Status "Disponível" */
+        .status-badge {
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(10, 10, 10, 0.85);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 9999px;
+            padding: 4px 10px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #cbd5e1; /* slate-300 */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #22c55e; /* green-500 */
+            border-radius: 50%;
+            margin-right: 6px;
+            position: relative;
+        }
+        .status-dot::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: #22c55e; /* green-500 */
+            border-radius: 50%;
+            animation: pulse-dot 2s infinite;
+        }
+        @keyframes pulse-dot {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+        
+        /* Canvas Interativo */
+        #interactive-header-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body class="text-slate-300 antialiased">
+    <div class="animated-gradient-bg"></div>
+
+    <!-- Container Principal -->
+    <div class="container mx-auto p-4 sm:p-8 relative z-10">
+
+        <!-- Cabeçalho -->
+        <header class="text-center mb-12 fade-in-up relative py-16 overflow-hidden rounded-2xl">
+            <canvas id="interactive-header-canvas"></canvas>
+            <div class="header-content">
+                <h1 class="text-4xl sm:text-5xl font-bold text-white mb-2">
+                    Portfólio de Projetos
+                </h1>
+                <h2 class="text-xl sm:text-2xl font-semibold gradient-text">
+                    Inteligência Artificial e Automação
+                </h2>
+                <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+                    Soluções inovadoras para otimizar processos, gerar insights e impulsionar resultados de negócios.
+                </p>
+                <a href="mailto:seuemail@example.com?subject=Solicitação de Projeto" class="mt-8 inline-block bg-gradient-to-r from-yellow-400 to-blue-500 text-black font-bold py-3 px-8 rounded-lg hover:from-yellow-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-yellow-500/30 transform hover:scale-105">
+                    Solicitar Projeto
+                </a>
+            </div>
+        </header>
+
+        <!-- Sobre Mim e Habilidades -->
+        <section class="mb-16 fade-in-up" style="transition-delay: 100ms;">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                <!-- Sobre Mim -->
+                <div class="md:col-span-2 card-project p-8 rounded-2xl">
+                    <div class="flex flex-col sm:flex-row items-center text-center sm:text-left gap-8">
+                        <div class="flex-shrink-0">
+                            <div class="profile-pic-wrapper">
+                                <div class="relative w-full h-full rounded-full bg-slate-800 p-1">
+                                    <img src="img/foto.jpg" alt="Foto de Perfil" class="rounded-full w-full h-full object-cover">
+                                </div>
+                                <div class="status-badge">
+                                    <div class="status-dot"></div>
+                                    <span>Disponível</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-white mb-3">Sobre Mim</h3>
+                            <div class="text-slate-400 space-y-3">
+                                <p>
+                                    Especialista em automação e inteligência artificial apaixonado por transformar desafios complexos em soluções eficientes e inteligentes.
+                                </p>
+                                <p>
+                                    Com experiência em criar chatbots, agentes de IA e dashboards, meu foco é utilizar a tecnologia para gerar impacto real nos negócios.
+                                </p>
+                            </div>
+                            <!-- Ícones Sociais -->
+                             <div class="mt-6 flex justify-center sm:justify-start space-x-5">
+                                <a href="#" target="_blank" class="text-slate-400 hover:text-yellow-400 transition-colors duration-300" aria-label="LinkedIn"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
+                                <a href="#" target="_blank" class="text-slate-400 hover:text-yellow-400 transition-colors duration-300" aria-label="GitHub"><i data-lucide="github" class="w-6 h-6"></i></a>
+                                <a href="#" target="_blank" class="text-slate-400 hover:text-yellow-400 transition-colors duration-300" aria-label="Instagram"><i data-lucide="instagram" class="w-6 h-6"></i></a>
+                                <a href="#" target="_blank" class="text-slate-400 hover:text-yellow-400 transition-colors duration-300" aria-label="WhatsApp"><i data-lucide="message-circle" class="w-6 h-6"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Habilidades -->
+                <div class="card-project p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-white mb-4">Habilidades</h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag bg-yellow-500/20 text-yellow-300 text-sm font-semibold px-3 py-1.5 rounded-full">Python</span>
+                        <span class="skill-tag bg-blue-500/20 text-blue-300 text-sm font-semibold px-3 py-1.5 rounded-full">LangChain</span>
+                        <span class="skill-tag bg-sky-500/20 text-sky-300 text-sm font-semibold px-3 py-1.5 rounded-full">OpenAI API</span>
+                        <span class="skill-tag bg-emerald-500/20 text-emerald-300 text-sm font-semibold px-3 py-1.5 rounded-full">CrewAI</span>
+                        <span class="skill-tag bg-rose-500/20 text-rose-300 text-sm font-semibold px-3 py-1.5 rounded-full">n8n</span>
+                        <span class="skill-tag bg-amber-500/20 text-amber-300 text-sm font-semibold px-3 py-1.5 rounded-full">PostgreSQL</span>
+                        <span class="skill-tag bg-slate-500/20 text-slate-300 text-sm font-semibold px-3 py-1.5 rounded-full">APIs Rest</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grade de Projetos -->
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Projeto 1: Chatbot Corporativo com RAG -->
+            <div class="card-project p-6 rounded-2xl flex flex-col fade-in-up" style="transition-delay: 200ms;">
+                <h3 class="text-xl font-bold text-white mb-4">1. Chatbot Corporativo com RAG</h3>
+                
+                <div class="mb-5 bg-black/30 rounded-lg overflow-hidden aspect-video border border-slate-700">
+                    <img src="https://placehold.co/400x250/0a0a0a/94a3b8?text=Fluxo+do+Projeto" alt="Diagrama do fluxo do Chatbot Corporativo" class="w-full h-full object-cover">
+                </div>
+                
+                <div class="mb-5">
+                    <div class="flex items-center gap-3 text-blue-400 mb-2"><i data-lucide="target"></i><h4 class="font-semibold">Problema</h4></div>
+                    <p class="text-slate-400 text-sm">Colaboradores não conseguiam achar informações em documentos internos de forma rápida e eficiente.</p>
+                </div>
+
+                <div class="mb-5">
+                    <div class="flex items-center gap-3 text-blue-400 mb-3"><i data-lucide="git-branch-plus"></i><h4 class="font-semibold">Fluxo de Automação</h4></div>
+                    <div class="space-y-3 text-sm">
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div><p>Upload de PDFs/Notion/G-Drive via <strong>n8n</strong>.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div><p>Quebra do texto em chunks e envio para DB vetorial.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div><p>Usuário envia pergunta no chat (Telegram/Slack).</p></div>
+                        <div class="relative pl-8"><div class="absolute left-0 top-1 w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-white text-xs font-bold">4</div><p><strong>LangChain + OpenAI (RAG)</strong> busca e retorna a resposta.</p></div>
+                    </div>
+                </div>
+                
+                <div class="mt-auto pt-5">
+                    <div class="flex items-center gap-3 text-green-400 mb-2"><i data-lucide="trending-up"></i><h4 class="font-semibold">Impacto</h4></div>
+                    <p class="text-slate-400 text-sm">Respostas confiáveis, sem “alucinação”, e suporte interno disponível 24/7.</p>
+                </div>
+            </div>
+
+            <!-- Projeto 2: Agente Multiagente de Pesquisa -->
+            <div class="card-project p-6 rounded-2xl flex flex-col fade-in-up" style="transition-delay: 300ms;">
+                <h3 class="text-xl font-bold text-white mb-4">2. Agente Multiagente de Pesquisa</h3>
+                <div class="mb-5 bg-black/30 rounded-lg overflow-hidden aspect-video border border-slate-700">
+                    <img src="https://placehold.co/400x250/0a0a0a/94a3b8?text=Fluxo+do+Projeto" alt="Diagrama do fluxo do Agente Multiagente" class="w-full h-full object-cover">
+                </div>
+                <div class="mb-5"><div class="flex items-center gap-3 text-purple-400 mb-2"><i data-lucide="target"></i><h4 class="font-semibold">Problema</h4></div><p class="text-slate-400 text-sm">Empresas precisavam de relatórios de mercado atualizados, um processo manual e demorado.</p></div>
+                <div class="mb-5">
+                    <div class="flex items-center gap-3 text-purple-400 mb-3"><i data-lucide="git-branch-plus"></i><h4 class="font-semibold">Fluxo</h4></div>
+                    <div class="space-y-3 text-sm">
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div><p>Automação disparada via Slack/Telegram.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div><p><strong>CrewAI</strong> ativa agentes para pesquisar, analisar e redigir.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div><p>Relatório em PDF é gerado e salvo no Google Drive.</p></div>
+                        <div class="relative pl-8"><div class="absolute left-0 top-1 w-6 h-6 bg-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold">4</div><p>Notificação no Slack com o link do relatório.</p></div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-5"><div class="flex items-center gap-3 text-green-400 mb-2"><i data-lucide="trending-up"></i><h4 class="font-semibold">Impacto</h4></div><p class="text-slate-400 text-sm">Relatórios de mercado automáticos em minutos, reduzindo o trabalho de analistas.</p></div>
+            </div>
+            
+            <!-- Projeto 3: CRM Automatizado com IA -->
+             <div class="card-project p-6 rounded-2xl flex flex-col fade-in-up" style="transition-delay: 400ms;">
+                <h3 class="text-xl font-bold text-white mb-4">3. CRM Automatizado com IA</h3>
+                <div class="mb-5 bg-black/30 rounded-lg overflow-hidden aspect-video border border-slate-700">
+                    <img src="https://placehold.co/400x250/0a0a0a/94a3b8?text=Fluxo+do+Projeto" alt="Diagrama do fluxo do CRM" class="w-full h-full object-cover">
+                </div>
+                <div class="mb-5"><div class="flex items-center gap-3 text-sky-400 mb-2"><i data-lucide="target"></i><h4 class="font-semibold">Problema</h4></div><p class="text-slate-400 text-sm">Cadastro manual de leads era lento, atrasando a qualificação e o contato comercial.</p></div>
+                <div class="mb-5">
+                    <div class="flex items-center gap-3 text-sky-400 mb-3"><i data-lucide="git-branch-plus"></i><h4 class="font-semibold">Fluxo</h4></div>
+                    <div class="space-y-3 text-sm">
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div><p>Lead entra via formulário/WhatsApp e é enviado ao <strong>n8n</strong>.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div><p><strong>LLM</strong> avalia e classifica o lead (quente, morno, frio).</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div><p>Cadastro automático no CRM e backup em <strong>PostgreSQL</strong>.</p></div>
+                        <div class="relative pl-8"><div class="absolute left-0 top-1 w-6 h-6 bg-sky-600 rounded-full flex items-center justify-center text-white text-xs font-bold">4</div><p>Equipe é notificada no Slack sobre novos leads quentes.</p></div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-5"><div class="flex items-center gap-3 text-green-400 mb-2"><i data-lucide="trending-up"></i><h4 class="font-semibold">Impacto</h4></div><p class="text-slate-400 text-sm">Redução de 80% no tempo gasto em triagem e qualificação de leads.</p></div>
+            </div>
+            
+            <!-- Projeto 4: Dashboard Financeiro Inteligente -->
+             <div class="card-project p-6 rounded-2xl flex flex-col fade-in-up" style="transition-delay: 200ms;">
+                <h3 class="text-xl font-bold text-white mb-4">4. Dashboard Financeiro Inteligente</h3>
+                <div class="mb-5 bg-black/30 rounded-lg overflow-hidden aspect-video border border-slate-700">
+                    <img src="https://placehold.co/400x250/0a0a0a/94a3b8?text=Fluxo+do+Projeto" alt="Diagrama do fluxo do Dashboard" class="w-full h-full object-cover">
+                </div>
+                <div class="mb-5"><div class="flex items-center gap-3 text-emerald-400 mb-2"><i data-lucide="target"></i><h4 class="font-semibold">Problema</h4></div><p class="text-slate-400 text-sm">Empresários sem visão consolidada dos pagamentos de múltiplas fontes.</p></div>
+                <div class="mb-5">
+                    <div class="flex items-center gap-3 text-emerald-400 mb-3"><i data-lucide="git-branch-plus"></i><h4 class="font-semibold">Fluxo</h4></div>
+                    <div class="space-y-3 text-sm">
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div><p>Coleta dados de Stripe, PayPal e MercadoPago via API.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div><p>Dados são armazenados e unificados no <strong>PostgreSQL</strong>.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div><p><strong>LLM</strong> gera insights sobre o crescimento das vendas.</p></div>
+                        <div class="relative pl-8"><div class="absolute left-0 top-1 w-6 h-6 bg-emerald-600 rounded-full flex items-center justify-center text-white text-xs font-bold">4</div><p>Gráfico e relatório em PDF são enviados via e-mail/Slack.</p></div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-5"><div class="flex items-center gap-3 text-green-400 mb-2"><i data-lucide="trending-up"></i><h4 class="font-semibold">Impacto</h4></div><p class="text-slate-400 text-sm">Decisões financeiras baseadas em dados, sem a necessidade de uma cara solução de BI.</p></div>
+            </div>
+            
+            <!-- Projeto 5: Chatbot Multicanal com MCP -->
+             <div class="card-project p-6 rounded-2xl flex flex-col fade-in-up" style="transition-delay: 300ms;">
+                <h3 class="text-xl font-bold text-white mb-4">5. Chatbot Multicanal com MCP</h3>
+                <div class="mb-5 bg-black/30 rounded-lg overflow-hidden aspect-video border border-slate-700">
+                    <img src="https://placehold.co/400x250/0a0a0a/94a3b8?text=Fluxo+do+Projeto" alt="Diagrama do fluxo do Chatbot" class="w-full h-full object-cover">
+                </div>
+                <div class="mb-5"><div class="flex items-center gap-3 text-rose-400 mb-2"><i data-lucide="target"></i><h4 class="font-semibold">Problema</h4></div><p class="text-slate-400 text-sm">Clientes buscavam suporte em múltiplos canais, exigindo uma solução unificada.</p></div>
+                <div class="mb-5">
+                    <div class="flex items-center gap-3 text-rose-400 mb-3"><i data-lucide="git-branch-plus"></i><h4 class="font-semibold">Fluxo</h4></div>
+                    <div class="space-y-3 text-sm">
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div><p>Usuário envia pergunta via WhatsApp/Telegram.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div><p><strong>n8n</strong> recebe a mensagem e o <strong>MCP</strong> busca dados em APIs.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div><p><strong>LLM</strong> processa a informação e responde de forma natural.</p></div>
+                        <div class="relative pl-8"><div class="absolute left-0 top-1 w-6 h-6 bg-rose-600 rounded-full flex items-center justify-center text-white text-xs font-bold">4</div><p>A resposta é enviada de volta pelo mesmo canal.</p></div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-5"><div class="flex items-center gap-3 text-green-400 mb-2"><i data-lucide="trending-up"></i><h4 class="font-semibold">Impacto</h4></div><p class="text-slate-400 text-sm">Atendimento ao cliente unificado e disponível 24/7 em múltiplos canais.</p></div>
+            </div>
+
+            <!-- Projeto 6: Scraper Inteligente de Concorrentes -->
+             <div class="card-project p-6 rounded-2xl flex flex-col fade-in-up" style="transition-delay: 400ms;">
+                <h3 class="text-xl font-bold text-white mb-4">6. Scraper Inteligente de Concorrentes</h3>
+                <div class="mb-5 bg-black/30 rounded-lg overflow-hidden aspect-video border border-slate-700">
+                    <img src="https://placehold.co/400x250/0a0a0a/94a3b8?text=Fluxo+do+Projeto" alt="Diagrama do fluxo do Scraper" class="w-full h-full object-cover">
+                </div>
+                <div class="mb-5"><div class="flex items-center gap-3 text-amber-400 mb-2"><i data-lucide="target"></i><h4 class="font-semibold">Problema</h4></div><p class="text-slate-400 text-sm">Monitoramento manual de concorrentes era ineficiente e esporádico.</p></div>
+                <div class="mb-5">
+                    <div class="flex items-center gap-3 text-amber-400 mb-3"><i data-lucide="git-branch-plus"></i><h4 class="font-semibold">Fluxo</h4></div>
+                    <div class="space-y-3 text-sm">
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center text-white text-xs font-bold">1</div><p><strong>n8n</strong> faz scraping de preços e promoções de concorrentes.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center text-white text-xs font-bold">2</div><p>Histórico de dados é salvo em <strong>PostgreSQL</strong>.</p></div>
+                        <div class="relative pl-8 flow-item"><div class="absolute left-0 top-1 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center text-white text-xs font-bold">3</div><p><strong>LLM</strong> gera insights sobre mudanças de preços.</p></div>
+                        <div class="relative pl-8"><div class="absolute left-0 top-1 w-6 h-6 bg-amber-600 rounded-full flex items-center justify-center text-white text-xs font-bold">4</div><p>Relatório comparativo é enviado para a equipe no Slack.</p></div>
+                    </div>
+                </div>
+                <div class="mt-auto pt-5"><div class="flex items-center gap-3 text-green-400 mb-2"><i data-lucide="trending-up"></i><h4 class="font-semibold">Impacto</h4></div><p class="text-slate-400 text-sm">Monitoramento automatizado, garantindo vantagem competitiva em tempo real.</p></div>
+            </div>
+            
+        </main>
+
+        <!-- Seção Processo de Trabalho -->
+        <section id="journey-section" class="my-24">
+            <div class="text-center mb-12 fade-in-up">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white mb-3">
+                    A Jornada Criativa do Projeto
+                </h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Do conceito à realidade, cada passo é uma colaboração para garantir o sucesso e a inovação.
+                </p>
+            </div>
+        
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-x-8 gap-y-12 relative">
+                <!-- Connecting Line for Desktop -->
+                <div class="journey-line-container hidden md:block absolute top-10 left-0 w-full h-0.5 z-0">
+                    <div class="absolute inset-0 bg-slate-700"></div>
+                    <div class="journey-line-progress absolute inset-0 bg-gradient-to-r from-yellow-400 to-blue-500"></div>
+                </div>
+                
+                <!-- Step 1 -->
+                <div class="journey-step text-center relative z-10 fade-in-up" style="transition-delay: 200ms;">
+                    <div class="relative inline-block px-2 bg-transparent">
+                        <div class="journey-icon-wrapper w-20 h-20 mx-auto bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 border-2 border-yellow-400 shadow-lg shadow-yellow-500/10">
+                            <i data-lucide="search-code" class="w-10 h-10 text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2 mt-2">1. Imersão e Descoberta</h3>
+                    <p class="text-slate-400 text-sm">Mergulhamos no seu desafio para entender profundamente suas metas e necessidades.</p>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="journey-step text-center relative z-10 fade-in-up" style="transition-delay: 400ms;">
+                     <div class="relative inline-block px-2 bg-transparent">
+                        <div class="journey-icon-wrapper w-20 h-20 mx-auto bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 border-2 border-blue-400 shadow-lg shadow-blue-500/10">
+                            <i data-lucide="drafting-compass" class="w-10 h-10 text-blue-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2 mt-2">2. Estratégia Criativa</h3>
+                    <p class="text-slate-400 text-sm">Desenhamos a solução ideal, definindo a arquitetura e as tecnologias certas para o projeto.</p>
+                </div>
+        
+                <!-- Step 3 -->
+                <div class="journey-step text-center relative z-10 fade-in-up" style="transition-delay: 600ms;">
+                     <div class="relative inline-block px-2 bg-transparent">
+                        <div class="journey-icon-wrapper w-20 h-20 mx-auto bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 border-2 border-yellow-400 shadow-lg shadow-yellow-500/10">
+                            <i data-lucide="terminal-square" class="w-10 h-10 text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2 mt-2">3. Desenvolvimento Ágil</h3>
+                    <p class="text-slate-400 text-sm">Construímos a solução com código limpo e eficiente, mantendo você atualizado sobre o progresso.</p>
+                </div>
+        
+                <!-- Step 4 -->
+                <div class="journey-step text-center relative z-10 fade-in-up" style="transition-delay: 800ms;">
+                    <div class="relative inline-block px-2 bg-transparent">
+                        <div class="journey-icon-wrapper w-20 h-20 mx-auto bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 border-2 border-blue-400 shadow-lg shadow-blue-500/10">
+                            <i data-lucide="rocket" class="w-10 h-10 text-blue-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2 mt-2">4. Lançamento e Entrega</h3>
+                    <p class="text-slate-400 text-sm">Implementamos a solução em seu ambiente, garantindo uma transição suave e sem interrupções.</p>
+                </div>
+                
+                <!-- Step 5 -->
+                <div class="journey-step text-center relative z-10 fade-in-up" style="transition-delay: 1000ms;">
+                    <div class="relative inline-block px-2 bg-transparent">
+                        <div class="journey-icon-wrapper w-20 h-20 mx-auto bg-slate-800/80 backdrop-blur-sm rounded-full flex items-center justify-center mb-4 border-2 border-yellow-400 shadow-lg shadow-yellow-500/10">
+                            <i data-lucide="sparkles" class="w-10 h-10 text-yellow-400"></i>
+                        </div>
+                    </div>
+                    <h3 class="font-bold text-white text-lg mb-2 mt-2">5. Evolução Contínua</h3>
+                    <p class="text-slate-400 text-sm">Acompanhamos os resultados, oferecendo suporte e otimizações para o crescimento contínuo.</p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Seção CTA -->
+        <section class="mt-16 fade-in-up" style="transition-delay: 600ms;">
+            <div class="card-project rounded-2xl p-8 sm:p-12 text-center">
+                <h3 class="text-3xl sm:text-4xl font-bold text-white mb-4">Vamos Criar Algo Incrível Juntos?</h3>
+                <p class="text-slate-400 max-w-xl mx-auto mb-8">
+                    Se você tem uma ideia ou um desafio, vamos conversar. Estou pronto para transformar seus projetos em realidade com soluções de automação e IA.
+                </p>
+                <a href="mailto:seuemail@example.com?subject=Solicitação de Projeto" class="inline-block bg-gradient-to-r from-yellow-400 to-blue-500 text-black font-bold py-3 px-8 rounded-lg hover:from-yellow-300 hover:to-blue-400 transition-all duration-300 shadow-lg hover:shadow-yellow-500/30 transform hover:scale-105">
+                    Entre em Contato
+                </a>
+            </div>
+        </section>
+
+        <footer class="text-center mt-16 text-slate-500 text-sm fade-in-up" style="transition-delay: 700ms;">
+            <p>&copy; 2024 - Design e conteúdo adaptados para exibição de portfólio.</p>
+        </footer>
+
+    </div>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/SEUNUMERODEWHATSAPP?text=Olá! Vi seu portfólio e gostaria de solicitar um projeto." 
+       target="_blank" 
+       aria-label="Entrar em contato pelo WhatsApp"
+       class="fixed bottom-8 right-8 z-50 bg-green-500 w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-transform duration-300 ease-out hover:scale-110 animate-fab-pulse">
+        <i data-lucide="message-circle" class="w-8 h-8 text-white"></i>
+    </a>
+
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener("DOMContentLoaded", () => {
+            // --- Animação do Header ---
+            const canvas = document.getElementById('interactive-header-canvas');
+            const ctx = canvas.getContext('2d');
+            let particlesArray;
+
+            function setupCanvas() {
+                canvas.width = canvas.offsetWidth;
+                canvas.height = canvas.offsetHeight;
+            }
+            setupCanvas();
+            
+            const mouse = {
+                x: null,
+                y: null,
+                radius: (canvas.height / 120) * (canvas.width / 120)
+            };
+
+            window.addEventListener('mousemove', function(event) {
+                const rect = canvas.getBoundingClientRect();
+                mouse.x = event.clientX - rect.left;
+                mouse.y = event.clientY - rect.top;
+            });
+
+            window.addEventListener('mouseout', function(){
+                mouse.x = undefined;
+                mouse.y = undefined;
+            });
+            
+            window.addEventListener('resize', function(){
+                setupCanvas();
+                init();
+            });
+
+            class Particle {
+                constructor(x, y, directionX, directionY, size, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.directionX = directionX;
+                    this.directionY = directionY;
+                    this.size = size;
+                    this.color = color;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+                    ctx.fillStyle = this.color;
+                    ctx.fill();
+                }
+                update() {
+                    if (this.x > canvas.width || this.x < 0) {
+                        this.directionX = -this.directionX;
+                    }
+                    if (this.y > canvas.height || this.y < 0) {
+                        this.directionY = -this.directionY;
+                    }
+                    
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius + this.size) {
+                        if (mouse.x < this.x && this.x < canvas.width - this.size * 10) {
+                            this.x += 5;
+                        }
+                        if (mouse.x > this.x && this.x > this.size * 10) {
+                            this.x -= 5;
+                        }
+                        if (mouse.y < this.y && this.y < canvas.height - this.size * 10) {
+                            this.y += 5;
+                        }
+                        if (mouse.y > this.y && this.y > this.size * 10) {
+                            this.y -= 5;
+                        }
+                    }
+                    this.x += this.directionX;
+                    this.y += this.directionY;
+                    this.draw();
+                }
+            }
+            
+            function init() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.height * canvas.width) / 12000;
+                for (let i = 0; i < numberOfParticles; i++) {
+                    let size = (Math.random() * 2) + 1;
+                    let x = (Math.random() * ((innerWidth - size * 2) - (size * 2)) + size * 2);
+                    let y = (Math.random() * ((innerHeight - size * 2) - (size * 2)) + size * 2);
+                    let directionX = (Math.random() * 0.4) - 0.2;
+                    let directionY = (Math.random() * 0.4) - 0.2;
+                    let color = Math.random() > 0.5 ? '#FFD60A' : '#33bbff';
+                    particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
+                }
+            }
+
+            function connect() {
+                let opacityValue = 1;
+                for (let a = 0; a < particlesArray.length; a++) {
+                    for (let b = a; b < particlesArray.length; b++) {
+                        let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x)) +
+                            ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
+                        if (distance < (canvas.width / 7) * (canvas.height / 7)) {
+                            opacityValue = 1 - (distance / 20000);
+                            let dx = mouse.x - particlesArray[a].x;
+                            let dy = mouse.y - particlesArray[a].y;
+                            let mouseDistance = Math.sqrt(dx*dx+dy*dy);
+                            if (mouseDistance < mouse.radius){
+                                ctx.strokeStyle = `rgba(255, 214, 10, ${opacityValue})`;
+                            } else {
+                                ctx.strokeStyle = `rgba(51, 187, 255, ${opacityValue * 0.3})`;
+                            }
+                            ctx.lineWidth = 1;
+                            ctx.beginPath();
+                            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            function animate() {
+                requestAnimationFrame(animate);
+                ctx.clearRect(0, 0, innerWidth, innerHeight);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                }
+                connect();
+            }
+
+            init();
+            animate();
+            
+            // Observer para animações de fade-in gerais
+            const generalObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            document.querySelectorAll('.fade-in-up').forEach(el => {
+                generalObserver.observe(el);
+            });
+
+            // Observer específico para a animação da linha da jornada
+            const journeySection = document.getElementById('journey-section');
+            if (journeySection) {
+                const journeyObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const lineContainer = entry.target.querySelector('.journey-line-container');
+                            if (lineContainer) {
+                                lineContainer.classList.add('visible');
+                            }
+                            journeyObserver.unobserve(entry.target); // Animar apenas uma vez
+                        }
+                    });
+                }, {
+                    threshold: 0.5 // Acionar quando 50% da seção estiver visível
+                });
+                journeyObserver.observe(journeySection);
+            }
+        });
+    </script>
+</body>
+</html>
+

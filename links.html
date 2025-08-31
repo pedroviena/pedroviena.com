@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Viena - Links</title>
+    
+    <!-- Bootstrap CSS & Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Variáveis CSS */
+        :root {
+            --dark-bg: #0a0a0a;
+            --darker-bg: #050505;
+            --primary-yellow: #FFD60A;
+            --primary-blue: #33bbff;
+            --primary-green: #33ff99; /* Cor para o botão n8n */
+            --primary-purple: #9b59b6; /* Cor para o novo botão do blog */
+            --light-text: #ffffff;
+            --secondary-text: #a0a0a0;
+            --card-bg: #1a1a1a;
+            --card-hover: #252525;
+            --border-color: #333333;
+            --gradient-primary: linear-gradient(135deg, #FFD60A 0%, #33bbff 100%);
+            --gradient-secondary: linear-gradient(135deg, #33bbff 0%, #FFD60A 100%);
+            --shadow-glow: 0 0 30px rgba(255, 214, 10, 0.15);
+        }
+
+        /* Reset e Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: var(--dark-bg);
+            color: var(--light-text);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background: 
+                radial-gradient(ellipse at 20% 70%, rgba(255, 214, 10, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 30%, rgba(51, 187, 255, 0.05) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(10, 10, 10, 0.9) 0%, rgba(5, 5, 5, 1) 100%);
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--darker-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 50px;
+            height: 50px;
+            position: relative;
+        }
+
+        .loader::before,
+        .loader::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .loader::before {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-primary);
+            animation-delay: 0s;
+        }
+
+        .loader::after {
+            width: 30px;
+            height: 30px;
+            background: var(--gradient-secondary);
+            top: 10px;
+            left: 10px;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(0.8); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
+
+        /* Scroll Progress */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--gradient-primary);
+            z-index: 1000;
+            transition: width 0.1s ease;
+            box-shadow: 0 0 10px rgba(255, 214, 10, 0.5);
+        }
+        
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.5rem;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(255, 214, 10, 0.4);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 12px 35px rgba(255, 214, 10, 0.5);
+            color: #000;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Main Content */
+        .main-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .profile-header {
+            margin-bottom: 1.5rem; /* Reduzido para aproximar os ícones */
+        }
+
+        .profile-pic {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid var(--primary-yellow);
+            box-shadow: 0 4px 20px rgba(255, 214, 10, 0.3);
+            margin-bottom: 1.5rem;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-bio {
+            font-size: 1.1rem;
+            color: var(--secondary-text);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .gradient-text {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .typing-cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.1em;
+            background: var(--primary-yellow);
+            animation: blink 1s infinite;
+            margin-left: 3px;
+            box-shadow: 0 0 10px var(--primary-yellow);
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0; }
+        }
+
+        .links-container {
+            width: 100%;
+            max-width: 680px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .link-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--light-text);
+            text-decoration: none;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: left;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary-yellow);
+            color: var(--light-text);
+        }
+
+        .link-btn .link-icon {
+            font-size: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .link-btn:hover .link-icon {
+            transform: scale(1.1);
+        }
+
+        .link-text-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .link-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--light-text);
+        }
+
+        .link-subtitle {
+            font-size: 0.9rem;
+            color: var(--secondary-text);
+        }
+        
+        /* Social Links Sutis */
+        .social-links-container {
+            display: flex;
+            gap: 1.75rem; /* Aumentado o espaçamento */
+            margin-bottom: 2.5rem; /* Espaço antes dos botões principais */
+        }
+
+        .social-links-container a {
+            color: var(--secondary-text);
+            font-size: 1.5rem; /* Ícones maiores */
+            transition: all 0.3s ease;
+        }
+
+        .social-links-container a:hover {
+            color: var(--primary-yellow);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .copyright {
+            color: var(--secondary-text);
+            font-size: 0.9rem;
+        }
+        
+        /* Animações de entrada */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+   
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Floating Action Button -->
+    <a href="https://wa.me/5511973305517" class="fab" target="_blank" aria-label="WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="profile-header fade-in">
+            <img src="img/foto.jpg" alt="Foto de Perfil" class="profile-pic" onerror="this.onerror=null;this.src='https://placehold.co/120x120/1E1E1E/FFD60A?text=PV';">
+            <h1 class="profile-name">Pedro Viena</h1>
+            <p class="profile-bio">
+                Explore meus links e descubra como posso ajudar você com 
+                <span class="gradient-text" id="typingText">software</span><span class="typing-cursor"></span>.
+            </p>
+        </div>
+        
+        <div class="social-links-container fade-in" style="transition-delay: 0.1s;">
+            <a href="https://wa.me/5511973305517" target="_blank" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://instagram.com/pedroviena._" target="_blank" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/pedro-arian-viena/" target="_blank" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="https://github.com/pedroviena" target="_blank" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="mailto:pedro.arian.viena@gmail.com" aria-label="Email"><i class="bi bi-envelope-fill"></i></a>
+        </div>
+        
+        <div class="links-container">
+            <!-- Link 1 -->
+            <a href="index.html" target="_blank" class="link-btn fade-in" style="transition-delay: 0.2s;">
+                <i class="bi bi-code-slash link-icon" style="color: var(--primary-yellow);"></i>
+                <div class="link-text-content">
+                    <span class="link-title">Precisa de um sistema robusto e escalável?</span>
+                    <span class="link-subtitle">Conheça meu trabalho como Engenheiro de Software</span>
+                </div>
+            </a>
+
+            <!-- Link 2 -->
+            <a href="webdesigner.html" target="_blank" class="link-btn fade-in" style="transition-delay: 0.3s;">
+                <i class="bi bi-palette-fill link-icon" style="color: var(--primary-blue);"></i>
+                <div class="link-text-content">
+                    <span class="link-title">Quer um site que converte visitantes em clientes?</span>
+                    <span class="link-subtitle">Explore meu portfólio de Web Design</span>
+                </div>
+            </a>
+            
+            <!-- Link 3: n8n -->
+            <a href="automacoes.html" target="_blank" class="link-btn fade-in" style="transition-delay: 0.4s;">
+                <i class="bi bi-robot link-icon" style="color: var(--primary-green);"></i>
+                <div class="link-text-content">
+                    <span class="link-title">Quer automatizar tarefas repetitivas?</span>
+                    <span class="link-subtitle">Veja minhas soluções com n8n</span>
+                </div>
+            </a>
+            
+            <!-- Link 4: Blog -->
+            <a href="blog.html" target="_blank" class="link-btn fade-in" style="transition-delay: 0.5s;">
+                <i class="bi bi-pencil-square link-icon" style="color: var(--primary-purple);"></i>
+                <div class="link-text-content">
+                    <span class="link-title">Gosta de ler sobre tecnologia e carreira?</span>
+                    <span class="link-subtitle">Acompanhe meus artigos no blog</span>
+                </div>
+            </a>
+            
+            <!-- Link 5 -->
+            <a href="https://calendar.app.google/TKDywistmCD3cKHU7" target="_blank" class="link-btn fade-in" style="transition-delay: 0.6s;">
+                <i class="bi bi-calendar-check-fill link-icon"></i>
+                <div class="link-text-content">
+                    <span class="link-title">Tem uma ideia e quer discutir?</span>
+                    <span class="link-subtitle">Agende uma reunião comigo</span>
+                </div>
+            </a>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer fade-in" style="transition-delay: 0.7s;">
+        <p class="copyright mb-0">
+            &copy; 2025 Pedro Viena. Todos os direitos reservados.
+        </p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // --- Loading Screen ---
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                initializeAnimations();
+            }, 500); // Reduzido para uma inicialização mais rápida
+        });
+
+        // --- Efeitos de Scroll ---
+        let ticking = false;
+        function requestTick() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateScrollProgress();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+        window.addEventListener('scroll', requestTick);
+
+        function updateScrollProgress() {
+            const scrollProgress = document.getElementById('scrollProgress');
+            if (!scrollProgress) return;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollProgress.style.width = scrollPercent + '%';
+        }
+
+        // --- Efeito de Digitação ---
+        function typeWriter(element, texts, speed = 150, backspaceSpeed = 75, delay = 2000) {
+            let textIndex = 0;
+            let charIndex = 0;
+            let isDeleting = false;
+
+            function type() {
+                const currentText = texts[textIndex];
+                if (isDeleting) {
+                    element.innerHTML = currentText.substring(0, charIndex - 1);
+                    charIndex--;
+                } else {
+                    element.innerHTML = currentText.substring(0, charIndex + 1);
+                    charIndex++;
+                }
+
+                if (!isDeleting && charIndex === currentText.length) {
+                    setTimeout(() => { isDeleting = true; type(); }, delay);
+                } else if (isDeleting && charIndex === 0) {
+                    isDeleting = false;
+                    textIndex = (textIndex + 1) % texts.length;
+                    setTimeout(type, speed);
+                } else {
+                    setTimeout(type, isDeleting ? backspaceSpeed : speed);
+                }
+            }
+            type();
+        }
+
+        // --- Animações e Observer ---
+        function initializeAnimations() {
+            // Inicia o efeito de digitação
+            const typingElement = document.getElementById('typingText');
+            if (typingElement) {
+                const textsToType = ["software.", "design.", "conteúdo."];
+                typeWriter(typingElement, textsToType);
+            }
+
+            // Ativa o observer para os elementos com fade-in
+            observeElements();
+        }
+
+        function observeElements() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        }
+        
+        // --- Inicialização Geral ---
+        document.addEventListener('DOMContentLoaded', () => {
+            // A inicialização das animações agora é chamada após o loading screen
+        });
+    </script>
+</body>
+</html>

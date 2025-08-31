@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seu Nome | Designer de Produto</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Ícones (Feather Icons) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Efeito de gradiente animado no fundo */
+        @keyframes gradient-animation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Animação de brilho rotativo para a foto de perfil */
+        @keyframes rotate-glow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Animação de pulsação para o indicador de disponibilidade */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.2);
+                opacity: 0.7;
+            }
+        }
+
+        /* Estilos base e customizados */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0A0A0A;
+            background: linear-gradient(-45deg, #000000, #0a0a0a, #1a1a1a, #0a0a0a);
+            background-size: 400% 400%;
+            animation: gradient-animation 20s ease infinite;
+            color: #E0E0E0;
+            overflow-x: hidden;
+        }
+
+        /* Customização da barra de rolagem */
+        .project-scroll-container::-webkit-scrollbar { width: 6px; }
+        .project-scroll-container::-webkit-scrollbar-track { background: transparent; }
+        .project-scroll-container::-webkit-scrollbar-thumb { background-color: rgba(255, 255, 255, 0.1); border-radius: 20px; }
+        .project-scroll-container { scrollbar-width: thin; scrollbar-color: rgba(255, 255, 255, 0.1) transparent; }
+
+        /* Melhorias no Scroll Snap para evitar saltos */
+        #project-container {
+            scroll-snap-type: y mandatory;
+        }
+        .project-item {
+            scroll-snap-align: start;
+        }
+
+        /* Efeito de "vidro fosco" (glassmorphism) */
+        .glass-effect {
+            background: rgba(17, 17, 17, 0.6);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        /* Efeito de brilho sutil nos cards de projeto */
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+            border-radius: 1.5rem;
+            transition: opacity 0.4s ease;
+        }
+        .project-card:hover::before { opacity: 0.8; }
+
+        /* Animação da imagem do projeto */
+        .project-card-image {
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .project-card:hover .project-card-image { transform: scale(1.03); }
+
+        /* Transições dos Popups */
+        .popup {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+        }
+        .popup.is-open {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.3s ease;
+        }
+        .popup-content {
+            transform: translateY(20px) scale(0.98);
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .popup.is-open .popup-content { transform: translateY(0) scale(1); }
+        
+        /* Animação de entrada */
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-on-load {
+            opacity: 0;
+            animation: fade-in-up 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        /* Cursor com efeito de brilho */
+        #cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, rgba(99, 102, 241, 0) 60%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.2s;
+            z-index: -1;
+        }
+
+        /* Container do brilho da foto de perfil */
+        .profile-glow-container {
+            position: relative;
+            padding: 2px; /* Espaçamento para o brilho não ser cortado */
+        }
+        .profile-glow-container::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0;
+            width: 100%; height: 100%;
+            background: conic-gradient(from 90deg at 50% 50%, rgba(139, 92, 246, 0.8) 0%, rgba(139, 92, 246, 0) 50%, rgba(139, 92, 246, 0.8) 100%);
+            border-radius: 9999px; /* fully rounded */
+            animation: rotate-glow 5s linear infinite;
+            z-index: 0;
+        }
+        .profile-glow-container img {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background-color: rgba(44, 192, 105, 0.1);
+            border: 1px solid rgba(44, 192, 105, 0.2);
+            backdrop-filter: blur(4px);
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #2cc069;
+            animation: pulse 2s infinite;
+        }
+
+        /* Efeito de inclinação 3D no Card */
+        .project-card {
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .project-card-content {
+            transform: translateZ(20px); /* Eleva o conteúdo para dar profundidade */
+        }
+
+        /* Animação de entrada para o conteúdo do card */
+        .project-card .card-content-item {
+            opacity: 0;
+            transform: translateY(15px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+        .project-item.is-visible .project-card .card-content-item {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Atraso para cada item do conteúdo */
+        .project-item.is-visible .project-card .card-content-item:nth-child(1) { transition-delay: 0.2s; }
+        .project-item.is-visible .project-card .card-content-item:nth-child(2) { transition-delay: 0.3s; }
+        .project-item.is-visible .project-card .card-content-item:nth-child(3) { transition-delay: 0.4s; }
+        .project-item.is-visible .project-card .card-content-item:nth-child(4) { transition-delay: 0.5s; }
+    </style>
+</head>
+<body class="md:h-screen md:overflow-hidden">
+
+    <div id="cursor-glow"></div>
+
+    <div class="flex flex-col md:flex-row min-h-screen md:p-6 lg:p-8 md:gap-8">
+        
+        <!-- Barra Lateral (Aside) -->
+        <aside class="w-full md:w-1/3 lg:w-2/5 md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] md:sticky md:top-6 lg:top-8 animate-on-load">
+            <div class="w-full h-full flex flex-col glass-effect rounded-3xl p-6 lg:p-8">
+                <div class="text-center flex flex-col h-full w-full">
+                    <!-- Seção Superior: Perfil e Navegação -->
+                    <div>
+                        <!-- Container da Imagem de Perfil com Efeito de Brilho -->
+                        <div class="relative mx-auto w-28 h-28 lg:w-32 lg:h-32 mb-6 profile-glow-container">
+                            <img src="img/foto.jpg" alt="Foto de perfil" class="w-full h-full rounded-full border-4 border-gray-800 shadow-lg" onerror="this.onerror=null;this.src='https://placehold.co/128x128/FFFFFF/111111?text=Erro';">
+                             <!-- Indicador de Disponibilidade Flutuante -->
+                            <div class="status-indicator absolute bottom-1 right-1 z-20">
+                                <div class="status-dot"></div>
+                                <span class="text-xs font-medium text-green-300 hidden sm:inline">Disponível</span>
+                            </div>
+                        </div>
+                        <h1 class="text-3xl lg:text-4xl font-bold text-white">Pedro Viena</h1>
+                        <p class="text-md lg:text-lg text-gray-400 mt-2">UI/UX Web Developer </p>
+
+                        <!-- Redes Sociais -->
+                        <div class="flex justify-center space-x-5 mt-6">
+                            <a href="https://github.com/pedroviena" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="GitHub">
+                                <i data-feather="github" class="w-6 h-6"></i>
+                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">GitHub</span>
+                            </a>
+                            <a href="https://www.linkedin.com/in/pedro-arian-viena/" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="LinkedIn">
+                                <i data-feather="linkedin" class="w-6 h-6"></i>
+                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">LinkedIn</span>
+                            </a>
+                             <a href="https://instagram.com/pedroviena._" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="Instagram">
+                                <i data-feather="instagram" class="w-6 h-6"></i>
+                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Instagram</span>
+                            </a>
+                            <a href="https://wa.me/5511973305517" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="WhatsApp">
+                                <i data-feather="phone" class="w-6 h-6"></i>
+                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">WhatsApp</span>
+                            </a>
+                             <a href="/blog.html" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="Blog">
+                                <i data-feather="book-open" class="w-6 h-6"></i>
+                                <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Blog</span>
+                            </a>
+                            
+                        </div>
+                        
+                        <nav class="mt-8 flex flex-col items-center space-y-3">
+                            <button data-popup-target="about-popup" class="popup-trigger text-lg text-gray-300 font-medium hover:text-white transition-colors">Sobre mim</button>
+                            <button data-popup-target="contact-popup" class="popup-trigger text-lg text-gray-300 font-medium hover:text-white transition-colors">Contato</button>
+                        </nav>
+                    </div>
+                    
+                    <!-- Seção Inferior: Indicadores e CTA -->
+                    <div class="mt-auto">
+                        <div id="project-indicator" class="flex justify-center space-x-3 my-6"></div>
+                        <a href="https://wa.me/5511973305517" class="group inline-flex items-center justify-center w-full px-6 py-4 bg-indigo-600 text-white font-bold rounded-xl text-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-indigo-600/30">
+                            Solicitar Projeto
+                            <i data-feather="arrow-right" class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Conteúdo Principal (Projetos) -->
+        <main id="project-container" class="w-full md:w-2/3 lg:w-3/5 md:h-[calc(100vh-3rem)] lg:h-[calc(100vh-4rem)] overflow-y-scroll project-scroll-container animate-on-load" style="animation-delay: 200ms; perspective: 1000px;">
+            <!-- Projeto 1 -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/6366F1/FFFFFF?text=Projeto+1&font=inter');"></div>
+                    <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Mobile</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Fintech</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Walletly – Banco digital</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Design de produto de ponta a ponta para uma experiência bancária inovadora.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300">
+                            Ver case study
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Projeto 2 -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/EC4899/FFFFFF?text=Projeto+2&font=inter');"></div>
+                     <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">SaaS</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Design System</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Quantum – Análise de dados</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Criação de um Design System robusto para uma plataforma de análise de dados complexos.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300">
+                            Ver case study
+                             <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Projeto 3 -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Projeto+3&font=inter');"></div>
+                     <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">E-commerce</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Branding</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Stellar – Loja virtual</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Redesign completo da identidade visual e da experiência de compra para uma marca de moda.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300">
+                            Ver case study
+                             <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Botão Flutuante do WhatsApp -->
+    <a href="https://wa.me/5511973305517" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all transform hover:scale-110 z-40">
+        <i data-feather="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- Popup: Sobre mim -->
+    <div id="about-popup" class="popup fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50">
+        <div class="popup-content bg-[#1C1C1C] rounded-2xl p-8 max-w-2xl w-full border border-gray-700 relative shadow-2xl">
+            <button class="popup-close absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"><i data-feather="x" class="w-6 h-6"></i></button>
+            <h2 class="text-3xl font-bold text-white mb-4">Sobre mim</h2>
+            <p class="text-gray-300 leading-relaxed">Olá! Sou [Seu Nome], um designer de produtos apaixonado por criar experiências digitais intuitivas e significativas. Com mais de [X] anos de experiência, meu foco é unir as necessidades dos usuários com os objetivos de negócio para construir produtos que não apenas funcionem bem, mas que também encantem as pessoas.<br><br>Acredito que um bom design é invisível e se traduz em simplicidade e clareza. Minha jornada profissional me levou a colaborar com diversas startups e empresas, onde pude aprimorar minhas habilidades em UI/UX, pesquisa de usuário e prototipação.</p>
+        </div>
+    </div>
+
+    <!-- Popup: Contato -->
+    <div id="contact-popup" class="popup fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50">
+        <div class="popup-content bg-[#1C1C1C] rounded-2xl p-8 max-w-2xl w-full border border-gray-700 relative shadow-2xl">
+            <button class="popup-close absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"><i data-feather="x" class="w-6 h-6"></i></button>
+            <h2 class="text-3xl font-bold text-white mb-4">Vamos conversar!</h2>
+            <p class="text-gray-300 mb-6">Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente ou apenas quer trocar uma ideia, sinta-se à vontade para entrar em contato.</p>
+            <div class="space-y-4">
+                <a href="mailto:seuemail@exemplo.com" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors">
+                    <i data-feather="mail" class="w-5 h-5 mr-3"></i> seuemail@exemplo.com
+                </a>
+                <a href="#" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors">
+                    <i data-feather="linkedin" class="w-5 h-5 mr-3"></i> LinkedIn
+                </a>
+                <a href="#" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors">
+                    <i data-feather="briefcase" class="w-5 h-5 mr-3"></i> Behance
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Inicializa os ícones
+            feather.replace();
+
+            // Seletores de elementos
+            const popupTriggers = document.querySelectorAll('.popup-trigger');
+            const popups = document.querySelectorAll('.popup');
+            const popupCloses = document.querySelectorAll('.popup-close');
+            const projectContainer = document.getElementById('project-container');
+            const originalProjectItems = document.querySelectorAll('.project-item'); // Itens originais
+            const indicatorContainer = document.getElementById('project-indicator');
+            const cursorGlow = document.getElementById('cursor-glow');
+            
+            // --- CLONA PROJETOS PARA SCROLL INFINITO ---
+            if (originalProjectItems.length > 0) {
+                const fragment = document.createDocumentFragment();
+                originalProjectItems.forEach(item => {
+                    fragment.appendChild(item.cloneNode(true));
+                });
+                projectContainer.appendChild(fragment);
+            }
+            
+            // Agora seleciona todos os itens (originais + clones)
+            const allProjectItems = document.querySelectorAll('.project-item');
+            const originalProjectCount = originalProjectItems.length;
+
+            // Variáveis de estado do scroll
+            let userHasInteracted = false;
+            let isAutoScrolling = false;
+            let autoScrollRequest;
+
+            // --- Lógica do Cursor com Brilho ---
+            document.addEventListener('mousemove', (e) => {
+                cursorGlow.style.left = `${e.clientX}px`;
+                cursorGlow.style.top = `${e.clientY}px`;
+            });
+            document.body.addEventListener('mouseleave', () => { cursorGlow.style.opacity = '0'; });
+            document.body.addEventListener('mouseenter', () => { cursorGlow.style.opacity = '1'; });
+
+            // --- Lógica dos Popups ---
+            const openPopup = (popupEl) => {
+                if (popupEl) {
+                    popupEl.classList.add('is-open');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+            const closePopup = (popupEl) => {
+                if (popupEl) {
+                    popupEl.classList.remove('is-open');
+                    if (document.querySelectorAll('.popup.is-open').length === 0) {
+                        document.body.style.overflow = '';
+                    }
+                }
+            };
+            popupTriggers.forEach(trigger => trigger.addEventListener('click', () => openPopup(document.getElementById(trigger.getAttribute('data-popup-target')))));
+            popupCloses.forEach(closeBtn => closeBtn.addEventListener('click', () => closePopup(closeBtn.closest('.popup'))));
+            popups.forEach(popup => popup.addEventListener('click', (e) => { if (e.target === popup) closePopup(popup); }));
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") {
+                    popups.forEach(popup => closePopup(popup));
+                }
+            });
+
+            // --- Lógica do Indicador de Projeto e Scroll ---
+            if (originalProjectCount > 0) {
+                // Cria os pontos do indicador com base na contagem original
+                originalProjectItems.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('w-2.5', 'h-2.5', 'rounded-full', 'bg-gray-600', 'hover:bg-gray-500', 'transition-colors', 'duration-300');
+                    dot.dataset.index = index;
+                    dot.setAttribute('aria-label', `Ir para o projeto ${index + 1}`);
+                    dot.addEventListener('click', () => {
+                        stopAutoScroll(); // Para o scroll automático ao clicar
+                        originalProjectItems[index].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    });
+                    indicatorContainer.appendChild(dot);
+                });
+
+                const dots = indicatorContainer.querySelectorAll('button');
+                const updateIndicator = (activeIndex) => {
+                    dots.forEach((dot, index) => {
+                        dot.classList.toggle('bg-white', index === activeIndex);
+                        dot.classList.toggle('scale-125', index === activeIndex);
+                        dot.classList.toggle('bg-gray-600', index !== activeIndex);
+                    });
+                };
+
+                // Observa qual projeto está visível para atualizar o indicador e animar o conteúdo
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                            const overallIndex = Array.from(allProjectItems).indexOf(entry.target);
+                            const indicatorIndex = overallIndex % originalProjectCount;
+                            updateIndicator(indicatorIndex);
+                        } else {
+                            entry.target.classList.remove('is-visible');
+                        }
+                    });
+                }, { root: projectContainer, threshold: 0.7 });
+
+                allProjectItems.forEach(item => observer.observe(item));
+            }
+            
+            // --- Lógica do Auto-Scroll (Refatorada para ser infinito e suave) ---
+            const originalScrollHeight = projectContainer.scrollHeight / 2;
+
+            const smoothAutoScroll = () => {
+                if (!isAutoScrolling) return;
+
+                if (projectContainer.scrollTop >= originalScrollHeight) {
+                    projectContainer.scrollTop = 0;
+                } else {
+                    projectContainer.scrollTop += 1;
+                }
+                
+                autoScrollRequest = requestAnimationFrame(smoothAutoScroll);
+            };
+
+            const startAutoScroll = () => {
+                if (userHasInteracted || isAutoScrolling) return;
+                isAutoScrolling = true;
+                projectContainer.style.scrollSnapType = 'none'; 
+                autoScrollRequest = requestAnimationFrame(smoothAutoScroll);
+            };
+
+            const stopAutoScroll = () => {
+                if (userHasInteracted) return; 
+                userHasInteracted = true;
+                isAutoScrolling = false;
+                cancelAnimationFrame(autoScrollRequest);
+
+                const currentScroll = projectContainer.scrollTop;
+                const containerHeight = projectContainer.offsetHeight; 
+                const targetIndex = Math.round(currentScroll / containerHeight);
+                
+                const safeIndex = Math.max(0, Math.min(allProjectItems.length - 1, targetIndex));
+                const targetItem = allProjectItems[safeIndex];
+
+                if (targetItem) {
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                setTimeout(() => {
+                    projectContainer.style.scrollSnapType = 'y mandatory';
+                }, 50);
+            };
+
+            projectContainer.addEventListener('wheel', stopAutoScroll, { passive: true });
+            projectContainer.addEventListener('touchstart', stopAutoScroll, { passive: true });
+            projectContainer.addEventListener('mousedown', stopAutoScroll, { passive: true });
+            
+            setTimeout(startAutoScroll, 1500);
+
+            // --- Lógica do Efeito de Inclinação 3D ---
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    const rotateX = ((y - centerY) / centerY) * -5; // Ajuste o valor para mais/menos inclinação
+                    const rotateY = ((x - centerX) / centerX) * 5; // Ajuste o valor para mais/menos inclinação
+                    
+                    card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                });
+
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'rotateX(0deg) rotateY(0deg) scale(1)';
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
