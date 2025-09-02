@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seu Nome | Designer de Produto</title>
+    <title>Pedro Viena | Desenvolvedor Web</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="icon" type="image/png" href="img/favicon.png">
     
     <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,12 +76,12 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
         
-        /* Efeito de brilho sutil nos cards de projeto */
+        /* Gradiente de sobreposição nos cards de projeto (melhorado) */
         .project-card::before {
             content: '';
             position: absolute;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 60%);
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 10%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 70%);
             border-radius: 1.5rem;
             transition: opacity 0.4s ease;
         }
@@ -194,9 +195,52 @@
         .project-item.is-visible .project-card .card-content-item:nth-child(2) { transition-delay: 0.3s; }
         .project-item.is-visible .project-card .card-content-item:nth-child(3) { transition-delay: 0.4s; }
         .project-item.is-visible .project-card .card-content-item:nth-child(4) { transition-delay: 0.5s; }
+        
+        /* Sombra no texto para melhor legibilidade */
+        .project-card-content h3, .project-card-content p {
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+        }
+
+        /* Melhorias de UI/UX */
+        .nav-link {
+            position: relative;
+            padding-bottom: 4px;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #818cf8; /* indigo-400 */
+            transition: width 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .nav-link:hover::after, .nav-link:focus-visible::after {
+            width: 100%;
+        }
+
+        /* Estilos de foco para acessibilidade */
+        .focusable:focus-visible {
+            outline: 2px solid #818cf8; /* indigo-400 */
+            outline-offset: 2px;
+            border-radius: 0.5rem;
+        }
+        .focusable-rounded:focus-visible {
+            outline: 2px solid #818cf8; /* indigo-400 */
+            outline-offset: 4px;
+            border-radius: 9999px;
+        }
+
     </style>
 </head>
 <body class="md:h-screen md:overflow-hidden">
+
+    <!-- Preloader -->
+    <div id="preloader" class="fixed inset-0 bg-[#0A0A0A] z-[100] flex items-center justify-center">
+        <div class="w-16 h-16 border-4 border-t-indigo-500 border-gray-800 rounded-full animate-spin"></div>
+    </div>
 
     <div id="cursor-glow"></div>
 
@@ -222,23 +266,23 @@
 
                         <!-- Redes Sociais -->
                         <div class="flex justify-center space-x-5 mt-6">
-                            <a href="https://github.com/pedroviena" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="GitHub">
+                            <a href="https://github.com/pedroviena" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110 focusable-rounded" aria-label="GitHub">
                                 <i data-feather="github" class="w-6 h-6"></i>
                                 <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">GitHub</span>
                             </a>
-                            <a href="https://www.linkedin.com/in/pedro-arian-viena/" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/in/pedro-arian-viena/" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110 focusable-rounded" aria-label="LinkedIn">
                                 <i data-feather="linkedin" class="w-6 h-6"></i>
                                 <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">LinkedIn</span>
                             </a>
-                             <a href="https://instagram.com/pedroviena._" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="Instagram">
+                             <a href="https://instagram.com/pedroviena._" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110 focusable-rounded" aria-label="Instagram">
                                 <i data-feather="instagram" class="w-6 h-6"></i>
                                 <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Instagram</span>
                             </a>
-                            <a href="https://wa.me/5511973305517" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="WhatsApp">
+                            <a href="https://wa.me/5511973305517" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110 focusable-rounded" aria-label="WhatsApp">
                                 <i data-feather="phone" class="w-6 h-6"></i>
                                 <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">WhatsApp</span>
                             </a>
-                             <a href="/blog.html" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110" aria-label="Blog">
+                             <a href="/blog.html" class="group relative text-gray-400 hover:text-white transition-transform hover:scale-110 focusable-rounded" aria-label="Blog">
                                 <i data-feather="book-open" class="w-6 h-6"></i>
                                 <span class="absolute -top-10 left-1/2 -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Blog</span>
                             </a>
@@ -246,15 +290,15 @@
                         </div>
                         
                         <nav class="mt-8 flex flex-col items-center space-y-3">
-                            <button data-popup-target="about-popup" class="popup-trigger text-lg text-gray-300 font-medium hover:text-white transition-colors">Sobre mim</button>
-                            <button data-popup-target="contact-popup" class="popup-trigger text-lg text-gray-300 font-medium hover:text-white transition-colors">Contato</button>
+                            <button data-popup-target="about-popup" class="popup-trigger nav-link text-lg text-gray-300 font-medium hover:text-white">Sobre mim</button>
+                            <button data-popup-target="contact-popup" class="popup-trigger nav-link text-lg text-gray-300 font-medium hover:text-white">Contato</button>
                         </nav>
                     </div>
                     
                     <!-- Seção Inferior: Indicadores e CTA -->
                     <div class="mt-auto">
                         <div id="project-indicator" class="flex justify-center space-x-3 my-6"></div>
-                        <a href="https://wa.me/5511973305517" class="group inline-flex items-center justify-center w-full px-6 py-4 bg-indigo-600 text-white font-bold rounded-xl text-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-indigo-600/30">
+                        <a href="https://wa.me/5511973305517" class="group inline-flex items-center justify-center w-full px-6 py-4 bg-indigo-600 text-white font-bold rounded-xl text-lg hover:bg-indigo-500 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-indigo-600/30 focusable">
                             Solicitar Projeto
                             <i data-feather="arrow-right" class="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                         </a>
@@ -268,89 +312,187 @@
             <!-- Projeto 1 -->
             <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
                 <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
-                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/6366F1/FFFFFF?text=Projeto+1&font=inter');"></div>
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-001.jpg');"></div>
                     <div class="relative z-10 project-card-content">
                         <div class="card-content-item flex flex-wrap gap-2 mb-4">
-                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Mobile</span>
-                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Fintech</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">UI/UX</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
                         </div>
-                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Walletly – Banco digital</h3>
-                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Design de produto de ponta a ponta para uma experiência bancária inovadora.</p>
-                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300">
-                            Ver case study
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Pedro Viena – Site Portfólio</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Site com uma experiência visual inovadora e com objetivo de demonstrar projetos e trabalhos desenvolvidos.</p>
+                        <a href="https://pedroviena.com" target="_blank" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
                             <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
                         </a>
                     </div>
                 </div>
             </section>
-            <!-- Projeto 2 -->
+            <!-- Projeto 2: Corretora -->
             <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
                 <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
-                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/EC4899/FFFFFF?text=Projeto+2&font=inter');"></div>
-                     <div class="relative z-10 project-card-content">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-002.jpg');"></div>
+                    <div class="relative z-10 project-card-content">
                         <div class="card-content-item flex flex-wrap gap-2 mb-4">
-                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">SaaS</span>
-                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Design System</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Seguros</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Finanças</span>
                         </div>
-                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Quantum – Análise de dados</h3>
-                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Criação de um Design System robusto para uma plataforma de análise de dados complexos.</p>
-                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300">
-                            Ver case study
-                             <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Site para Corretora de Seguros</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Plataforma digital para cotação e gerenciamento de seguros, com design focado em confiança e clareza.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
                         </a>
                     </div>
                 </div>
             </section>
-            <!-- Projeto 3 -->
+            <!-- Projeto 3: Clínica Médica -->
             <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
                 <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
-                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('https://placehold.co/1200x800/8B5CF6/FFFFFF?text=Projeto+3&font=inter');"></div>
-                     <div class="relative z-10 project-card-content">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-003.jpg');"></div>
+                    <div class="relative z-10 project-card-content">
                         <div class="card-content-item flex flex-wrap gap-2 mb-4">
-                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">E-commerce</span>
-                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Branding</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Saúde</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Agendamento</span>
                         </div>
-                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Stellar – Loja virtual</h3>
-                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Redesign completo da identidade visual e da experiência de compra para uma marca de moda.</p>
-                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300">
-                            Ver case study
-                             <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Website para Clínica Médica</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Solução web para agendamento de consultas e apresentação de especialidades médicas, priorizando a acessibilidade.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
                         </a>
                     </div>
                 </div>
             </section>
+            <!-- Projeto 4: Evas Engenharia -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-004.jpg');"></div>
+                    <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Engenharia Civil</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Institucional</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Evas Engenharia</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Site institucional para empresa de engenharia civil, destacando portfólio de obras e expertise técnica.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Projeto 5: Advocacia -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-005.jpg');"></div>
+                    <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                             <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Advocacia</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Corporativo</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Maçalai & Riske Advogados</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Desenvolvimento de site sóbrio e profissional para escritório de advocacia, transmitindo credibilidade.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Projeto 6: Hotel -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-006.jpg');"></div>
+                    <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Hotelaria</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Reservas</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Plataforma para Hotel</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Sistema web completo com reservas online, galeria de fotos e informações turísticas para uma experiência de hospedagem.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Projeto 7: Restaurante -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-007.jpg');"></div>
+                    <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Restaurante</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Cardápio Digital</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Cardápio Digital para Restaurante</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Criação de um cardápio online interativo com sistema de pedidos integrado para otimizar o atendimento.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <!-- Projeto 8: Barbearia -->
+            <section class="project-item h-screen md:h-full flex items-center justify-center p-4 md:p-2">
+                <div class="project-card relative w-full h-full rounded-3xl flex flex-col justify-end p-8 md:p-12 text-white overflow-hidden">
+                    <div class="project-card-image absolute inset-0 bg-cover bg-center" style="background-image: url('img/portfolio-008.jpg');"></div>
+                    <div class="relative z-10 project-card-content">
+                        <div class="card-content-item flex flex-wrap gap-2 mb-4">
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Website</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Barbearia</span>
+                            <span class="bg-white/10 backdrop-blur-sm text-white text-xs font-semibold px-3 py-1 rounded-full">Agendamento</span>
+                        </div>
+                        <h3 class="card-content-item text-3xl md:text-4xl font-bold mb-2">Sistema de Agendamento para Barbearia</h3>
+                        <p class="card-content-item text-lg text-gray-300 mb-6 max-w-lg">Aplicação web para agendamento de horários, permitindo que clientes marquem serviços com facilidade.</p>
+                        <a href="#" class="card-content-item group inline-flex items-center px-5 py-2.5 bg-white/20 backdrop-blur-sm font-semibold rounded-full text-md hover:bg-white/30 transition-colors duration-300 focusable">
+                            Ver ao vivo
+                            <i data-feather="arrow-right-circle" class="w-5 h-5 ml-2 transform group-hover:rotate-45 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
         </main>
     </div>
 
     <!-- Botão Flutuante do WhatsApp -->
-    <a href="https://wa.me/5511973305517" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all transform hover:scale-110 z-40">
+    <a href="https://wa.me/5511973305517" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:bg-[#128C7E] transition-all transform hover:scale-110 z-40 focusable-rounded">
         <i data-feather="message-circle" class="w-8 h-8"></i>
     </a>
 
     <!-- Popup: Sobre mim -->
     <div id="about-popup" class="popup fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50">
         <div class="popup-content bg-[#1C1C1C] rounded-2xl p-8 max-w-2xl w-full border border-gray-700 relative shadow-2xl">
-            <button class="popup-close absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"><i data-feather="x" class="w-6 h-6"></i></button>
+            <button class="popup-close absolute top-4 right-4 text-gray-500 hover:text-white transition-colors focusable-rounded"><i data-feather="x" class="w-6 h-6"></i></button>
             <h2 class="text-3xl font-bold text-white mb-4">Sobre mim</h2>
-            <p class="text-gray-300 leading-relaxed">Olá! Sou [Seu Nome], um designer de produtos apaixonado por criar experiências digitais intuitivas e significativas. Com mais de [X] anos de experiência, meu foco é unir as necessidades dos usuários com os objetivos de negócio para construir produtos que não apenas funcionem bem, mas que também encantem as pessoas.<br><br>Acredito que um bom design é invisível e se traduz em simplicidade e clareza. Minha jornada profissional me levou a colaborar com diversas startups e empresas, onde pude aprimorar minhas habilidades em UI/UX, pesquisa de usuário e prototipação.</p>
+            <p class="text-gray-300 leading-relaxed">Olá! Sou Pedro Viena, um desenvolvedor web apaixonado por criar experiências digitais intuitivas e significativas. Meu foco é unir as necessidades dos usuários com os objetivos de negócio para construir produtos que não apenas funcionem bem, mas que também encantem as pessoas.<br><br>Acredito que um bom design é invisível e se traduz em simplicidade e clareza. Minha jornada profissional me levou a colaborar com diversas startups e empresas, onde pude aprimorar minhas habilidades em UI/UX, pesquisa de usuário e prototipação.</p>
         </div>
     </div>
 
     <!-- Popup: Contato -->
     <div id="contact-popup" class="popup fixed inset-0 bg-black/70 backdrop-blur-md flex items-center justify-center p-4 z-50">
         <div class="popup-content bg-[#1C1C1C] rounded-2xl p-8 max-w-2xl w-full border border-gray-700 relative shadow-2xl">
-            <button class="popup-close absolute top-4 right-4 text-gray-500 hover:text-white transition-colors"><i data-feather="x" class="w-6 h-6"></i></button>
+            <button class="popup-close absolute top-4 right-4 text-gray-500 hover:text-white transition-colors focusable-rounded"><i data-feather="x" class="w-6 h-6"></i></button>
             <h2 class="text-3xl font-bold text-white mb-4">Vamos conversar!</h2>
             <p class="text-gray-300 mb-6">Estou sempre aberto a novas oportunidades e colaborações. Se você tem um projeto em mente ou apenas quer trocar uma ideia, sinta-se à vontade para entrar em contato.</p>
             <div class="space-y-4">
-                <a href="mailto:seuemail@exemplo.com" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors">
-                    <i data-feather="mail" class="w-5 h-5 mr-3"></i> seuemail@exemplo.com
+                <a href="mailto:contato@pedroviena.com" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors focusable">
+                    <i data-feather="mail" class="w-5 h-5 mr-3"></i> contato@pedroviena.com
                 </a>
-                <a href="#" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors">
+                <a href="https://www.linkedin.com/in/pedro-arian-viena/" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors focusable">
                     <i data-feather="linkedin" class="w-5 h-5 mr-3"></i> LinkedIn
                 </a>
-                <a href="#" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors">
-                    <i data-feather="briefcase" class="w-5 h-5 mr-3"></i> Behance
+                <a href="https://github.com/pedroviena" class="group flex items-center text-lg text-indigo-400 font-semibold hover:text-indigo-300 transition-colors focusable">
+                    <i data-feather="github" class="w-5 h-5 mr-3"></i> GitHub
                 </a>
             </div>
         </div>
@@ -360,6 +502,17 @@
         document.addEventListener('DOMContentLoaded', () => {
             // Inicializa os ícones
             feather.replace();
+
+            // Lógica do Preloader
+            window.addEventListener('load', () => {
+                const preloader = document.getElementById('preloader');
+                if (preloader) {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 700);
+                }
+            });
 
             // Seletores de elementos
             const popupTriggers = document.querySelectorAll('.popup-trigger');
@@ -425,7 +578,7 @@
                 // Cria os pontos do indicador com base na contagem original
                 originalProjectItems.forEach((_, index) => {
                     const dot = document.createElement('button');
-                    dot.classList.add('w-2.5', 'h-2.5', 'rounded-full', 'bg-gray-600', 'hover:bg-gray-500', 'transition-colors', 'duration-300');
+                    dot.className = 'w-2.5 h-2.5 rounded-full bg-gray-600 hover:bg-gray-500 transition-colors duration-300 focusable-rounded';
                     dot.dataset.index = index;
                     dot.setAttribute('aria-label', `Ir para o projeto ${index + 1}`);
                     dot.addEventListener('click', () => {
@@ -535,3 +688,4 @@
 
 </body>
 </html>
+

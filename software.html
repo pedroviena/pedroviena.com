@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedro Viena - Engenheiro de Software</title>
+     
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Floating Action Button -->
+    <a href="https://wa.me/5511973305517" class="fab" target="_blank" aria-label="WhatsApp">
+        <i class="bi bi-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#inicio">&lt;Pedro Viena /&gt;</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto">
+                    <li class="nav-item"><a class="nav-link" href="#inicio">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#jornada">Jornada</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#portfolio">Portfólio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contato">FAQ</a></li>
+                </ul>
+                <div class="navbar-social">
+                    <a href="mailto:pedro.arian.viena@gmail.com" aria-label="Email">
+                        <i class="bi bi-envelope-fill"></i>
+                    </a>
+                    <a href="https://github.com/pedroviena" target="_blank" aria-label="GitHub">
+                        <i class="bi bi-github"></i>
+                    </a>
+                    <a href="https://linkedin.com/in/pedro-arian-viena" target="_blank" aria-label="LinkedIn">
+                        <i class="bi bi-linkedin"></i>
+                    </a>
+                    <p> ㅤㅤ</p>
+                </div>
+                <a href="https://calendar.app.google/TKDywistmCD3cKHU7" class="btn btn-primary-custom">
+                    <i class="bi bi-calendar-fill"></i>
+                        Agendar Reunião
+                    </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <div class="hero-tag fade-in"> ENGENHEIRO DE SOFTWARE</div>
+                        <h1 class="hero-title fade-in">
+                            Desenvolvo Soluções <br>
+                            <span class="gradient-text" id="typingText">de Software</span>
+                            <span class="typing-cursor"></span>
+                        </h1>
+                        <p class="hero-description fade-in">
+                            Desenvolvo sistemas complexos, APIs robustas e aplicações web de alta performance. 
+                            Da arquitetura ao deploy, transformo suas ideias em código funcional e escalável.
+                        </p>
+                        <div class="hero-actions fade-in">
+                            <a href="https://calendar.app.google/TKDywistmCD3cKHU7" class="btn btn-primary-custom">
+                                <i class="bi bi-calendar-fill"></i></i>Agendar Reunião
+                            </a>
+                            <a href="https://wa.me/5511973305517" class="btn btn-secondary-custom">
+                                <i class="bi bi-chat-dots-fill me-2"></i>Vamos Conversar
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <!-- INÍCIO DO CÓDIGO DO ÁTOMO ATUALIZADO -->
+                    <div class="atom-container">
+                        <div class="atom">
+                            <div class="atom-nucleus"></div>
+                            <div class="orbit">
+                                <div class="electron-rotation"><div class="electron"></div></div>
+                                <div class="electron-rotation"><div class="electron"></div></div>
+                            </div>
+                            <div class="orbit">
+                                <div class="electron-rotation"><div class="electron"></div></div>
+                                <div class="electron-rotation"><div class="electron"></div></div>
+                            </div>
+                            <div class="orbit">
+                                <div class="electron-rotation"><div class="electron"></div></div>
+                                <div class="electron-rotation"><div class="electron"></div></div>
+                                <div class="electron-rotation"><div class="electron"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FIM DO CÓDIGO DO ÁTOMO ATUALIZADO -->
+                </div>
+            </div>
+        </div>
+        
+    </section>
+
+    
+    <!-- Features Section -->
+<section class="features-section text-center section-padding">
+    <div class="container">
+        <div class="fade-in">
+            <h2 class="section-title">Transforme ideias em realidade com engenharia de software</h2>
+            <p class="section-subtitle">
+                Seja para automatizar processos, construir uma nova plataforma ou otimizar sistemas existentes, 
+                eu crio soluções de software personalizadas que geram valor real para o seu negócio.
+            </p>
+        </div>
+        <div class="row g-4">
+            <!-- Aplicações Escaláveis -->
+            <div class="col-lg-6 col-md-6">
+                <div class="feature-card fade-in" data-bs-toggle="modal" data-bs-target="#featureModal" 
+                     data-title="Aplicações Escaláveis" 
+                     data-details="Utilizo arquitetura de microserviços, balanceamento de carga e as melhores práticas de cloud (AWS, GCP) para garantir que sua aplicação suporte o crescimento do seu negócio sem gargalos.">
+                    <i class="bi bi-hdd-stack-fill icon"></i>
+                    <h3>Aplicações Escaláveis</h3>
+                    <p>Desenvolvo sistemas robustos e preparados para o crescimento, seja na nuvem, desktop ou mobile.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">Redis</span>
+                        <span class="tag">Apache Kafka</span>
+                        <span class="tag">Docker</span> 
+                        <span class="tag">Kubernetes</span> 
+                        <span class="tag">RabbitMQ</span>
+                        <span class="tag">Microsserviços</span>  
+                        <span class="tag">JMeter (Performance)</span>
+                        <span class="tag">Chaos Engineering</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Código Limpo e QA -->
+            <div class="col-lg-6 col-md-6">
+                <div class="feature-card fade-in" data-bs-toggle="modal" data-bs-target="#featureModal"
+                     data-title="Código Limpo e Eficiente"
+                     data-details="Aplico princípios como SOLID e Clean Code, além de adotar Test-Driven Development (TDD) e CI/CD para assegurar um código testável, manutenível e de fácil evolução.">
+                    <i class="bi bi-code-slash icon"></i>
+                    <h3>Código Limpo e QA</h3>
+                    <p>Priorizo a qualidade e a manutenibilidade do código, utilizando as melhores práticas e padrões de mercado.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">JUnit</span>
+                        <span class="tag">Mockito</span>
+                        <span class="tag">TDD</span>
+                        <span class="tag">CI/CD</span>
+                        <span class="tag">Clean Code</span>
+                        <span class="tag">SOLID</span>
+                        <span class="tag">Testcontainers</span>  
+                        <span class="tag">QA Automation</span>
+                        <span class="tag">SonarQube</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Soluções Cloud-Native -->
+            <div class="col-lg-6 col-md-6">
+                <div class="feature-card fade-in" data-bs-toggle="modal" data-bs-target="#featureModal"
+                     data-title="Soluções Cloud-Native"
+                     data-details="Desenvolvo soluções serverless, utilizo containers com Docker e orquestração com Kubernetes para criar sistemas eficientes, resilientes e com custo otimizado na nuvem.">
+                    <i class="bi bi-cloud-arrow-up-fill icon"></i>
+                    <h3>Soluções Cloud-Native</h3>
+                    <p>Crio e implemento arquiteturas modernas na nuvem, garantindo alta disponibilidade, segurança e acesso.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">AWS Lambda</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Kubernetes</span>
+                        <span class="tag">Terraform</span>
+                        <span class="tag">Serverless</span>
+                        <span class="tag">Cloud Security</span>
+                        <span class="tag">Testcontainers</span>  
+                        <span class="tag">Performance Testing</span>
+                        <span class="tag">Monitoring (Prometheus/Grafana)</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Integrações e APIs -->
+            <div class="col-lg-6 col-md-6">
+                <div class="feature-card fade-in" data-bs-toggle="modal" data-bs-target="#featureModal"
+                     data-title="Integrações e APIs"
+                     data-details="Crio APIs RESTful e GraphQL seguras, utilizando padrões como OAuth 2.0 e JWT. Realizo integrações com sistemas de terceiros para expandir as funcionalidades do seu produto.">
+                    <i class="bi bi-diagram-3-fill icon"></i>
+                    <h3>Integrações e APIs</h3>
+                    <p>Construo APIs seguras e bem documentadas que conectam seus sistemas e automatizam fluxos de trabalho.</p>
+                    <div class="portfolio-tags">
+                        <span class="tag">Java</span>
+                        <span class="tag">Spring Boot</span>
+                        <span class="tag">REST</span>
+                        <span class="tag">GraphQL</span>
+                        <span class="tag">PostgreSQL</span>
+                        <span class="tag">OAuth 2.0</span>
+                        <span class="tag">JWT</span> 
+                        <span class="tag">Swagger/OpenAPI</span>
+                        <span class="tag">Postman</span>
+                        <span class="tag">RestAssured</span>  
+                        <span class="tag">Contract Testing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-5 fade-in">
+            <a href="https://calendar.app.google/TKDywistmCD3cKHU7" class="btn btn-primary-custom btn-lg">
+                Vamos Construir Juntos
+            </a>
+        </div>
+    </div>
+</section>
+
+
+
+<!-- Process Section -->
+<section class="process-section section-padding">
+    <div class="container">
+        <div class="text-center fade-in">
+            <div class="hero-tag">🔄 COMO FUNCIONA</div>
+            <h2 class="section-title">Nosso Processo de Desenvolvimento</h2>
+            <p class="section-subtitle">
+                Da concepção à entrega, seguimos um processo estruturado para garantir a excelência 
+                e o alinhamento com seus objetivos em cada etapa.
+            </p>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-5">
+                <div class="process-steps-container slide-in-left">
+                    <div class="process-step active" data-target="content-1">
+                        <div class="step-number">PASSO 1</div>
+                        <h4>Imersão e Planejamento</h4>
+                        <p>Levantamento de requisitos, definição de escopo, critérios de qualidade e análise de riscos técnicos.</p>
+                    </div>
+                    <div class="process-step" data-target="content-2">
+                        <div class="step-number">PASSO 2</div>
+                        <h4>Arquitetura e Estratégia de Testes</h4>
+                        <p>Desenho da arquitetura do sistema e planejamento das estratégias de testes automatizados e cobertura de QA.</p>
+                    </div>
+                    <div class="process-step" data-target="content-3">
+                        <div class="step-number">PASSO 3</div>
+                        <h4>Desenvolvimento e Automação de Testes</h4>
+                        <p>Implementação do código com testes unitários, de integração e funcionais, garantindo qualidade e robustez.</p>
+                    </div>
+                    <div class="process-step" data-target="content-4">
+                        <div class="step-number">PASSO 4</div>
+                        <h4>Deploy e Monitoramento</h4>
+                        <p>Entrega em produção com monitoramento contínuo, testes de performance, segurança e feedback para melhorias.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-7">
+                <div class="process-terminal-wrapper slide-in-right sticky-element">
+                    <div class="process-terminal">
+                        <div class="terminal-header">
+                            <div class="terminal-buttons">
+                                <span class="terminal-btn close"></span>
+                                <span class="terminal-btn minimize"></span>
+                                <span class="terminal-btn maximize"></span>
+                            </div>
+                            <div class="terminal-title">bash -- 📜 Processo.sh</div>
+                        </div>
+                        <div class="terminal-body">
+                            <div id="terminal-content"></div>
+                            <!-- Conteúdo original escondido para ser usado como fonte de dados pelo JS -->
+                            <div class="process-content-data" style="display: none;">
+                                <div class="process-content" id="content-1">
+                                    <span class="icon-data">bi bi-clipboard-data-fill</span>
+                                    <h3>Definindo o Rumo</h3>
+                                    <p>Analisamos requisitos e riscos técnicos para definir o escopo, critérios de qualidade e plano de ação do projeto.</p>
+                                </div>
+                                <div class="process-content" id="content-2">
+                                    <span class="icon-data">bi bi-diagram-3-fill</span>
+                                    <h3>Arquitetura e Testes</h3>
+                                    <p>Projetamos uma arquitetura escalável e resiliente, definindo também as estratégias de testes automatizados e integração contínua.</p>
+                                </div>
+                                <div class="process-content" id="content-3">
+                                    <span class="icon-data">bi bi-code-slash</span>
+                                    <h3>Implementação e QA</h3>
+                                    <p>Desenvolvemos o software com foco em qualidade, utilizando testes unitários, de integração, funcionais e revisões de código.</p>
+                                </div>
+                                <div class="process-content" id="content-4">
+                                    <span class="icon-data">bi bi-rocket-takeoff-fill</span>
+                                    <h3>Entrega e Monitoramento</h3>
+                                    <p>Realizamos deploy em produção, monitoramento contínuo, testes de performance e segurança, garantindo evolução constante.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Portfolio Section -->
+<section id="portfolio" class="portfolio-section section-padding">
+  <div class="container">
+    <div class="text-center fade-in">
+      <div class="hero-tag">💼 PROJETOS</div>
+      <h2 class="section-title">Meu Portfólio de Projetos</h2>
+      <p class="section-subtitle">
+        Explore alguns dos projetos que desenvolvi, com foco em qualidade de software, automação de testes e engenharia de QA.
+      </p>
+    </div>
+    <div class="filter-buttons fade-in">
+      <button class="btn active" data-filter="*">Todos</button>
+      <button class="btn" data-filter=".api">API</button>
+      <button class="btn" data-filter=".ui">UI/E2E</button>
+      <button class="btn" data-filter=".performance">Performance</button>
+      <button class="btn" data-filter=".framework">Framework</button>
+    </div>
+    <div class="row g-4 portfolio-grid">
+
+      <!-- Projeto 1: API Testing Avançado -->
+      <div class="col-md-6 col-lg-4 portfolio-item api">
+        <div class="portfolio-card fade-in hover-lift">
+          <div class="portfolio-card-body">
+            <div class="portfolio-tags">
+              <span class="tag">RestAssured</span>
+              <span class="tag">Testcontainers</span>
+              <span class="tag">PostgreSQL</span>
+              <span class="tag">Allure</span>
+            </div>
+            <h3 class="portfolio-card-title">API Testing Avançado</h3>
+            <p class="portfolio-card-text">Automação de testes com validação de contratos, integração com banco de dados e relatórios Allure.</p>
+            <div class="d-flex justify-content-between mt-4">
+              <a href="https://github.com/pedroviena/api-test-showcase.git" class="btn btn-secondary-custom" data-bs-toggle="modal" data-bs-target="#portfolioModal"
+                 data-title="API Testing Avançado"
+                 data-img="img/allure-port.png"
+                 data-tags="RestAssured,JUnit5,Testcontainers,PostgreSQL,Allure"
+                 data-description="Testes de API cobrindo contratos, integração com banco via Testcontainers e geração de relatórios Allure integrados ao pipeline CI/CD."
+                 data-github="https://github.com/pedroviena/api-test-showcase.git">Detalhes</a>
+              <a href="https://github.com/pedroviena/api-test-showcase.git" class="btn btn-primary-custom">
+                <i class="bi bi-github me-2"></i>GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projeto 2: UI/E2E Testing -->
+      <div class="col-md-6 col-lg-4 portfolio-item ui">
+        <div class="portfolio-card fade-in hover-lift">
+          <div class="portfolio-card-body">
+            <div class="portfolio-tags">
+              <span class="tag">Cypress</span>
+              <span class="tag">Playwright</span>
+              <span class="tag">POM</span>
+            </div>
+            <h3 class="portfolio-card-title">UI/E2E Testing</h3>
+            <p class="portfolio-card-text">Automação de interface com arquitetura Page Object Model e execução cross-browser.</p>
+            <div class="d-flex justify-content-between mt-4">
+              <a href="#" class="btn btn-secondary-custom" data-bs-toggle="modal" data-bs-target="#portfolioModal"
+                 data-title="UI/E2E Testing"
+                 data-img="https://placehold.co/600x400/1E1E1E/20B2AA?text=UI+E2E+Testing"
+                 data-tags="Cypress,Playwright,POM,Cross-Browser"
+                 data-description="Testes de interface com arquitetura POM, cenários E2E e execução em múltiplos navegadores com integração no pipeline CI/CD."
+                 data-github="#">Detalhes</a>
+              <a href="#" class="btn btn-primary-custom">
+                <i class="bi bi-github me-2"></i>GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projeto 3: Performance & Segurança -->
+      <div class="col-md-6 col-lg-4 portfolio-item performance">
+        <div class="portfolio-card fade-in hover-lift">
+          <div class="portfolio-card-body">
+            <div class="portfolio-tags">
+              <span class="tag">JMeter</span>
+              <span class="tag">ZAP</span>
+              <span class="tag">Kafka</span>
+              <span class="tag">S3</span>
+            </div>
+            <h3 class="portfolio-card-title">Performance & Segurança</h3>
+            <p class="portfolio-card-text">Testes de carga, estresse e segurança, além de automação de eventos com Kafka e S3.</p>
+            <div class="d-flex justify-content-between mt-4">
+              <a href="#" class="btn btn-secondary-custom" data-bs-toggle="modal" data-bs-target="#portfolioModal"
+                 data-title="Performance & Segurança"
+                 data-img="https://placehold.co/600x400/1E1E1E/9370DB?text=Performance+Segurança"
+                 data-tags="JMeter,ZAP,Kafka,MinIO,S3"
+                 data-description="Cenários de performance com JMeter, varredura de segurança OWASP ZAP, testes de eventos Kafka e upload para S3 via MinIO."
+                 data-github="#">Detalhes</a>
+              <a href="#" class="btn btn-primary-custom">
+                <i class="bi bi-github me-2"></i>GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projeto 4: Framework de Testes para Microsserviços -->
+      <div class="col-md-6 col-lg-4 portfolio-item framework">
+        <div class="portfolio-card fade-in hover-lift">
+          <div class="portfolio-card-body">
+            <div class="portfolio-tags">
+              <span class="tag">Java</span>
+              <span class="tag">BaseTest</span>
+              <span class="tag">Allure</span>
+              <span class="tag">Jenkins</span>
+            </div>
+            <h3 class="portfolio-card-title">Framework de Testes para Microsserviços</h3>
+            <p class="portfolio-card-text">Estrutura modular de testes, com reuso de código e integração a pipelines.</p>
+            <div class="d-flex justify-content-between mt-4">
+              <a href="#" class="btn btn-secondary-custom" data-bs-toggle="modal" data-bs-target="#portfolioModal"
+                 data-title="Framework de Testes para Microsserviços"
+                 data-img="https://placehold.co/600x400/1E1E1E/6495ED?text=Framework+Testes"
+                 data-tags="Java,RestAssured,Reuso,Jenkins,Allure"
+                 data-description="Framework modular para automação de testes de microsserviços, com BaseTest, relatórios Allure e integração Jenkins."
+                 data-github="#">Detalhes</a>
+              <a href="#" class="btn btn-primary-custom">
+                <i class="bi bi-github me-2"></i>GitHub
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+    <!-- About Section -->
+    <section id="sobre" class="about-section section-padding">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <div class="about-content slide-in-left">
+                        <div class="hero-tag">👨‍💻 QUEM SOU EU</div>
+                        <h2 class="section-title">Um Arquiteto de Soluções Digitais</h2>
+                        <p>Olá! Sou bacharelando em engenharia de software apaixonado por transformar ideias complexas em soluções elegantes e funcionais. Meu foco é construir produtos digitais que não apenas atendam às necessidades técnicas, mas que também ofereçam uma experiência de usuário excepcional.</p>
+                        <p>Com uma base sólida em ciência da computação e anos de experiência prática, eu domino desde o desenvolvimento back-end, com APIs robustas e bancos de dados eficientes, até o front-end, com interfaces reativas e modernas.</p>
+                        <div class="stats-container d-flex">
+                            <div class="stat-item text-center hover-lift">
+                                <h3 class="text-gradient">6+</h3>
+                                <p>Anos de Experiência</p>
+                            </div>
+                            <div class="stat-item text-center hover-lift">
+                                <h3 class="text-gradient">120+</h3>
+                                <p>Projetos Concluídos</p>
+                            </div>
+                            <div class="stat-item text-center hover-lift">
+                                <h3 class="text-gradient">20+</h3>
+                                <p>Tecnologias</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-image-container slide-in-right">
+                        <img src="img/foto.jpg" alt="Foto Profissional" class="img-fluid" onerror="this.onerror=null;this.src='https://placehold.co/500x500/1E1E1E/FFD60A?text=Sua+Foto';">
+                        <div class="creative-buttons">
+                            <a href="#" class="creative-btn" title="Certificações" data-bs-toggle="modal" data-bs-target="#certificationsModal">
+                                <i class="bi bi-award-fill"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/pedro-arian-viena/" target="_blank" class="creative-btn" title="LinkedIn">
+                                <i class="bi bi-linkedin"></i>
+                            </a>
+                            <a href="https://instagram.com/pedroviena._" target="_blank" class="creative-btn" title="Instagram">
+                                <i class="bi bi-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="client-logos">
+        <div class="container">
+            <div class="logos-container">
+                <div class="logos-track">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=JavaScript';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Python';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=React';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Node.js';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Java';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=PostgreSQL';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Docker';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=AWS';">
+                    <!-- Duplicado para loop infinito -->
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=JavaScript';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Python';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=React';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Node.js';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Java';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=PostgreSQL';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=Docker';">
+                    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="AWS" onerror="this.onerror=null;this.src='https://placehold.co/120x40/ffffff/000000?text=AWS';">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section id="jornada" class="journey-section section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <div class="hero-tag">🚀 CARREIRA</div>
+                <h2 class="section-title">Minha Jornada Profissional</h2>
+                <p class="section-subtitle">
+                    Uma linha do tempo das minhas experiências, desafios e aprendizados que me tornaram o engenheiro que sou hoje.
+                </p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-container left">
+                    <div class="timeline-content hover-lift">
+                        <h3>Web Developer</h3>
+                        <h4>Freelancer</h4>
+                        <span class="date">2019 - 2024</span>
+                        <p>Atuei como Desenvolvedor Web, criando interfaces modernas e otimizadas para performance, acessibilidade e conversão. Trabalhei com HTML, CSS, JavaScript e TypeScript, além de desenvolver e personalizar sites no WordPress com Elementor, WooCommerce e customizações avançadas.</p>
+                    </div>
+                </div>
+                <div class="timeline-container right">
+                    <div class="timeline-content hover-lift">
+                        <h3>Desenvolvedor Back-End Java</h3>
+                        <h4>Freelancer</h4>
+                        <span class="date">2024 - até o presente</span>
+                        <p>Atuo como desenvolvedor freelancer, especializado em Java Backend Development, Microservices, APIs RESTful e Cloud Computing. Desenvolvi e mantive projetos para diversos clientes, criando aplicações escaláveis, seguras e de alto desempenho, com foco em arquitetura robusta, automação e otimização de processos.</p>
+                    </div>
+                </div>
+                <div class="timeline-container left">
+                    <div class="timeline-content hover-lift">
+                        <h3>Desenvolvedor FullStack</h3>
+                        <h4>Freelancer</h4>
+                        <span class="date">2025 - até o presente</span>
+                        <p>Participei da criação de um produto do zero, onde tive a oportunidade de trabalhar em todas as frentes, do back-end ao front-end e em testes QA.</p>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+   <!-- Blog Section -->
+<section id="blog" class="blog-section section-padding">
+    <div class="container">
+        <div class="text-center fade-in">
+            <div class="hero-tag">✍️ MEU BLOG</div>
+            <h2 class="section-title">Artigos Técnicos e Insights</h2>
+            <p class="section-subtitle">
+                Um espaço para compartilhar práticas de desenvolvimento em <strong>Java</strong>, qualidade de software, automação de testes, <strong>DevOps</strong> e tendências em engenharia de software moderna.
+            </p>
+        </div>
+        <div class="row g-4">
+            <!-- Blog Post 1 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card fade-in hover-lift">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://placehold.co/600x400/0a0a0a/FFD60A?text=Java+QA" alt="Imagem do Post sobre Java e QA">
+                        <span class="blog-card-category">Java & QA</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Automação de Testes de APIs com RestAssured e Spring Boot</h3>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <img src="img/foto.jpg" alt="Avatar do autor">
+                                <div class="blog-author-info">
+                                    <span>Pedro Viena</span>
+                                    <small>10 de Agosto, 2025</small>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-link">Ler <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Post 2 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card fade-in hover-lift" style="transition-delay: 0.2s;">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://placehold.co/600x400/0a0a0a/33bbff?text=Performance" alt="Imagem do Post sobre Performance">
+                        <span class="blog-card-category">Testes</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Como medir performance de APIs com JMeter e integrar no CI/CD</h3>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <img src="img/foto.jpg" alt="Avatar do autor">
+                                <div class="blog-author-info">
+                                    <span>Pedro Viena</span>
+                                    <small>2 de Agosto, 2025</small>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-link">Ler <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Blog Post 3 -->
+            <div class="col-md-6 col-lg-4">
+                <div class="blog-card fade-in hover-lift" style="transition-delay: 0.4s;">
+                    <div class="blog-card-image-wrapper">
+                        <img src="https://placehold.co/600x400/0a0a0a/FFFFFF?text=DevOps" alt="Imagem do Post sobre DevOps">
+                        <span class="blog-card-category">DevOps</span>
+                    </div>
+                    <div class="blog-card-body">
+                        <h3 class="blog-card-title">Pipeline Completo com GitHub Actions: Build, Testes e Deploy</h3>
+                        <div class="blog-card-footer">
+                            <div class="blog-author">
+                                <img src="img/foto.jpg" alt="Avatar do autor">
+                                <div class="blog-author-info">
+                                    <span>Pedro Viena</span>
+                                    <small>25 de Julho, 2025</small>
+                                </div>
+                            </div>
+                            <a href="#" class="read-more-link">Ler <i class="bi bi-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-5 pt-3 fade-in">
+            <a href="#" class="btn btn-primary-custom btn-lg">
+                <i class="bi bi-journal-text me-2"></i>Ver Todos os Posts
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- FAQ & Contact Section -->
+    <section id="contato" class="contact-faq-section section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <div class="hero-tag">❓ DÚVIDAS & CONTATO 📞</div>
+                <h2 class="section-title">Perguntas Frequentes</h2>
+                <p class="section-subtitle">
+                    Tem uma ideia ou um projeto em mente? Veja as dúvidas comuns ou preencha o formulário abaixo e vamos transformar sua visão em realidade.
+                </p>
+            </div>
+            <div class="row g-5 align-items-start">
+               <!-- Coluna da Esquerda: FAQ -->
+<div class="col-lg-6">
+    <div class="accordion fade-in" id="faqAccordion">
+        <div class="accordion-item hover-lift">
+            <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true">
+                    Quais são suas principais habilidades técnicas?
+                </button>
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Tenho experiência sólida em <strong>Java</strong> com <strong>Spring Boot</strong> para desenvolvimento de APIs RESTful e microsserviços, integração com bancos <strong>PostgreSQL</strong> e <strong>Redis</strong>.  
+                    Atuo como <strong>QA Engineer/SDET</strong> em automação de testes de API (<strong>RestAssured</strong>), testes E2E (<strong>Cypress</strong>), performance (<strong>JMeter</strong>), segurança e observabilidade.  
+                    Experiência em <strong>CI/CD</strong> usando <strong>GitHub Actions</strong>, Docker e testes automatizados integrados ao pipeline.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item hover-lift">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                    Como você garante a qualidade do software que entrega?
+                </button>
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    A qualidade é garantida através de testes automatizados e boas práticas de engenharia. Estruturo frameworks de testes em <strong>RestAssured</strong> e <strong>Cypress</strong>, aplico testes de performance e stress com <strong>JMeter</strong>, além de integração contínua via <strong>GitHub Actions</strong>.  
+                    Também realizo análise de logs e monitoramento de aplicações, garantindo que os sistemas sejam escaláveis, seguros e confiáveis.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item hover-lift">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                    Você tem experiência com microsserviços?
+                </button>
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Sim, desenvolvo microsserviços em <strong>Java/Spring Boot</strong>, com comunicação via REST ou mensageria (<strong>Kafka</strong>). Tenho experiência em testes de integração, contratos de API, monitoramento e observabilidade, utilizando <strong>Prometheus</strong>, <strong>Grafana</strong> e logs centralizados com <strong>Loki</strong>.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item hover-lift">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour">
+                    Qual sua experiência com automação e pipelines CI/CD?
+                </button>
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Estruturo pipelines de <strong>CI/CD</strong> usando <strong>GitHub Actions</strong>, integrando testes automatizados de API e E2E, análise de qualidade de código com <strong>SonarQube</strong>, builds com <strong>Docker</strong> e deploys automatizados.  
+                    Meu foco é garantir que cada alteração passe por testes rigorosos antes de ir para produção, aumentando a confiabilidade e reduzindo retrabalho.
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item hover-lift">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive">
+                    Que tipo de projetos você consegue atender?
+                </button>
+            </h2>
+            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                <div class="accordion-body">
+                    Atendo desde startups que precisam de MVPs até sistemas corporativos complexos. Posso trabalhar em backend robusto em Java, testes automatizados de APIs, integração de microsserviços, pipelines CI/CD e monitoramento de sistemas em produção. Meu diferencial é entregar soluções seguras, escaláveis e bem testadas.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Coluna da Direita: Formulário de Contato -->
+
+                <div class="col-lg-6">
+                    <form id="contactForm" class="contact-form fade-in">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="text" class="form-control hover-lift" id="name" placeholder="Seu nome" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input type="email" class="form-control hover-lift" id="email" placeholder="Seu e-mail" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control hover-lift" id="message" rows="6" placeholder="Sua mensagem" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary-custom btn-lg">
+                                <i class="bi bi-whatsapp me-2"></i>Enviar via WhatsApp
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta-section text-center">
+        <div class="container">
+            <div class="fade-in">
+                <h2 class="section-title">Vamos construir algo incrível?</h2>
+                <p>Seja para dar vida a uma nova ideia ou para otimizar uma solução existente, estou pronto para ajudar. Vamos conversar sobre como a tecnologia pode impulsionar o seu negócio.</p>
+                <div class="d-flex gap-3 justify-content-center flex-wrap">
+                    <a href="#contato" class="btn btn-dark-custom btn-lg hover-lift">Comece seu Projeto</a>
+                    <a href="https://wa.me/5511973305517" target="_blank" class="btn btn-light-outline-custom btn-lg hover-lift">Fale no WhatsApp</a>
+                </div>
+                       
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <div class="social-icons mb-3 fade-in">
+                <a href="mailto:pedro.arian.viena@gmail.com" aria-label="Email" class="hover-lift"><i class="bi bi-envelope-fill"></i></a>
+                <a href="https://github.com/pedroviena" target="_blank" aria-label="GitHub" class="hover-lift"><i class="bi bi-github"></i></a>
+                <a href="https://www.linkedin.com/in/pedro-arian-viena/" target="_blank" aria-label="LinkedIn" class="hover-lift"><i class="bi bi-linkedin"></i></a>
+            </div>
+            <p class="copyright mb-0 fade-in">
+                &copy; 2024 Seu Nome. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Portfolio Modal -->
+    <div class="modal fade" id="portfolioModal" tabindex="-1" aria-labelledby="portfolioModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="portfolioModalLabel">Detalhes do Projeto</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div class="row g-4">
+              <div class="col-md-6">
+                <img id="modal-img" src="" class="img-fluid rounded mb-3" alt="Imagem do Projeto">
+              </div>
+              <div class="col-md-6">
+                <h3 id="modal-title" class="text-gradient"></h3>
+                <div id="modal-tags" class="portfolio-tags mb-3">
+                  <!-- Tags serão inseridas aqui pelo JS -->
+                </div>
+                <p id="modal-description" class="text-white-50"></p>
+              </div>
+            </div>
+          </div>
+           <div class="modal-footer">
+            <a id="modal-github-link" href="#" class="btn btn-primary-custom" target="_blank"><i class="bi bi-github me-2"></i>Ver no GitHub</a>
+            <button type="button" class="btn btn-secondary-custom" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Certifications Modal -->
+    <div class="modal fade" id="certificationsModal" tabindex="-1" aria-labelledby="certificationsModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="certificationsModalLabel">Minhas Certificações</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item bg-transparent text-white-50 border-secondary">
+Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate</li>
+              <li class="list-group-item bg-transparent text-white-50 border-secondary">
+Network Defense - Cisco</li>
+              <li class="list-group-item bg-transparent text-white-50 border-secondary">
+Programa Oracle Next Education F2 T6 Back-end Java, Spring Boot </li>
+              <li class="list-group-item bg-transparent text-white-50 border-secondary">
+Formação SQL com MySQL Server da Oracle - Alura</li>
+            </ul>
+          </div>
+           <div class="modal-footer">
+            <button type="button" class="btn btn-secondary-custom" data-bs-dismiss="modal">Fechar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+     <script src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+</body>
+</html>
